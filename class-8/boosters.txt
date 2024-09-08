@@ -1,0 +1,10 @@
+Primary data is collected for the first time. Example: population census by the government.  
+Secondary data is previously collected data that can be used by others.  
+Machine learning teaches computers to learn from data patterns and make decisions on their own.  
+Data filtering removes unwanted elements, like blank values, from data.  
+Clustering means grouping data based on feature similarities.  
+Quantitative data is expressed in numbers. Example: height, number of students.  
+Qualitative data describes qualities and can't be expressed numerically. Example: honesty, beauty.
+An outlier is an object that is odd one out.
+Population of a region is considered as discrete data, because it is "counted".
+Regression predicts future trends based on past data. 

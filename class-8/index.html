@@ -8,6 +8,9 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f8ff;
@@ -27,12 +30,12 @@
             margin-bottom: 20px;
         }
         .header h1 {
-            margin: 0;
+            margin: 5px;
             font-size: 1.6rem;
         }
         .header h2 {
             margin: 5px 0;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: bold;
             color: #fff;
         }
@@ -53,6 +56,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             text-align: center;
             padding: 20px;
+            cursor: pointer;
         }
         .thumbnail:hover {
             transform: scale(1.05);
@@ -78,19 +82,70 @@
                 max-width: 100%;
             }
         }
+
+        /* Styles for the random knowledge dose card */
+        .knowledge-card {
+            display: none;
+            position: fixed;
+            min-width: 260px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 12px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            text-align: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Styles for the random knowledge booster text */
+        #knowledge-text {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Animation for card appearance */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* Button styles */
+        .knowledge-card button {
+            margin-top: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .knowledge-card button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
 
     <!-- Header Section -->
     <div class="header">
-        <h1>All-in-one Data Science Resources for Class 8</h1>
+        <h1>Data Science Resources for Class 8</h1>
         <h2>Crafted by Sourabh Sir</h2>
     </div>
 
     <!-- Main Content Section -->
     <div class="container">
-        <!-- Complete Term-1 Book Work + Notebook Work -->
+        <!-- Complete Book Work + Notebook Work -->
         <div class="thumbnail">
             <i class="fas fa-book"></i>
             <h3>Complete Term-1 Book Work + Notebook Work</h3>
@@ -104,7 +159,7 @@
             <a href="https://sourabhsuneja.github.io/question-paper/random/class-8/">Practice Now</a>
         </div>
 
-        <!-- Term-1 Examination Blueprint -->
+        <!-- Examination Blueprint -->
         <div class="thumbnail">
             <i class="fas fa-clipboard-list"></i>
             <h3>Term-1 Examination Blueprint</h3>
@@ -117,7 +172,96 @@
             <h3>Quiz for Self-practice</h3>
             <a href="https://sourabhsuneja.github.io/quiz/play/?title=Data+Science+Quiz&quizType=individual&s=&q=kips-8-ch-1%2Bkips-8-ch-2%2Bbetween-8-ch-1%2Bbetween-8-ch-2&allowMCQ=y&allowTF=y&m=random&shuffle=n&qshuffle=y&qproceed=click&maxchances=3&countdown=0&volume=100&customselect=y&usecards=n&useteam=n&teammap=%7B%7D&absent=%5B%5D">Take Quiz</a>
         </div>
+
+        <!-- Random Knowledge Dose -->
+        <div class="thumbnail" id="random-dose">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Random Knowledge Dose</h3>
+        </div>
     </div>
 
+    <!-- Knowledge Card -->
+    <div class="knowledge-card" id="knowledge-card">
+        <p id="knowledge-text">Knowledge will appear here</p>
+        <button id="new-dose">Another dose</button>
+        <button id="close-card">Close</button>
+    </div>
+
+    <script>
+
+        // Global array to store knowledge boosters
+        const knowledgeBoosters = [];
+
+        // Function that gets executed as soon as the page loads
+        window.onload = function() {
+            fetchKnowledgeBoosters();
+        };
+
+        // Function to fetch data from the boosters.txt file and store it in the global array
+        function fetchKnowledgeBoosters() {
+            fetch('boosters.txt') // Fetch data from the file
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text(); // Read the file content as plain text
+                })
+                .then(data => {
+                    // Split the text by newlines to get individual boosters
+                    const boosters = data.split('\n').filter(Boolean); // Filter out any empty lines
+                    // Push each booster into the global array
+                    knowledgeBoosters.push(...boosters);
+                    // Optionally, log the boosters array to the console to verify
+                    console.log(knowledgeBoosters);
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+
+        // Function to get a random knowledge dose
+        function getRandomKnowledge() {
+            const randomIndex = Math.floor(Math.random() * knowledgeBoosters.length);
+            return knowledgeBoosters[randomIndex];
+        }
+
+        // Generate dark background color to ensure white text is visible
+        function getRandomBrightColor() {
+    const brightColors = [
+        '#228B22', // ForestGreen
+        '#008000', // Green
+        '#483D8B', // DarkSlateBlue
+        '#0d6263', // DarkTurquoise
+        '#00008B'  // DarkBlue
+    ];
+    const randomIndex = Math.floor(Math.random() * brightColors.length);
+    return brightColors[randomIndex];
+}
+
+        // Random knowledge dose card and buttons
+        const randomDoseThumbnail = document.getElementById('random-dose');
+        const knowledgeCard = document.getElementById('knowledge-card');
+        const knowledgeText = document.getElementById('knowledge-text');
+        const newDoseButton = document.getElementById('new-dose');
+        const closeCardButton = document.getElementById('close-card');
+
+        // Show random knowledge card
+        randomDoseThumbnail.addEventListener('click', () => {
+            knowledgeText.textContent = getRandomKnowledge();
+            knowledgeCard.style.display = 'block';
+            knowledgeCard.style.backgroundColor = getRandomBrightColor(); // Set dark background color
+        });
+
+        // Show new random dose
+        newDoseButton.addEventListener('click', () => {
+            knowledgeText.textContent = getRandomKnowledge();
+            knowledgeCard.style.backgroundColor = getRandomBrightColor(); // Set dark background color
+        });
+
+        // Close knowledge card
+        closeCardButton.addEventListener('click', () => {
+            knowledgeCard.style.display = 'none';
+        });
+    </script>
 </body>
 </html>

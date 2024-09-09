@@ -200,6 +200,8 @@
         const knowledgeBoosters = [];
         // variable to keep track of current background colour of the random knowledge card
         let colorIndex = 0;
+        // variable to keep track of current knowledge dose
+        let currentDose = 0; 
 
         // Function that gets executed as soon as the page loads
         window.onload = function() {
@@ -228,11 +230,18 @@
                 });
         }
 
-        // Function to get a random knowledge dose
-        function getRandomKnowledge() {
-            const randomIndex = Math.floor(Math.random() * knowledgeBoosters.length);
-            return knowledgeBoosters[randomIndex];
-        }
+
+// Function to get the next knowledge dose
+function getNextKnowledge() {
+    // Get the dose at the current index
+    const knowledgeDose = knowledgeBoosters[currentDose];
+    
+    // Update the dose index to point to the next dose
+    currentDose = (currentDose + 1) % knowledgeBoosters.length;
+    
+    // Return the current knowledge dose
+    return knowledgeDose;
+}
 
         // Generate dark background color to ensure white text is visible
 function getNextBrightColor() {
@@ -258,14 +267,14 @@ function getNextBrightColor() {
 
         // Show random knowledge card
         randomDoseThumbnail.addEventListener('click', () => {
-            knowledgeText.textContent = getRandomKnowledge();
+            knowledgeText.textContent = getNextKnowledge();
             knowledgeCard.style.display = 'block';
             knowledgeCard.style.backgroundColor = getNextBrightColor(); // Set dark background color
         });
 
         // Show new random dose
         newDoseButton.addEventListener('click', () => {
-            knowledgeText.textContent = getRandomKnowledge();
+            knowledgeText.textContent = getNextKnowledge();
             knowledgeCard.style.backgroundColor = getNextBrightColor(); // Set dark background color
         });
 

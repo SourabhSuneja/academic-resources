@@ -15,3 +15,4 @@ Cricket teams use data science to analyze player performance and develop strateg
 Banks use data science to check credit risk and detect fraud.
 Data science is important because it helps us make better decisions by finding useful information in data.
 Do you know even IPL teams use data science to select best-performing players? Factors like strike rate, and hard-hitting ability are considered for choosing best batsmen.
+Discrete data is always "counted" in whole numbers while continuous data is "measured", and may have decimal values as well.

@@ -42,7 +42,7 @@
       },
       {
         "type": "Application-Based Question",
-        "questions": "1 question",
+        "questions": "1 question, split into 4 parts",
         "totalMarks": 4
       }
     ]

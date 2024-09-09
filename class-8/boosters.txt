@@ -13,3 +13,4 @@ E-commerce websites use data science to analyze customer behaviour and recommend
 Data science isn't always accurate, as predictions can sometimes be wrong due to incomplete or misleading data.
 Cricket teams use data science to analyze player performance and develop strategies for upcoming matches.
 Banks use data science to check credit risk and detect fraud.
+Data science is important because it helps us make better decisions by finding useful information in data.

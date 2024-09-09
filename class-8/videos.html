@@ -70,6 +70,13 @@
         .video-title:hover {
             color: #333;
         }
+        .no-videos-message {
+            text-align: center;
+            font-weight: bold;
+            color: rgb(80,80,80);
+            padding: 20px;
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
@@ -91,36 +98,50 @@
             const xhr = new XMLHttpRequest();
             xhr.open('GET', 'videos.txt', true);
             xhr.onload = function() {
+                const videoList = document.getElementById('video-list');
                 if (xhr.status === 200) {
                     // Split by newline and remove any empty or whitespace-only entries
                     const videoLinks = xhr.responseText.split('\n').map(link => link.trim()).filter(link => link !== '');
-                    const videoList = document.getElementById('video-list');
 
-                    videoLinks.forEach(link => {
-                        const videoId = extractVideoId(link.trim());
-                        if (videoId) {
-                            const videoItem = document.createElement('div');
-                            videoItem.classList.add('video-item');
+                    if (videoLinks.length === 0) {
+                        displayNoVideosMessage();
+                    } else {
+                        videoLinks.forEach(link => {
+                            const videoId = extractVideoId(link.trim());
+                            if (videoId) {
+                                const videoItem = document.createElement('div');
+                                videoItem.classList.add('video-item');
 
-                            const thumbnail = document.createElement('img');
-                            thumbnail.src = `https://img.youtube.com/vi/${videoId}/0.jpg`;
-                            thumbnail.alt = 'Video Thumbnail';
-                            thumbnail.classList.add('video-thumbnail');
+                                const thumbnail = document.createElement('img');
+                                thumbnail.src = `https://img.youtube.com/vi/${videoId}/0.jpg`;
+                                thumbnail.alt = 'Video Thumbnail';
+                                thumbnail.classList.add('video-thumbnail');
 
-                            const videoTitle = document.createElement('a');
-                            videoTitle.href = link;
-                            videoTitle.target = '_blank';
-                            videoTitle.textContent = `Watch on YouTube`;
-                            videoTitle.classList.add('video-title');
+                                const videoTitle = document.createElement('a');
+                                videoTitle.href = link;
+                                videoTitle.target = '_blank';
+                                videoTitle.textContent = `Watch on YouTube`;
+                                videoTitle.classList.add('video-title');
 
-                            videoItem.appendChild(thumbnail);
-                            videoItem.appendChild(videoTitle);
-                            videoList.appendChild(videoItem);
-                        }
-                    });
+                                videoItem.appendChild(thumbnail);
+                                videoItem.appendChild(videoTitle);
+                                videoList.appendChild(videoItem);
+                            }
+                        });
+                    }
+                } else {
+                    displayNoVideosMessage();
                 }
             };
+            xhr.onerror = function() {
+                displayNoVideosMessage();
+            };
             xhr.send();
+        }
+
+        function displayNoVideosMessage() {
+            const videoList = document.getElementById('video-list');
+            videoList.innerHTML = '<div class="no-videos-message">No videos recommended yet. We\'ll let you know when Sourabh sir recommends any videos for you to watch. Stay tuned!</div>';
         }
 
         // Function to extract YouTube video ID from a URL

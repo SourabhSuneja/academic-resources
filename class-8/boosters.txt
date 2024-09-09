@@ -7,4 +7,6 @@ Quantitative data is expressed in numbers. Example: height, number of students.
 Qualitative data describes qualities and can't be expressed numerically. Example: honesty, beauty.
 An outlier is an object that is odd one out.
 Population of a region is considered as discrete data, because it is "counted".
-Regression predicts future trends based on past data. 
+Regression predicts future trends based on past data.
+A shopkeeper analyzing past sales to decide next month's stock is a real-life example of data science.
+E-commerce websites use data science to analyze customer behaviour and recommend products for future purchases.

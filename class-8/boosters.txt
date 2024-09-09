@@ -10,3 +10,6 @@ Population of a region is considered as discrete data, because it is "counted".
 Regression predicts future trends based on past data.
 A shopkeeper analyzing past sales to decide next month's stock is a real-life example of data science.
 E-commerce websites use data science to analyze customer behaviour and recommend products for future purchases.
+Data science isn't always accurate, as predictions can sometimes be wrong due to incomplete or misleading data.
+Cricket teams use data science to analyze player performance and develop strategies for upcoming matches.
+Banks use data science to check credit risk and detect fraud.

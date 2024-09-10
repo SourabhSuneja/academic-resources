@@ -1,0 +1,56 @@
+{
+  "syllabus": {
+    "term": "Term-1",
+    "chapters": [
+      {
+        "title": "Chapter 1: Computer Languages"
+      },
+      {
+        "title": "Chapter 2: Internet Services"
+      },
+      {
+        "title": "Chapter 3: Using Mail Merge"
+      },
+      {
+        "title": "Chapter 4: More on PowerPoint"
+      }
+    ]
+  },
+  "blueprint": {
+    "totalMarks": 30,
+    "sections": [
+      {
+        "type": "Multiple Choice Questions (MCQs)",
+        "questions": "5 questions, 1 mark each",
+        "totalMarks": 5
+      },
+      {
+        "type": "True/False Questions",
+        "questions": "5 questions, 1 mark each",
+        "totalMarks": 5
+      },
+      {
+        "type": "Short Answer Questions",
+        "questions": "7 questions, attempt any 5",
+        "marksEach": "1 mark each",
+        "totalMarks": 5
+      },
+      {
+        "type": "Long Answer Questions",
+        "questions": "4 questions, attempt any 2",
+        "marksEach": "3 marks each",
+        "totalMarks": 6
+      },
+      {
+        "type": "Match the Following",
+        "questions": "5 pairs",
+        "totalMarks": 5
+      },
+      {
+        "type": "Application-Based Question",
+        "questions": "1 question",
+        "totalMarks": 4
+      }
+    ]
+  }
+}

@@ -3,5 +3,12 @@ There are different types of programming languages — Low Level, High Level, Ve
 Machine language is a type of Low Level Language. It's the only language that computers can directly understand.
 Assembly languages use mnemonic codes. 
 High-Level Languages like C++, Java are very easy to learn and similar to the English language.
+Internet is the global network of billions of computers connected together.
 ARPANET gave rise to the Internet.
 The process of buying products over the internet is called online shopping.
+E-commerce stands for Electronic Commerce.
+Mail merge is a feature in MS Word that allows us to send the same letter to many people at different addresses.
+The Photo Album feature in PowerPoint allows us to insert a collection of photos into our presentation.
+The Ink Annotation feature in PowerPoint allows us to write or draw shapes using the mouse just like we draw with a pen on paper.
+F5 is the shortcut key to run the slide show.
+You can make your PowerPoint presentation more appealing by using pictures, adding animations, using a good colour combination and fonts.

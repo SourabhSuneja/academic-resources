@@ -125,6 +125,14 @@
 
                                 videoItem.appendChild(thumbnail);
                                 videoItem.appendChild(videoTitle);
+
+videoItem.addEventListener('click', function() {
+        const link = this.querySelector('a');
+        if (link) {
+            window.location.href = link.href;
+        }
+    });
+
                                 videoList.appendChild(videoItem);
                             }
                         });
@@ -153,16 +161,6 @@
             }
             return videoId;
         }
-
-// make all video item divs clickable, so that even if a thumbnail is clicked (instead of the link text inside the div), the user will still be redirected to the corresponding link
-document.querySelectorAll('.video-item').forEach(div => {
-    div.addEventListener('click', function() {
-        const link = this.querySelector('a');
-        if (link) {
-            window.location.href = link.href;
-        }
-    });
-});
 
         // Call the function when the page loads
         window.onload = loadVideos;

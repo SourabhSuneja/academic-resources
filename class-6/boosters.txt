@@ -1,0 +1,7 @@
+Programming is the process of writing instructions in a computer language.
+There are different types of programming languages — Low Level, High Level, Very High Level and AI languages.
+Machine language is a type of Low Level Language. It's the only language that computers can directly understand.
+Assembly languages use mnemonic codes. 
+High-Level Languages like C++, Java are very easy to learn and similar to the English language.
+ARPANET gave rise to the Internet.
+The process of buying products over the internet is called online shopping.

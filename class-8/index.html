@@ -282,6 +282,16 @@ function getNextBrightColor() {
         closeCardButton.addEventListener('click', () => {
             knowledgeCard.style.display = 'none';
         });
+
+// make all thumbnail divs clickable, so that even if a thumbnail is clicked (instead of the link text inside the div), the user will still be redirected to the corresponding link
+document.querySelectorAll('.thumbnail').forEach(div => {
+    div.addEventListener('click', function() {
+        const link = this.querySelector('a');
+        if (link) {
+            window.location.href = link.href;
+        }
+    });
+});
     </script>
 </body>
 </html>

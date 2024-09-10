@@ -125,6 +125,14 @@
 
                                 videoItem.appendChild(thumbnail);
                                 videoItem.appendChild(videoTitle);
+
+videoItem.addEventListener('click', function() {
+        const link = this.querySelector('a');
+        if (link) {
+            window.location.href = link.href;
+        }
+    });
+
                                 videoList.appendChild(videoItem);
                             }
                         });

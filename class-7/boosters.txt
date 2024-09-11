@@ -5,3 +5,10 @@ The base of the binary number system is 2 while that of the decimal number syste
 To convert a decimal number into its binary form, we divide the number by 2.
 The binary number system is important because it's the only number system that a computer understands.
 Any crime committed with computers or the internet is called a cybercrime. Examples: hacking, phishing, spamming etc.
+Cybersecurity is the practice of protecting computers, networks, and data from unauthorized access, attacks, or damage.
+Examples of cyber attacks include hacking, phishing, spamming, identity theft, cyberbullying etc.
+Hacking is the unauthorized access to someone else's computer to exploit or manipulate data.
+Phishing is an attack in which the attacker sends a fake email to trick people into giving their personal information. The mail looks authentic but it's actually not.
+Cyberbullying is using the internet to harass, threaten, or harm someone.
+To protect yourself from cybercrimes, i) Never click on links from unknown people, ii) Use strong passwords, and iii) Keep your antivirus updated.
+A strong password is long, unique, and includes a mix of letters, numbers, and symbols. It should not have guessable patterns like 123, abc etc.

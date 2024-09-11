@@ -1,0 +1,7 @@
+A number system is a way of representing quantities.
+The different types of number systems are: Binary, Octal, Decimal, and Hexadecimal number systems.
+The number of digits present in a number system is called the base of that number system. 
+The base of the binary number system is 2 while that of the decimal number system is 10.
+To convert a decimal number into its binary form, we divide the number by 2.
+The binary number system is important because it's the only number system that a computer understands.
+Any crime committed with computers or the internet is called a cybercrime. Examples: hacking, phishing, spamming etc.

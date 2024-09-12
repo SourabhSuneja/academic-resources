@@ -1,0 +1,29 @@
+Clustering
+Forming groups on the basis of feature similarities. E.g. putting all "red" colour objects together.
+
+Machine Learning
+Teaching computers to learn from sample data and become capable of taking decisions on their own.
+
+Data
+Any raw facts, figures or concepts that can be communicated.
+
+Information
+Data which has been processed.
+
+Quantitative Data
+Data which can be expressed in numbers. E.g. height, number of students etc.
+
+Qualitative Data
+Data which cannot be expressed in numbers. E.g. honesty, beauty etc.
+
+Discrete Data
+Data which is "counted" in whole numbers like 0, 1, 2, 3 and so on. E.g. number of students in a class.
+
+Continuous Data
+Data which is "measured" and may also have decimals. E.g. weight (47.5 kg), length (156.2 metres).
+
+Anomaly Detection
+Finding data points which are significantly different from other normal points. E.g. a transaction of Rs. 20 lakhs in a bank account that usually has transactions in the thousands.
+
+Data Science
+A field that uses data for making intelligent decisions. 

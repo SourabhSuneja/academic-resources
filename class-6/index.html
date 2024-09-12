@@ -181,9 +181,10 @@
         </div>
 
         <!-- Random Knowledge Dose -->
-        <div class="thumbnail" id="random-dose">
+        <div class="thumbnail no-link" id="random-dose">
             <i class="fas fa-lightbulb"></i>
             <h3>Random Knowledge Dose</h3>
+            <a>Discover Now</a>
         </div>
     </div>
 
@@ -284,7 +285,7 @@ function getNextBrightColor() {
         });
 
 // make all thumbnail divs clickable, so that even if a thumbnail is clicked (instead of the link text inside the div), the user will still be redirected to the corresponding link
-document.querySelectorAll('.thumbnail').forEach(div => {
+document.querySelectorAll('.thumbnail:not(.no-link)').forEach(div => {
     div.addEventListener('click', function() {
         const link = this.querySelector('a');
         if (link) {

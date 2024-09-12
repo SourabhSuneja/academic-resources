@@ -27,3 +27,6 @@ Finding data points which are significantly different from other normal points. 
 
 Data Science
 A field that uses data for making intelligent decisions. 
+
+Outlier
+An object that is different (odd one out) from other objects in the group.

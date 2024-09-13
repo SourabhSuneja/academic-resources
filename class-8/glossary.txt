@@ -23,7 +23,7 @@ Continuous Data
 Data which is "measured" and may also have decimals. E.g. weight (47.5 kg), length (156.2 metres).
 
 Anomaly Detection
-Finding data points which are significantly different from other normal points. E.g. a transaction of Rs. 20 lakhs in a bank account that usually has transactions in the thousands.
+Finding data points which are significantly different from other normal points. E.g. a transaction of Rs. 20 lakhs in a bank account that usually sees transactions in the thousands.
 
 Data Science
 A field that uses data for making intelligent decisions. 

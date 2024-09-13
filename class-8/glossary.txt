@@ -8,7 +8,7 @@ Data
 Any raw facts, figures or concepts that can be communicated.
 
 Information
-Data which has been processed.
+Data which has been processed to obtain something meaningful.
 
 Quantitative Data
 Data which can be expressed in numbers. E.g. height, number of students etc.

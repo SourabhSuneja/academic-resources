@@ -49,11 +49,15 @@
             width: 100%;
             max-width: 600px;
             text-align: left;
-            transition: transform 0.2s;
+            transition: all 0.2s;
             margin: auto;
         }
         .glossary-item:hover {
             transform: translateY(-5px);
+            background: #4caf50;
+        }
+        .glossary-item:hover .word, .glossary-item:hover .definition {
+            color: #fff;
         }
         .word {
             color: #4caf50;

@@ -1,307 +1,461 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="All-in-one stop for all data science resources for Class 8 students, including worksheets, exam blueprints, and quizzes for self-practice.">
-    <title>All-in-one Class 8 Data Science Resources</title>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .header {
-            width: 100%;
-            background-color: #4caf50;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            margin: 5px;
-            font-size: 1.6rem;
-        }
-        .header h2 {
-            margin: 5px 0;
-            font-size: 1.15rem;
-            font-weight: bold;
-            color: #fff;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 1200px;
-            padding: 10px;
-        }
-        .thumbnail {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 300px;
-            margin: 15px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-            padding: 20px;
-            cursor: pointer;
-        }
-        .thumbnail:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        .thumbnail i {
-            font-size: 3rem;
-            color: #4caf50;
-        }
-        .thumbnail h3 {
-            color: #333;
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-        .thumbnail a {
-            text-decoration: none;
-            color: #4caf50;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            .thumbnail {
-                width: 100%;
-                max-width: 100%;
-            }
-        }
-
-        /* Styles for the random knowledge dose card */
-        .knowledge-card {
-            display: none;
-            position: fixed;
-            min-width: 260px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 12px;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            color: #fff;
-            text-align: center;
-            z-index: 1000;
-            animation: fadeIn 0.5s ease;
-        }
-
-        /* Styles for the random knowledge booster text */
-        #knowledge-text {
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        /* Animation for card appearance */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -60%);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
-        }
-
-        /* Button styles */
-        .knowledge-card button {
-            margin-top: 15px;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4caf50;
-            color: #fff;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        .knowledge-card button:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Header Section -->
-    <div class="header">
-        <h1>Data Science Resources for Class 8</h1>
-        <h2>Crafted by Sourabh Sir</h2>
-    </div>
-
-    <!-- Main Content Section -->
-    <div class="container">
-        <!-- Complete Book Work + Notebook Work -->
-        <div class="thumbnail">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="All-in-one stop for all data science resources for Class 8 students, including worksheets, exam blueprints, and quizzes for self-practice.">
+      <title>All-in-one Class 8 Data Science Resources</title>
+      <!-- FontAwesome Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <style>
+         * {
+         box-sizing: border-box;
+         }
+         body {
+         font-family: Arial, sans-serif;
+         background-color: #f0f8ff;
+         margin: 0;
+         padding: 0;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         }
+         .header {
+         width: 100%;
+         background-color: #4caf50;
+         color: #fff;
+         padding: 20px;
+         text-align: center;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         margin-bottom: 20px;
+         }
+         .header h1 {
+         margin: 5px;
+         font-size: 1.6rem;
+         }
+         .header h2 {
+         margin: 5px 0;
+         font-size: 1.15rem;
+         font-weight: bold;
+         color: #fff;
+         }
+         .container {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         max-width: 1200px;
+         padding: 10px;
+         }
+         .thumbnail {
+         background-color: #ffffff;
+         width: 100%;
+         max-width: 300px;
+         margin: 15px;
+         border-radius: 15px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         transition: transform 0.3s, box-shadow 0.3s;
+         text-align: center;
+         padding: 20px;
+         cursor: pointer;
+         }
+         .thumbnail:hover {
+         transform: scale(1.05);
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+         }
+         .thumbnail i {
+         font-size: 3rem;
+         color: #4caf50;
+         }
+         .thumbnail h3 {
+         color: #333;
+         margin-top: 15px;
+         margin-bottom: 10px;
+         }
+         .thumbnail a {
+         text-decoration: none;
+         color: #4caf50;
+         font-weight: bold;
+         }
+         @media (max-width: 768px) {
+         .thumbnail {
+         width: 100%;
+         max-width: 100%;
+         }
+         }
+         /* Styles for the random knowledge dose card */
+         .knowledge-card {
+         display: none;
+         position: fixed;
+         min-width: 260px;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         padding: 12px;
+         border-radius: 10px;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+         color: #fff;
+         text-align: center;
+         z-index: 1000;
+         animation: fadeIn 0.5s ease;
+         }
+         /* Styles for the random knowledge booster text */
+         #knowledge-text {
+         font-weight: bold;
+         font-size: 1.1rem;
+         }
+         /* Animation for card appearance */
+         @keyframes fadeIn {
+         from {
+         opacity: 0;
+         transform: translate(-50%, -60%);
+         }
+         to {
+         opacity: 1;
+         transform: translate(-50%, -50%);
+         }
+         }
+         /* Button styles */
+         .knowledge-card button {
+         margin-top: 15px;
+         padding: 10px;
+         border: none;
+         border-radius: 5px;
+         background-color: #4caf50;
+         color: #fff;
+         font-size: 1rem;
+         cursor: pointer;
+         }
+         .knowledge-card button:hover {
+         background-color: #45a049;
+         }
+         /* Word card styling */
+         .word-card {
+         display: none;
+         position: fixed;
+         width: 90%;
+         max-width: 400px;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         padding: 18px;
+         border-radius: 10px;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+         background-color: #ffffff;
+         z-index: 1000;
+         color: #333;
+         text-align: left;
+         animation: fadeIn 0.5s ease;
+         font-family: 'Arial', sans-serif;
+         }
+         .word-card p {
+         margin: 10px 0;
+         line-height: 1.3;
+         }
+         /* Style for the word itself */
+         #word-text {
+         font-weight: bold;
+         font-size: 1.8rem;
+         color: #4caf50;
+         text-align: center;
+         margin-bottom: 15px;
+         }
+         /* Pronunciation styling */
+         #pronunciation-text {
+         font-style: italic;
+         color: #666;
+         font-size: 1.2rem;
+         text-align: center;
+         margin-bottom: 20px;
+         }
+         /* Meaning, synonym, antonym, and sentence styling */
+         #meaning-text, #synonym-text, #antonym-text, #sentence-text {
+         font-size: 1.1rem;
+         padding-left: 10px;
+         }
+         #meaning-text:before, #synonym-text:before, #antonym-text:before {
+         content: '• ';
+         font-size: 1.3rem;
+         color: #4caf50;
+         vertical-align: middle;
+         }
+         /* Bold labels for better clarity */
+         #meaning-text span, #synonym-text span, #antonym-text span, #sentence-text span {
+         font-weight: bold;
+         color: #333;
+         }
+         /* Sentence styling */
+         #sentence-text {
+         font-style: italic;
+         color: #555;
+         border-left: 3px solid #4caf50;
+         padding-left: 10px;
+         margin-top: 20px;
+         }
+         /* Buttons styling */
+         .word-card button {
+         display: inline-block;
+         width: 45%;
+         margin: 15px 5px 0;
+         padding: 10px;
+         border: none;
+         border-radius: 5px;
+         background-color: #4caf50;
+         color: #fff;
+         font-size: 1rem;
+         cursor: pointer;
+         text-align: center;
+         transition: background-color 0.3s ease;
+         }
+         .word-card button:hover {
+         background-color: #45a049;
+         }
+      </style>
+   </head>
+   <body>
+      <!-- Header Section -->
+      <div class="header">
+         <h1>Data Science Resources for Class 8</h1>
+         <h2>Crafted by Sourabh Sir</h2>
+      </div>
+      <!-- Main Content Section -->
+      <div class="container">
+         <!-- Complete Book Work + Notebook Work -->
+         <div class="thumbnail">
             <i class="fas fa-book"></i>
             <h3>Complete Term-1 Book Work + Notebook Work</h3>
             <a href="https://sourabhsuneja.github.io/question-paper/?ed=%7B%22schoolName%22%3A%22Jamna%20Vidyapeeth%22%2C%22examName%22%3A%22Term-1%20Book%20Work%20%2B%20Notebook%20Work%22%2C%22subject%22%3A%22Data%20Science%22%2C%22duration%22%3A60%2C%22grade%22%3A%22VIII%22%7D&qpm=%7B%22kips-8-ch-1%22%3A%7B%22MCQ%22%3A8%2C%22True%2FFalse%22%3A5%2C%22Fill%20up%22%3A6%2C%22Short%20Answer%20Type%22%3A2%2C%22Long%20Answer%20Type%22%3A4%2C%22Match%20items%22%3A0%2C%22image%22%3Afalse%2C%22audio%22%3Afalse%2C%22video%22%3Afalse%7D%2C%22kips-8-ch-2%22%3A%7B%22MCQ%22%3A10%2C%22True%2FFalse%22%3A5%2C%22Fill%20up%22%3A5%2C%22Short%20Answer%20Type%22%3A5%2C%22Long%20Answer%20Type%22%3A4%2C%22Match%20items%22%3A0%2C%22image%22%3Afalse%2C%22audio%22%3Afalse%2C%22video%22%3Afalse%7D%7D&qc=%7B%22headings%22%3A%5B%22%22%2C%22%22%2C%22%22%2C%22%22%2C%22%22%5D%2C%22qTypes%22%3A%5B%7B%22MCQ%22%3A18%7D%2C%7B%22True%2FFalse%22%3A10%7D%2C%7B%22Fill%20up%22%3A11%7D%2C%7B%22Short%20Answer%20Type%22%3A7%7D%2C%7B%22Long%20Answer%20Type%22%3A8%7D%5D%2C%22weightPerQ%22%3A%5B%7B%7D%2C%7B%7D%2C%7B%7D%2C%7B%7D%2C%7B%7D%5D%2C%22mustInclude%22%3A%5B%7B%7D%2C%7B%7D%2C%7B%7D%2C%7B%7D%2C%7B%7D%5D%2C%22settings%22%3A%7B%22provideAnsOrSpace%22%3A%22ans%22%2C%22randomiseSelection%22%3Afalse%2C%22strictChapterWiseDistribution%22%3Afalse%2C%22editable%22%3Afalse%2C%22showAIBtns%22%3Afalse%2C%22hideWeightage%22%3Atrue%2C%22showStudentDetails%22%3Afalse%2C%22border%22%3Afalse%2C%22shuffleMCQOptions%22%3Afalse%2C%22useDotPatternInBlanks%22%3Atrue%2C%22showHelpBoxInFillUp%22%3Afalse%2C%22mergeMatchItems%22%3Atrue%2C%22convertQForm%22%3A%7B%22MCQ%22%3A%7B%22toFillUp%22%3A0%2C%22toTF%22%3A0%2C%22toVSA%22%3A0%7D%2C%22flipTF%22%3Afalse%7D%2C%22spaceForAns%22%3A%7B%22Very%20Short%20Answer%20Type%22%3A1%2C%22Short%20Answer%20Type%22%3A3%2C%22Long%20Answer%20Type%22%3A5%2C%22Very%20Long%20Answer%20Type%22%3A8%2C%22Diagram%2FPicture%2FMap%20Based%22%3A6%7D%2C%22qTypesAllowedInImageQ%22%3A%5B%22Short%20Answer%20Type%22%2C%22Long%20Answer%20Type%22%2C%22Very%20Long%20Answer%20Type%22%2C%22Diagram%2FPicture%2FMap%20Based%22%5D%7D%7D&files=kips-8-ch-1%2Bkips-8-ch-2&diff=easy">View Work</a>
-        </div>
-
-        <!-- Random Worksheet for Self-practice -->
-        <div class="thumbnail">
+         </div>
+         <!-- Random Worksheet for Self-practice -->
+         <div class="thumbnail">
             <i class="fas fa-file-alt"></i>
             <h3>Random Worksheet for Self-practice</h3>
             <a href="https://sourabhsuneja.github.io/question-paper/random/class-8/">Practice Now</a>
-        </div>
-
-        <!-- Examination Blueprint -->
-        <div class="thumbnail">
+         </div>
+         <!-- Examination Blueprint -->
+         <div class="thumbnail">
             <i class="fas fa-clipboard-list"></i>
             <h3>Term-1 Examination Blueprint</h3>
             <a href="blueprint.html">View Blueprint</a>
-        </div>
-
-        <!-- Quiz for Self-practice -->
-        <div class="thumbnail">
+         </div>
+         <!-- Quiz for Self-practice -->
+         <div class="thumbnail">
             <i class="fas fa-question-circle"></i>
             <h3>Quiz for Self-practice</h3>
             <a href="https://sourabhsuneja.github.io/quiz/play/?title=Data+Science+Quiz&quizType=individual&s=&q=kips-8-ch-1%2Bkips-8-ch-2%2Bbetween-8-ch-1%2Bbetween-8-ch-2&allowMCQ=y&allowTF=y&m=random&shuffle=n&qshuffle=y&qproceed=click&maxchances=3&countdown=0&volume=100&customselect=y&usecards=n&useteam=n&teammap=%7B%7D&absent=%5B%5D">Take Quiz</a>
-        </div>
-
-        <!-- Recommended Videos -->
-        <div class="thumbnail">
+         </div>
+         <!-- Recommended Videos -->
+         <div class="thumbnail">
             <i class="fas fa-video"></i>
             <h3>Recommended Videos</h3>
             <a href="videos.html">Watch Videos</a>
-        </div>
-
-<!-- Glossary -->
-<div class="thumbnail">
-    <i class="fas fa-font"></i>
-    <h3>Glossary of Terms</h3>
-    <a href="glossary.html">View Key Terms</a>
-</div>
-
-        <!-- Random Knowledge Dose -->
-        <div class="thumbnail no-link" id="random-dose">
+         </div>
+         <!-- Glossary -->
+         <div class="thumbnail">
+            <i class="fas fa-columns"></i>
+            <h3>Glossary of Terms</h3>
+            <a href="glossary.html">View Key Terms</a>
+         </div>
+         <!-- Random Knowledge Dose -->
+         <div class="thumbnail no-link" id="random-dose">
             <i class="fas fa-lightbulb"></i>
             <h3>Random Knowledge Dose</h3>
             <a>Discover Now</a>
-        </div>
-    </div>
-
-    <!-- Knowledge Card -->
-    <div class="knowledge-card" id="knowledge-card">
-        <p id="knowledge-text">Knowledge will appear here</p>
-        <button id="new-dose">Another dose</button>
-        <button id="close-card">Close</button>
-    </div>
-
-    <script>
-
-        // Global array to store knowledge boosters
-        const knowledgeBoosters = [];
-        // variable to keep track of current background colour of the random knowledge card
-        let colorIndex = 0;
-        // variable to keep track of current knowledge dose
-        let currentDose = 0; 
-
-        // Function that gets executed as soon as the page loads
-        window.onload = function() {
-            fetchKnowledgeBoosters();
-        };
-
-        // Function to fetch data from the boosters.txt file and store it in the global array
-        function fetchKnowledgeBoosters() {
-            fetch('boosters.txt') // Fetch data from the file
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text(); // Read the file content as plain text
-                })
-                .then(data => {
-                    // Split the text by newlines to get individual boosters
-                    const boosters = data.split('\n').filter(Boolean); // Filter out any empty lines
-                    // Push each booster into the global array
-                    knowledgeBoosters.push(...boosters);
-                    // Optionally, log the boosters array to the console to verify
-                    console.log(knowledgeBoosters);
-                })
-                .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
-                });
-        }
-
-
-// Function to get the next knowledge dose
-function getNextKnowledge() {
-    // Get the dose at the current index
-    const knowledgeDose = knowledgeBoosters[currentDose];
-    
-    // Update the dose index to point to the next dose
-    currentDose = (currentDose + 1) % knowledgeBoosters.length;
-    
-    // Return the current knowledge dose
-    return knowledgeDose;
-}
-
-        // Generate dark background color to ensure white text is visible
-function getNextBrightColor() {
-    const brightColors = [
-        '#228B22', // ForestGreen
-        '#008000', // Green
-        '#483D8B', // DarkSlateBlue
-        '#0d6263', // DarkTurquoise
-        '#00008B'  // DarkBlue
-    ];
-
-    const color = brightColors[colorIndex];
-    colorIndex = (colorIndex + 1) % brightColors.length; // Cycle through colors
-    return color;
-}
-
-        // Random knowledge dose card and buttons
-        const randomDoseThumbnail = document.getElementById('random-dose');
-        const knowledgeCard = document.getElementById('knowledge-card');
-        const knowledgeText = document.getElementById('knowledge-text');
-        const newDoseButton = document.getElementById('new-dose');
-        const closeCardButton = document.getElementById('close-card');
-
-        // Show random knowledge card
-        randomDoseThumbnail.addEventListener('click', () => {
-            knowledgeText.textContent = getNextKnowledge();
-            knowledgeCard.style.display = 'block';
-            knowledgeCard.style.backgroundColor = getNextBrightColor(); // Set dark background color
-        });
-
-        // Show new random dose
-        newDoseButton.addEventListener('click', () => {
-            knowledgeText.textContent = getNextKnowledge();
-            knowledgeCard.style.backgroundColor = getNextBrightColor(); // Set dark background color
-        });
-
-        // Close knowledge card
-        closeCardButton.addEventListener('click', () => {
-            knowledgeCard.style.display = 'none';
-        });
-
-// make all thumbnail divs clickable, so that even if a thumbnail is clicked (instead of the link text inside the div), the user will still be redirected to the corresponding link
-document.querySelectorAll('.thumbnail:not(.no-link)').forEach(div => {
-    div.addEventListener('click', function() {
-        const link = this.querySelector('a');
-        if (link) {
-            window.location.href = link.href;
-        }
-    });
-});
-    </script>
-</body>
+         </div>
+         <!-- Random Word of the Day Thumbnail -->
+         <div class="thumbnail no-link" id="random-word">
+            <i class="fas fa-language"></i>
+            <h3>Word of the Day</h3>
+            <a>Learn a New English Word</a>
+         </div>
+      </div>
+      <!-- Knowledge Card -->
+      <div class="knowledge-card" id="knowledge-card">
+         <p id="knowledge-text"></p>
+         <button id="new-dose">Another dose</button>
+         <button id="close-card">Close</button>
+      </div>
+      <!-- Word Card -->
+      <div class="word-card" id="word-card">
+         <p id="word-text"></p>
+         <p id="pronunciation-text"></p>
+         <p id="meaning-text"><span>Meaning:</span> </p>
+         <p id="synonym-text"><span>Synonym:</span> </p>
+         <p id="antonym-text"><span>Antonym:</span> </p>
+         <p id="sentence-text"><span>Sentence:</span> </p>
+         <button id="new-word">Another word</button>
+         <button id="close-word-card">Close</button>
+      </div>
+      <script>
+         // Global array to store knowledge boosters
+         const knowledgeBoosters = [];
+         // variable to keep track of current background colour of the random knowledge card
+         let colorIndex = 0;
+         // variable to keep track of current knowledge dose
+         let currentDose = 0; 
+         // Array to store all words from the JSON files
+         const wordOfTheDayData = [];
+         
+         // Function that gets executed as soon as the page loads
+         window.onload = function() {
+             fetchKnowledgeBoosters();
+         fetchWords();
+         };
+         
+         // Function to fetch data from the boosters.txt file and store it in the global array
+         function fetchKnowledgeBoosters() {
+             fetch('boosters.txt') // Fetch data from the file
+                 .then(response => {
+                     if (!response.ok) {
+                         throw new Error('Network response was not ok');
+                     }
+                     return response.text(); // Read the file content as plain text
+                 })
+                 .then(data => {
+                     // Split the text by newlines to get individual boosters
+                     const boosters = data.split('\n').filter(Boolean); // Filter out any empty lines
+                     // Push each booster into the global array
+                     knowledgeBoosters.push(...boosters);
+                 })
+                 .catch(error => {
+                     console.error('There was a problem with the fetch operation:', error);
+                 });
+         }
+         
+         
+         // Function to get the next knowledge dose
+         function getNextKnowledge() {
+         // Get the dose at the current index
+         const knowledgeDose = knowledgeBoosters[currentDose];
+         
+         // Update the dose index to point to the next dose
+         currentDose = (currentDose + 1) % knowledgeBoosters.length;
+         
+         // Return the current knowledge dose
+         return knowledgeDose;
+         }
+         
+         // Generate dark background color to ensure white text is visible
+         function getNextBrightColor() {
+         const brightColors = [
+         '#228B22', // ForestGreen
+         '#008000', // Green
+         '#483D8B', // DarkSlateBlue
+         '#0d6263', // DarkTurquoise
+         '#00008B'  // DarkBlue
+         ];
+         
+         const color = brightColors[colorIndex];
+         colorIndex = (colorIndex + 1) % brightColors.length; // Cycle through colors
+         return color;
+         }
+         
+         // Random knowledge dose card and buttons
+         const randomDoseThumbnail = document.getElementById('random-dose');
+         const knowledgeCard = document.getElementById('knowledge-card');
+         const knowledgeText = document.getElementById('knowledge-text');
+         const newDoseButton = document.getElementById('new-dose');
+         const closeCardButton = document.getElementById('close-card');
+         
+         // Show random knowledge card
+         randomDoseThumbnail.addEventListener('click', () => {
+             knowledgeText.textContent = getNextKnowledge();
+             knowledgeCard.style.display = 'block';
+             knowledgeCard.style.backgroundColor = getNextBrightColor(); // Set dark background color
+         });
+         
+         // Show new random dose
+         newDoseButton.addEventListener('click', () => {
+             knowledgeText.textContent = getNextKnowledge();
+             knowledgeCard.style.backgroundColor = getNextBrightColor(); // Set dark background color
+         });
+         
+         // Close knowledge card
+         closeCardButton.addEventListener('click', () => {
+             knowledgeCard.style.display = 'none';
+         });
+         
+         // make all thumbnail divs clickable, so that even if a thumbnail is clicked (instead of the link text inside the div), the user will still be redirected to the corresponding link
+         document.querySelectorAll('.thumbnail:not(.no-link)').forEach(div => {
+         div.addEventListener('click', function() {
+         const link = this.querySelector('a');
+         if (link) {
+             window.location.href = link.href;
+         }
+         });
+         });
+         
+         // Function to fetch data from all 7 JSON files
+         function fetchWords() {
+         const jsonFiles = [
+         'data1.json', 'data2.json', 'data3.json', 'data4.json',
+         'data5.json', 'data6.json', 'data7.json'
+         ];
+         
+         const baseURL = 'https://sourabhsuneja.github.io/word-of-the-day/';
+         
+         // Fetch all JSON files
+         jsonFiles.forEach(file => {
+         fetch(`${baseURL}${file}`)
+             .then(response => {
+                 if (!response.ok) {
+                     throw new Error('Network response was not ok');
+                 }
+                 return response.json();
+             })
+             .then(data => {
+                 // Push all words into the global wordOfTheDayData array
+                 wordOfTheDayData.push(...data.words);
+             })
+             .catch(error => {
+                 console.error('Error fetching words:', error);
+             });
+         });
+         }
+         
+         // Function to get a random word from the wordOfTheDayData array
+         function getRandomWord() {
+         const randomIndex = Math.floor(Math.random() * wordOfTheDayData.length);
+         return wordOfTheDayData[randomIndex];
+         }
+         
+         // Elements for random word card
+         const randomWordThumbnail = document.getElementById('random-word');
+         const wordCard = document.getElementById('word-card');
+         const wordText = document.getElementById('word-text');
+         const meaningText = document.getElementById('meaning-text');
+         const synonymText = document.getElementById('synonym-text');
+         const antonymText = document.getElementById('antonym-text');
+         const sentenceText = document.getElementById('sentence-text');
+         const pronunciationText = document.getElementById('pronunciation-text');
+         const newWordButton = document.getElementById('new-word');
+         const closeWordCardButton = document.getElementById('close-word-card');
+         
+         // Show the word card with a random word
+         function showRandomWord() {
+         const randomWord = getRandomWord();
+         
+         // Fill the card with the word's details
+         wordText.textContent = `Word: ${randomWord.word}`;
+         meaningText.textContent = `Meaning: ${randomWord.meaning}`;
+         synonymText.textContent = `Synonym: ${randomWord.synonym}`;
+         antonymText.textContent = `Antonym: ${randomWord.antonym}`;
+         sentenceText.textContent = `Sentence: "${randomWord.sentence}"`;
+         pronunciationText.textContent = `Pronunciation: ${randomWord.pronunciation}`;
+         
+         // Show the word card
+         wordCard.style.display = 'block';
+         }
+         
+         // Event listener for random word thumbnail click
+         randomWordThumbnail.addEventListener('click', showRandomWord);
+         
+         // Event listener for new word button
+         newWordButton.addEventListener('click', showRandomWord);
+         
+         // Event listener to close the word card
+         closeWordCardButton.addEventListener('click', () => {
+         wordCard.style.display = 'none';
+         });
+      </script>
+   </body>
 </html>

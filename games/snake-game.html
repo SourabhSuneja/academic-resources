@@ -490,166 +490,194 @@
          setup();
       </script>
       <script>
-         // Helper function to fetch text files and process them
-         async function fetchQuestions(fileName) {
-             const response = await fetch(`https://sourabhsuneja.github.io/question-paper/question-bank/${fileName}.txt`);
-             const text = await response.text();
-             // Split by line and filter out any blank or whitespace-only lines
-             const lines = text.split('\n').filter(line => line.trim() !== '');
-             return lines;
+         // Function to get URL parameter by name
+                           function getQueryParam(name) {
+                               const urlParams = new URLSearchParams(window.location.search);
+                               return urlParams.get(name);
+                           }
+                           
+                           // Get the grade from the URL, default to 6 if missing or invalid
+                           const grade = parseInt(getQueryParam('grade')) || 6;
+                           const validGrade = [6, 7, 8].includes(grade) ? grade : 6;
+         
+         // fetch different files depending on grade
+         let gradeArray;
+         switch (validGrade) {
+             case 6:
+                 gradeArray = ['kips-6-ch-1', 'kips-6-ch-2', 'kips-6-ch-3', 'kips-6-ch-4'];
+                 break;
+             case 7:
+                 gradeArray = ['kips-7-ch-1', 'kips-7-ch-2', 'kips-7-ch-3', 'kips-7-ch-4'];
+                 break;
+             case 8:
+                 gradeArray = ['kips-8-ch-1', 'kips-8-ch-2', 'between-8-ch-1', 'between-8-ch-2'];
+                 break;
+             default:
+                 gradeArray = [];
+                 console.log("Invalid grade");
          }
          
-         // Fetch and process the questions from all files
-         async function loadQuestions() {
-             const files = ['kips-8-ch-1', 'kips-8-ch-2', 'between-8-ch-1', 'between-8-ch-2'];
-             let allQuestions = [];
-         
-             for (const file of files) {
-                 const questions = await fetchQuestions(file);
-                 allQuestions = allQuestions.concat(questions);
-             }
-         
-             return filterQuestions(allQuestions);
-         }
-         
-         // Filter and structure only MCQ and True/False type questions
-         function filterQuestions(questions) {
-             const filteredQuestions = [];
-         
-             questions.forEach((line) => {
-                 const [questionText, jsonParams] = line.split('JSONParams:');
-                 const params = JSON.parse(jsonParams);
-         
-                 // Only keep MCQ and True/False questions
-                 if (params.qType === 'MCQ' || params.qType === 'True/False') {
-                     let question, choices, correctAnswer;
-         
-                     if (params.qType === 'MCQ') {
-                         // Extract the MCQ options and correct answer from the question text
-                         const questionParts = questionText.match(/(.*)\(Options: (.*?) Correct: (.*?)\)/);
-                         question = questionParts[1].trim();  // Cleaned question
-                         choices = questionParts[2].split(/Option [A-D]} /).slice(1);  // Extract options
-                         correctAnswer = questionParts[3].trim();  // Correct answer after "Correct: "
-                     } else if (params.qType === 'True/False') {
-                         question = questionText.trim();
-                         choices = ['True', 'False'];
-                         correctAnswer = ['t', 'T', 'True'].includes(params.ansExplanation.trim()) ? 'True' : 'False';
-                     }
-         
-                     filteredQuestions.push({
-                         question: question,
-                         choices: choices,
-                         correctAnswer: correctAnswer
-                     });
-                 }
-             });
-         
-             return shuffleArray(filteredQuestions); // Shuffle questions
-         }
-         
-         // Shuffle an array using Fisher-Yates algorithm
-         function shuffleArray(array) {
-             for (let i = array.length - 1; i > 0; i--) {
-                 const j = Math.floor(Math.random() * (i + 1));
-                 [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-             }
-             return array;
-         }
-         
-         // Display the question overlay and handle answers
-         function displayQuestion(questions) {
-             const overlay = document.getElementById('questionOverlay');
-             const questionText = document.getElementById('questionText');
-             const optionsContainer = document.getElementById('optionsContainer');
-             const feedbackText = document.getElementById('feedbackText');
-         
-             let correctAnswersCount = 0;
-             let currentQuestionIndex = 0;
-             let questionRoundActive = false;
-         
-             // Function to load the next question
-             function loadNextQuestion() {
-                 if (correctAnswersCount >= 5) {
-                     feedbackText.style.display = 'none'; // Hide feedback
-                     overlay.style.display = 'none';  // Hide the overlay
-                     setTimeout(function() {
-         document.getElementById('startGame').click();  // Resume the game
-         }, 700);
-                     
-                     // Reset and start a new question round
-                     correctAnswersCount = 0;
-         
-                     // Randomized delay before starting new round
-                     const delay = getRandomInt(25000, 120000);  // Random delay between 25 seconds and 2 minutes
-                     setTimeout(() => {
-                         overlay.style.display = 'flex';
-                         loadNextQuestion();
-                     }, delay);
-                     
-                     return;
-                 }
-         
-                 document.getElementById('pauseGame').click();  // Pause the game
-         
-                 if (currentQuestionIndex >= questions.length) {
-                     currentQuestionIndex = 0; // Reset question index if end is reached
-                 }
-         
-                 const question = questions[currentQuestionIndex];
-                 currentQuestionIndex++;
-         
-                 questionText.innerText = question.question;
-                 optionsContainer.innerHTML = '';
-                 feedbackText.style.display = 'none';  // Hide feedback at the start
-                 questionRoundActive = false;  // Allow for a new answer
-         
-                 question.choices.forEach(choice => {
-                     const optionDiv = document.createElement('div');
-                     optionDiv.className = 'option';
-                     optionDiv.innerText = choice;
-         
-                     optionDiv.addEventListener('click', () => {
-                         if (questionRoundActive) return;  // Prevent multiple answers
-         
-                         questionRoundActive = true;  // Mark question round as active
-                         const choiceTrimmed = choice.trim().toLowerCase();
-                         const correctAnswerTrimmed = question.correctAnswer.trim().toLowerCase();
-                         
-                         if (choiceTrimmed === correctAnswerTrimmed) {
-                             feedbackText.innerText = "Correct!";
-                             optionDiv.classList.add('correct');
-                             correctAnswersCount++;
-                         } else {
-                             feedbackText.innerText = `Wrong! The correct answer is: ${question.correctAnswer}`;
-                             optionDiv.classList.add('incorrect');
-                         }
-                         feedbackText.style.display = 'block';  // Show feedback
-         
-                         // Proceed to the next question after 2 seconds
-                         setTimeout(loadNextQuestion, 2000);
-                     });
-         
-                     optionsContainer.appendChild(optionDiv);
-                 });
-             }
-         
-             // Initialize question display and start periodic rounds
-             overlay.style.display = 'flex';
-             loadNextQuestion();  // Start the first question round
-         }
-         
-         // Get random integer between min and max
-         function getRandomInt(min, max) {
-             return Math.floor(Math.random() * (max - min + 1)) + min;
-         }
-         
-         // Initialize the game and questions
-         async function init() {
-             const questions = await loadQuestions();
-             displayQuestion(questions);  // Start displaying questions
-         }
-         
-         window.onload = init;
+                  // Helper function to fetch text files and process them
+                  async function fetchQuestions(fileName) {
+                      const response = await fetch(`https://sourabhsuneja.github.io/question-paper/question-bank/${fileName}.txt`);
+                      const text = await response.text();
+                      // Split by line and filter out any blank or whitespace-only lines
+                      const lines = text.split('\n').filter(line => line.trim() !== '');
+                      return lines;
+                  }
+                  
+                  // Fetch and process the questions from all files
+                  async function loadQuestions() {
+                      const files = gradeArray;
+                      let allQuestions = [];
+                  
+                      for (const file of files) {
+                          const questions = await fetchQuestions(file);
+                          allQuestions = allQuestions.concat(questions);
+                      }
+                  
+                      return filterQuestions(allQuestions);
+                  }
+                  
+                  // Filter and structure only MCQ and True/False type questions
+                  function filterQuestions(questions) {
+                      const filteredQuestions = [];
+                  
+                      questions.forEach((line) => {
+                          const [questionText, jsonParams] = line.split('JSONParams:');
+                          const params = JSON.parse(jsonParams);
+                  
+                          // Only keep MCQ and True/False questions
+                          if (params.qType === 'MCQ' || params.qType === 'True/False') {
+                              let question, choices, correctAnswer;
+                  
+                              if (params.qType === 'MCQ') {
+                                  // Extract the MCQ options and correct answer from the question text
+                                  const questionParts = questionText.match(/(.*)\(Options: (.*?) Correct: (.*?)\)/);
+                                  question = questionParts[1].trim();  // Cleaned question
+                                  choices = questionParts[2].split(/Option [A-D]} /).slice(1);  // Extract options
+                                  correctAnswer = questionParts[3].trim();  // Correct answer after "Correct: "
+                              } else if (params.qType === 'True/False') {
+                                  question = questionText.trim();
+                                  choices = ['True', 'False'];
+                                  correctAnswer = ['t', 'T', 'True'].includes(params.ansExplanation.trim()) ? 'True' : 'False';
+                              }
+                  
+                              filteredQuestions.push({
+                                  question: question,
+                                  choices: choices,
+                                  correctAnswer: correctAnswer
+                              });
+                          }
+                      });
+                  
+                      return shuffleArray(filteredQuestions); // Shuffle questions
+                  }
+                  
+                  // Shuffle an array using Fisher-Yates algorithm
+                  function shuffleArray(array) {
+                      for (let i = array.length - 1; i > 0; i--) {
+                          const j = Math.floor(Math.random() * (i + 1));
+                          [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+                      }
+                      return array;
+                  }
+                  
+                  // Display the question overlay and handle answers
+                  function displayQuestion(questions) {
+                      const overlay = document.getElementById('questionOverlay');
+                      const questionText = document.getElementById('questionText');
+                      const optionsContainer = document.getElementById('optionsContainer');
+                      const feedbackText = document.getElementById('feedbackText');
+                  
+                      let correctAnswersCount = 0;
+                      let currentQuestionIndex = 0;
+                      let questionRoundActive = false;
+                  
+                      // Function to load the next question
+                      function loadNextQuestion() {
+                          if (correctAnswersCount >= 5) {
+                              feedbackText.style.display = 'none'; // Hide feedback
+                              overlay.style.display = 'none';  // Hide the overlay
+                              setTimeout(function() {
+                  document.getElementById('startGame').click();  // Resume the game
+                  }, 700);
+                              
+                              // Reset and start a new question round
+                              correctAnswersCount = 0;
+                  
+                              // Randomized delay before starting new round
+                              const delay = getRandomInt(25000, 120000);  // Random delay between 25 seconds and 2 minutes
+                              setTimeout(() => {
+                                  overlay.style.display = 'flex';
+                                  loadNextQuestion();
+                              }, delay);
+                              
+                              return;
+                          }
+                  
+                          document.getElementById('pauseGame').click();  // Pause the game
+                  
+                          if (currentQuestionIndex >= questions.length) {
+                              currentQuestionIndex = 0; // Reset question index if end is reached
+                          }
+                  
+                          const question = questions[currentQuestionIndex];
+                          currentQuestionIndex++;
+                  
+                          questionText.innerText = question.question;
+                          optionsContainer.innerHTML = '';
+                          feedbackText.style.display = 'none';  // Hide feedback at the start
+                          questionRoundActive = false;  // Allow for a new answer
+                  
+                          question.choices.forEach(choice => {
+                              const optionDiv = document.createElement('div');
+                              optionDiv.className = 'option';
+                              optionDiv.innerText = choice;
+                  
+                              optionDiv.addEventListener('click', () => {
+                                  if (questionRoundActive) return;  // Prevent multiple answers
+                  
+                                  questionRoundActive = true;  // Mark question round as active
+                                  const choiceTrimmed = choice.trim().toLowerCase();
+                                  const correctAnswerTrimmed = question.correctAnswer.trim().toLowerCase();
+                                  
+                                  if (choiceTrimmed === correctAnswerTrimmed) {
+                                      feedbackText.innerText = "Correct!";
+                                      optionDiv.classList.add('correct');
+                                      correctAnswersCount++;
+                                  } else {
+                                      feedbackText.innerText = `Wrong! The correct answer is: ${question.correctAnswer}`;
+                                      optionDiv.classList.add('incorrect');
+                                  }
+                                  feedbackText.style.display = 'block';  // Show feedback
+                  
+                                  // Proceed to the next question after 2 seconds
+                                  setTimeout(loadNextQuestion, 2000);
+                              });
+                  
+                              optionsContainer.appendChild(optionDiv);
+                          });
+                      }
+                  
+                      // Initialize question display and start periodic rounds
+                      overlay.style.display = 'flex';
+                      loadNextQuestion();  // Start the first question round
+                  }
+                  
+                  // Get random integer between min and max
+                  function getRandomInt(min, max) {
+                      return Math.floor(Math.random() * (max - min + 1)) + min;
+                  }
+                  
+                  // Initialize the game and questions
+                  async function init() {
+                      const questions = await loadQuestions();
+                      displayQuestion(questions);  // Start displaying questions
+                  }
+                  
+                  window.onload = init;
+               
       </script>
    </body>
 </html>

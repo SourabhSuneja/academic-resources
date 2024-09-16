@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>YouTube Video List</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <style>
+         * {
+         box-sizing: border-box;
+         }
+         body {
+         font-family: Arial, sans-serif;
+         background-color: #f0f8ff;
+         margin: 0;
+         padding: 0;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         }
+         .header {
+         width: 100%;
+         background-color: #4caf50;
+         color: #fff;
+         padding: 20px;
+         text-align: center;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         margin-bottom: 20px;
+         }
+         .header h1 {
+         margin: 5px;
+         font-size: 1.6rem;
+         }
+         .container {
+         width: 100%;
+         max-width: 900px;
+         padding: 20px;
+         margin: 0 auto;
+         }
+         .video-list {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 20px;
+         }
+         .video-item {
+         background-color: #ffffff;
+         border-radius: 10px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         padding: 15px;
+         width: 100%;
+         max-width: 360px;
+         text-align: center;
+         transition: transform 0.2s;
+         }
+         .video-item:hover {
+         transform: translateY(-5px);
+         }
+         .video-thumbnail {
+         width: 100%;
+         border-radius: 10px;
+         margin-bottom: 10px;
+         }
+         .video-title {
+         color: #4caf50;
+         font-size: 1rem;
+         margin: 0;
+         font-weight: bold;
+         text-decoration: none;
+         }
+         .video-title:hover {
+         color: #333;
+         }
+         .no-videos-message {
+         text-align: center;
+         font-weight: bold;
+         color: rgb(80,80,80);
+         padding: 20px;
+         font-size: 1.1rem;
+         }
+      </style>
+   </head>
+   <body>
+      <!-- Header Section -->
+      <div class="header">
+         <h1>Recommended YouTube Videos</h1>
+      </div>
+      <!-- Main Content Section -->
+      <div class="container">
+         <div class="video-list" id="video-list">
+            <!-- Video items will be loaded here dynamically -->
+         </div>
+      </div>
+      <script>
+         // Function to get URL parameter by name
+                  function getQueryParam(name) {
+                      const urlParams = new URLSearchParams(window.location.search);
+                      return urlParams.get(name);
+                  }
+                  
+                  // Get the grade from the URL, default to 6 if missing or invalid
+                  const grade = parseInt(getQueryParam('grade')) || 6;
+                  const validGrade = [6, 7, 8].includes(grade) ? grade : 6;
+                  
+                  // set baseURL
+                  const baseURL = "https://sourabhsuneja.github.io/academic-resources/class-" + validGrade + "/";
+         
+                 function loadVideos() {
+                     const xhr = new XMLHttpRequest();
+                     xhr.open('GET', baseURL + 'videos.txt', true);
+                     xhr.onload = function() {
+                         const videoList = document.getElementById('video-list');
+                         if (xhr.status === 200) {
+                             // Split by newline and remove any empty or whitespace-only entries
+                             const videoLinks = xhr.responseText.split('\n').map(link => link.trim()).filter(link => link !== '');
+         
+                             if (videoLinks.length === 0) {
+                                 displayNoVideosMessage();
+                             } else {
+                                 videoLinks.forEach(link => {
+                                     const videoId = extractVideoId(link.trim());
+                                     if (videoId) {
+                                         const videoItem = document.createElement('div');
+                                         videoItem.classList.add('video-item');
+         
+                                         const thumbnail = document.createElement('img');
+                                         thumbnail.src = `https://img.youtube.com/vi/${videoId}/0.jpg`;
+                                         thumbnail.alt = 'Video Thumbnail';
+                                         thumbnail.classList.add('video-thumbnail');
+         
+                                         const videoTitle = document.createElement('a');
+                                         videoTitle.href = link;
+                                         videoTitle.target = '_blank';
+                                         videoTitle.textContent = `Watch on YouTube`;
+                                         videoTitle.classList.add('video-title');
+         
+                                         videoItem.appendChild(thumbnail);
+                                         videoItem.appendChild(videoTitle);
+         
+         videoItem.addEventListener('click', function() {
+                 const link = this.querySelector('a');
+                 if (link) {
+                     window.location.href = link.href;
+                 }
+             });
+         
+                                         videoList.appendChild(videoItem);
+                                     }
+                                 });
+                             }
+                         } else {
+                             displayNoVideosMessage();
+                         }
+                     };
+                     xhr.onerror = function() {
+                         displayNoVideosMessage();
+                     };
+                     xhr.send();
+                 }
+         
+                 function displayNoVideosMessage() {
+                     const videoList = document.getElementById('video-list');
+                     videoList.innerHTML = '<div class="no-videos-message">No videos recommended yet. We\'ll let you know when Sourabh sir recommends any videos for you to watch. Stay tuned!</div>';
+                 }
+         
+                 // Function to extract YouTube video ID from a URL
+                 function extractVideoId(url) {
+                     let videoId = null;
+                     const youtubeFullUrlMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+                     if (youtubeFullUrlMatch) {
+                         videoId = youtubeFullUrlMatch[1];
+                     }
+                     return videoId;
+                 }
+         
+                 // Call the function when the page loads
+                 window.onload = loadVideos;
+             
+      </script>
+   </body>
+</html>

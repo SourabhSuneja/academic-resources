@@ -338,6 +338,9 @@
 
          // update header text based on grade
          document.getElementById('pageHeader').innerText = validGrade === 6 ? "Computer Science Resources for Class 6" : validGrade === 7 ? "Computer Science Resources for Class 7" : "Data Science Resources for Class 8";
+
+         // set baseURL for fetching knowledge boosters
+         const baseURL = "https://sourabhsuneja.github.io/academic-resources/class-" + validGrade + "/";
          
          // Update hrefs based on grade
          document.getElementById('classwork').href = linksByGrade[validGrade].classwork;
@@ -366,7 +369,7 @@
          
          // Function to fetch data from the boosters.txt file and store it in the global array
          function fetchKnowledgeBoosters() {
-             fetch('boosters.txt') // Fetch data from the file
+             fetch(baseURL + 'boosters.txt') // Fetch data from the file
                  .then(response => {
                      if (!response.ok) {
                          throw new Error('Network response was not ok');

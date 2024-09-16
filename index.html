@@ -217,7 +217,7 @@
    <body>
       <!-- Header Section -->
       <div class="header">
-         <h1>Data Science Resources for Class 8</h1>
+         <h1 id="pageHeader"></h1>
          <h2>Crafted by Sourabh Sir</h2>
       </div>
       <!-- Main Content Section -->
@@ -335,6 +335,9 @@
          // Get the grade from the URL, default to 6 if missing or invalid
          const grade = parseInt(getQueryParam('grade')) || 6;
          const validGrade = [6, 7, 8].includes(grade) ? grade : 6;
+
+         // update header text based on grade
+         document.getElementById('pageHeader').innerText = validGrade === 6 ? "Computer Science Resources for Class 6" : validGrade === 7 ? "Computer Science Resources for Class 7" : "Data Science Resources for Class 8";
          
          // Update hrefs based on grade
          document.getElementById('classwork').href = linksByGrade[validGrade].classwork;

@@ -158,7 +158,5 @@ const wordList = await generateWordList(allWordData);
 
 
 
-
-
 getRandomWord();
 playAgainBtn.addEventListener("click", getRandomWord);

@@ -75,3 +75,6 @@ async function generateWordList(allWordData) {
         }
     });
 }
+
+const allWordData = await fetchWords();
+const wordList = await generateWordList(allWordData);

@@ -86,6 +86,9 @@ const keyboardDiv = document.querySelector(".keyboard");
 const hangmanImage = document.querySelector(".hangman-box img");
 const gameModal = document.querySelector(".game-modal");
 const playAgainBtn = gameModal.querySelector("button");
+let allWordData = [];
+let wordList = [];
+
 
 // Initializing game variables
 let currentWord, correctLetters, wrongGuessCount;
@@ -151,5 +154,15 @@ for (let i = 97; i <= 122; i++) {
     button.addEventListener("click", (e) => initGame(e.target, String.fromCharCode(i)));
 }
 
-getRandomWord();
+const init = async () => {
+    try {
+        allWordData = await fetchWords();
+        wordList = await generateWordList(allWordData);
+        getRandomWord();
+    } catch (error) {
+        console.error('Error initializing the game:', error);
+    }
+};
+
+init();
 playAgainBtn.addEventListener("click", getRandomWord);

@@ -56,10 +56,10 @@ async function generateWordList(allWordData) {
                         hint = firstMeaning.trim();
                     } else if (randomHintType < 0.85 && wordData.synonym) {
                         // Use synonym as the hint
-                        hint = `The synonym for this word is ${wordData.synonym}.`;
+                        hint = `The synonym for this word is ${wordData.synonym.toLowerCase()}.`;
                     } else if (wordData.antonym) {
                         // Use antonym as the hint
-                        hint = `The antonym for this word is ${wordData.antonym}.`;
+                        hint = `The antonym for this word is ${wordData.antonym.toLowerCase()}.`;
                     }
 
                     // Add the word and hint to the wordList array

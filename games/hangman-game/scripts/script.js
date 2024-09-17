@@ -44,7 +44,7 @@ async function generateWordList(allWordData) {
                 if (word.includes(' ')) return;
 
                 const uniqueLetters = new Set(word.replace(/[^a-z]/gi, '').split(''));
-                if (uniqueLetters.size <= 5) {
+                if (uniqueLetters.size <= 6) {
                     let hint = '';
 
                     // 70% chance to use meaning as the hint, 30% for synonym/antonym

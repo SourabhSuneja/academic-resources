@@ -273,6 +273,12 @@
             <h3>Word of the Day</h3>
             <a>Learn a New English Word</a>
          </div>
+         <!-- Hangman Word Game -->
+         <div class="thumbnail">
+            <i class="fas fa-person"></i>
+            <h3>Hangman Word Game</h3>
+            <a id="hangman" href="https://sourabhsuneja.github.io/academic-resources/games/hangman-game/">Test Your English Vocab</a>
+         </div>
          <!-- Snake Game Thumbnail -->
          <div class="thumbnail">
             <i class="fas fa-gamepad"></i>
@@ -338,10 +344,10 @@
          // Get the grade from the URL, default to 6 if missing or invalid
          const grade = parseInt(getQueryParam('grade')) || 6;
          const validGrade = [6, 7, 8].includes(grade) ? grade : 6;
-
+         
          // update header text based on grade
          document.getElementById('pageHeader').innerText = validGrade === 6 ? "Computer Science Resources for Class 6" : validGrade === 7 ? "Computer Science Resources for Class 7" : "Data Science Resources for Class 8";
-
+         
          // set baseURL for fetching knowledge boosters
          const baseURL = "https://sourabhsuneja.github.io/academic-resources/class-" + validGrade + "/";
          

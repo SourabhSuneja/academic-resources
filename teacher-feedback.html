@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Provide your feedback about Sourabh sir's teaching style, clarity, and classroom environment. Share your thoughts to help improve the learning experience and also earn a Favourite Student Certificate!">
+  <title>Feedback about Sourabh Sir</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      max-height: 999999px;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .header {
+      padding: 20px;
+      text-align: center;
+      background-color: #6a82fb;
+      color: white;
+    }
+
+    .header h1 {
+      margin: 0;
+    }
+
+    .header p {
+      font-size: 1.2em;
+    }
+
+    .question {
+      padding: 20px;
+      font-size: 18px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      padding: 0 20px 20px;
+    }
+
+    .options label {
+      margin-bottom: 10px;
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .options input {
+      display: none;
+    }
+
+    .options input:checked + label {
+      background-color: #6a82fb;
+      color: white;
+    }
+
+    .button {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .button button {
+      background-color: #6a82fb;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button button:hover {
+      background-color: #574b90;
+    }
+
+    /* Overlay for loading animation */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s;
+    }
+
+    .overlay.visible {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .overlay-text {
+      font-size: 24px;
+      color: white;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+        /* Style for the custom modal start */
+        .cm-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Darker background */
+            z-index: 100000;
+        }
+
+        .cm-modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff; /* Lighter background */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Softer shadow */
+            text-align: center;
+            width: 320px;
+            max-width: 90%; /* Responsive size */
+            font-family: Arial, sans-serif;
+        }
+
+        .cm-modal-content h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .cm-modal-content input, .cm-modal-content select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        .cm-modal-content input:focus, .cm-modal-content select:focus {
+            border-color: #4CAF50; /* Focus state color */
+            outline: none;
+        }
+
+        .cm-modal-content button {
+            margin-top: 15px;
+            padding: 12px 24px;
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cm-modal-content button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        .cm-modal-content button:focus {
+            outline: none;
+        }
+
+        .cm-modal-content input::placeholder {
+            color: #999; /* Placeholder color */
+        }
+        /* Style for the custom modal end */
+
+        /* Success Overlay - Initially Hidden */
+.success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(34, 139, 34, 1); 
+  justify-content: center;
+  align-items: center;
+  display: none;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease;
+  z-index: 99999; /* Ensure it is above all other content */
+}
+
+.success-overlay.visible {
+  display: flex;
+  opacity: 1;
+}
+
+.success-message {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255)
+  flex: 0 1 600px;
+  max-width: 90%;
+  /* Animation */
+  animation: pulse 1.5s infinite;
+}
+
+/* Keyframes for Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Provide Feedback</h1>
+    <p>Share your <strong>honest experience</strong> with Sourabh Sir and earn a Favourite Student Certificate...</p>
+  </div>
+
+  <div class="question" id="question-container">
+    <p id="question-text">How often do you feel engaged in Sourabh sir's class?</p>
+  </div>
+
+  <div class="options" id="options-container">
+    <input type="radio" id="option1" name="option" value="Always">
+    <label for="option1">Always</label>
+    
+    <input type="radio" id="option2" name="option" value="Most of the time">
+    <label for="option2">Most of the time</label>
+    
+    <input type="radio" id="option3" name="option" value="Sometimes">
+    <label for="option3">Sometimes</label>
+    
+    <input type="radio" id="option4" name="option" value="Rarely">
+    <label for="option4">Rarely</label>
+  </div>
+
+  <div class="button">
+    <button id="next-question">Next</button>
+  </div>
+</div>
+
+<!-- Pulsating overlay for submission feedback -->
+<div class="overlay" id="submission-overlay">
+  <div class="overlay-text">Submitting Responses...</div>
+</div>
+
+<!-- Feedback Successfully Submitted Overlay -->
+<div class="success-overlay" id="success-overlay">
+  <div class="success-message">Feedback submitted successfully!<br>Now you will get a Favourite Student Certificate...</div>
+</div>
+
+<!-- custom modal for collecting student details -->
+<div class="cm-modal-overlay" id="cmCustomModal">
+    <div class="cm-modal-content">
+        <h3>Please enter your details to get a Favourite Student Certificate:</h3>
+        <input type="text" id="cmNameInput" placeholder="Your full name...">
+        <select id="cmGradeInput">
+            <option value="" disabled selected>Select Grade</option>
+            <option value="I">I</option>
+            <option value="II">II</option>
+            <option value="III">III</option>
+            <option value="IV">IV</option>
+            <option value="V">V</option>
+            <option value="VI">VI</option>
+            <option value="VII">VII</option>
+            <option value="VIII">VIII</option>
+            <option value="IX">IX</option>
+            <option value="X">X</option>
+            <option value="XI">XI</option>
+            <option value="XII">XII</option>
+        </select>
+        <select id="cmSectionInput">
+            <option value="" disabled selected>Select Section</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="A3">A3</option>
+            <option value="A4">A4</option>
+        </select>
+        <button id="cmSubmitName">Submit</button>
+    </div>
+</div>
+
+<script>
+  const questions = [
+    "How often do you feel engaged in Sourabh sir's class?",
+    "How clearly does he explain difficult concepts?",
+    "How comfortable do you feel asking questions in his class?",
+    "How would you describe Sourabh sir's nature?",
+    "How often do his lessons feel interesting or fun?",
+    "How often do you feel encouraged to participate in his class?",
+    "How approachable is he if you need help with a topic?",
+    "How does Sourabh sir manage the classroom environment?",
+    "How would you rate Sourabh sir's ability to make learning enjoyable?",
+    "What would you like to see more of in your computer class?"
+  ];
+
+  const optionsData = [
+    ["Always", "Most of the time", "Sometimes", "Rarely"],
+    ["Very clearly", "Mostly clear", "Somewhat clear", "Confusing at times"],
+    ["Very comfortable", "Somewhat comfortable", "Neutral", "Not comfortable"],
+    ["Very friendly and approachable", "Calm and composed", "Strict but fair", "Reserved and quiet", "Energetic and enthusiastic"],
+    ["Always interesting", "Mostly interesting", "Occasionally interesting", "Rarely interesting"],
+    ["Always encouraged", "Sometimes encouraged", "Neutral", "Rarely encouraged"],
+    ["Very approachable", "Somewhat approachable", "Neutral", "Not approachable"],
+    ["Maintains a positive and respectful atmosphere", "Strict but keeps the class focused", "Neutral, neither too strict nor lenient", "Could improve class control"],
+    ["Very enjoyable", "Mostly enjoyable", "Neutral", "Could be more enjoyable"],
+    ["More interactive activities", "More practical examples", "More detailed explanations", "More fun games and quizzes"]
+  ];
+
+  let currentQuestionIndex = 0;
+  const responses = [];
+  let certificateLink;
+
+  const questionText = document.getElementById("question-text");
+  const optionsContainer = document.getElementById("options-container");
+  const overlay = document.getElementById("submission-overlay");
+  const successOverlay = document.getElementById("success-overlay");
+
+  document.getElementById("next-question").addEventListener("click", () => {
+    // Get selected answer
+    const selectedOption = document.querySelector('input[name="option"]:checked');
+    if (selectedOption) {
+      responses.push(selectedOption.value);
+
+      // Move to next question
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+      } else {
+        submitFeedback();
+      }
+    } else {
+      alert("Please select an option.");
+    }
+  });
+
+  function loadQuestion() {
+    questionText.textContent = questions[currentQuestionIndex];
+    const options = optionsData[currentQuestionIndex];
+    
+    optionsContainer.innerHTML = '';
+    options.forEach((option, index) => {
+      const radioId = `option${index + 1}`;
+      const radioInput = `<input type="radio" id="${radioId}" name="option" value="${option}">`;
+      const radioLabel = `<label for="${radioId}">${option}</label>`;
+      optionsContainer.innerHTML += radioInput + radioLabel;
+    });
+  }
+
+  function submitFeedback() {
+    // Show the overlay
+    overlay.classList.add('visible');
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbymkt6to6SQN6CydehpEDfDyuC43GVC5DgXdVOPb8BNzbMX8hDnbxXLO0HJSW5Zjin5KA/exec';
+    const formData = new FormData();
+    formData.append('responses', JSON.stringify(responses));
+
+    fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
+      .then(() => {
+        successOverlay.classList.add("visible");
+        setTimeout(function() {
+  window.location.href = certificateLink;
+}, 2000); 
+      })
+      .catch(() => {
+        alert('Error submitting feedback!');
+      })
+      .finally(() => {
+        // Hide the overlay once submission is complete
+        overlay.classList.remove('visible');
+      });
+  }
+
+    // Function to create and display custom prompt dialog
+    function customPrompt() {
+        return new Promise((resolve) => {
+            const modal = document.getElementById('cmCustomModal');
+            const nameInput = document.getElementById('cmNameInput');
+            const gradeInput = document.getElementById('cmGradeInput');
+            const sectionInput = document.getElementById('cmSectionInput');
+            const submitButton = document.getElementById('cmSubmitName');
+
+            // Display the modal
+            modal.style.display = 'block';
+
+            // Focus on the input field when the modal is shown
+            nameInput.focus();
+
+            // Event listener for the submit button
+            submitButton.addEventListener('click', function() {
+                const name = nameInput.value.trim();
+                const grade = gradeInput.value;
+                const section = sectionInput.value;
+
+                if (name && grade && section) {
+                    // Hide the modal and resolve the promise with the entered name, grade, and section
+                    modal.style.display = 'none';
+                    resolve({ name, grade, section });
+                } else {
+                    alert('Please fill all fields.');
+                }
+            });
+        });
+    }
+
+async function getStudentDetails() {
+    // open custom prompt
+    let studentDetails = await customPrompt();
+
+    // push the details in the responses array
+    responses.push(studentDetails.name, studentDetails.grade, studentDetails.section);
+
+  // create certificate generation link
+  certificateLink = `https://sourabhsuneja.github.io/redirect/certificate.html?name=${encodeURIComponent(studentDetails.name + ', ' + studentDetails.grade + '-' + studentDetails.section)}`;
+}
+
+// Call the function to execute the code
+getStudentDetails();
+
+</script>
+
+</body>
+</html>

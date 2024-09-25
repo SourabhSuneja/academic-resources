@@ -83,7 +83,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         // Variable storing the name to be printed
-        const personName = capitalizeFirstLetter(new URLSearchParams((window.location.search).get('name') || "Name here"));
+        let personName = new URLSearchParams(window.location.search).get('name') || "Name here";
+        personName = capitalizeFirstLetter(personName);
         
         // Set the name on the certificate
         document.getElementById('name-overlay').textContent = personName;

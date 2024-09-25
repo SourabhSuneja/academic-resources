@@ -456,8 +456,19 @@ async function getStudentDetails() {
     // open custom prompt
     let studentDetails = await customPrompt();
 
+    // set timestamp
+    let timestamp = new Date().toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true
+    });
+
     // push the details in the responses array
-    responses.push(studentDetails.name, studentDetails.grade, studentDetails.section);
+    responses.push(studentDetails.name, studentDetails.grade, studentDetails.section, timestamp);
 
   // create certificate generation link
   certificateLink = `https://sourabhsuneja.github.io/academic-resources/favourite-student-certificate.html?name=${encodeURIComponent(studentDetails.name + ', ' + studentDetails.grade + '-' + studentDetails.section)}`;

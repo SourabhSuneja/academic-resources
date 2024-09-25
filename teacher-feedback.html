@@ -452,6 +452,16 @@
         });
     }
 
+// function to capitalize first letter of each word
+function capitalizeFirstLetter(string) {
+    return string
+        .toLowerCase() // Convert the entire string to lowercase
+        .split(' ')    // Split the string into an array of words
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+        .join(' ');    // Join the array of words back into a single string
+}
+
+// function to get student details through custom prompt
 async function getStudentDetails() {
     // open custom prompt
     let studentDetails = await customPrompt();
@@ -468,7 +478,7 @@ async function getStudentDetails() {
     });
 
     // push the details in the responses array
-    responses.push(studentDetails.name, studentDetails.grade, studentDetails.section, timestamp);
+    responses.push(capitalizeFirstLetter(studentDetails.name), studentDetails.grade, studentDetails.section, timestamp);
 
   // create certificate generation link
   certificateLink = `https://sourabhsuneja.github.io/academic-resources/favourite-student-certificate.html?name=${encodeURIComponent(studentDetails.name + ', ' + studentDetails.grade + '-' + studentDetails.section)}`;

@@ -83,7 +83,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         // Variable storing the name to be printed
-        const personName = new URLSearchParams(window.location.search).get('name') || "Name here";
+        const personName = capitalizeFirstLetter(new URLSearchParams((window.location.search).get('name') || "Name here"));
         
         // Set the name on the certificate
         document.getElementById('name-overlay').textContent = personName;
@@ -110,6 +110,15 @@
                 link.click();
             });
         }
+
+// function to capitalize first letter of each word
+function capitalizeFirstLetter(string) {
+    return string
+        .toLowerCase() // Convert the entire string to lowercase
+        .split(' ')    // Split the string into an array of words
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+        .join(' ');    // Join the array of words back into a single string
+}
     </script>
 </body>
 </html>

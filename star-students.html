@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <title>Star Students</title>
   <style>
     /* Resetting default styling */
@@ -14,33 +14,37 @@
       box-sizing: border-box;
     }
 
-    body {
-  background: linear-gradient(to bottom, #000428, #004e92);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; 
-  min-height: 100vh;
-  margin: 0;
-  font-family: "Roboto", system-ui;
-  scroll-behavior: smooth; 
-  overflow-y: auto; 
-}
+    html {
+      font-size: 14px;
+    }
 
-.container {
-  text-align: center;
-  width: 90%;
-  max-width: 800px;
-  padding: 20px;
-  margin-top: 30px; 
-  margin-bottom: 50px; 
-}
+    body {
+      background: linear-gradient(to bottom, #000428, #004e92);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; 
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      scroll-behavior: smooth; 
+      overflow-y: auto; 
+    }
+
+    .container {
+      text-align: center;
+      width: 90%;
+      max-width: 800px;
+      padding: 20px;
+      margin-top: 30px; 
+      margin-bottom: 50px; 
+    }
 
     .title {
       font-size: 2.1em;
       margin-bottom: 40px;
       color: #ffd700;
-      font-family: 'Roboto', sans-serif;
+      font-family: "Lato", system-ui;
       text-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
     }
 
@@ -51,7 +55,7 @@
 
     .students-list li {
       position: relative;
-      padding: 15px 60px 15px 60px;
+      padding: 15px 60px;
       margin: 10px 0;
       background-color: rgba(255, 255, 255, 0.15);
       border-radius: 10px;
@@ -86,6 +90,17 @@
       }
     }
 
+    .message {
+      font-size: 1.4em;
+      color: #fff;
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+      line-height: 1.5em;
+    }
+
     /* Pop-up Box styling */
     .popup-box {
       display: none;
@@ -111,10 +126,8 @@
       color: #333;
       animation: popUp 0.5s ease;
       border: 10px solid #f3b10ebf;
-      font-family: 'Roboto', sans-serif;
     }
 
-    /* Animation for the pop-up */
     @keyframes popUp {
       0% {
         transform: scale(0.8);
@@ -148,7 +161,6 @@
       color: #242526;
     }
 
-    /* Additional smooth transitions */
     li, .popup-box, .popup-content, .close-btn {
       transition: all 0.3s ease;
     }
@@ -160,6 +172,9 @@
     <ul class="students-list" id="studentsList">
       <!-- Student names will be dynamically injected here -->
     </ul>
+    <div class="message" id="noDataMessage" style="display: none;">
+      Sourabh Sir is still updating the star performers' data. Stay tuned! A perfect Term-1 score might just land your name on this list.
+    </div>
 
     <!-- Pop-up Box for Student Details -->
     <div class="popup-box" id="popupBox">
@@ -172,21 +187,31 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-
       const studentsList = document.getElementById('studentsList');
       const popupBox = document.getElementById('popupBox');
       const studentDetail = document.getElementById('studentDetail');
       const closeBtn = document.getElementById('closeBtn');
+      const noDataMessage = document.getElementById('noDataMessage');
 
       // Fetch the data from the 'star-students.txt' file
       fetch('star-students.txt')
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('File not found');
+          }
+          return response.text();
+        })
         .then(data => {
           const lines = data.split('\n')
                             .map(line => line.trim())
                             .filter(line => line);
 
-          // Iterate over the data, assuming the first line is a name and the next is the description
+          if (lines.length === 0) {
+            noDataMessage.style.display = 'block'; // Show the no data message
+            return;
+          }
+
+          // Iterate over the data
           for (let i = 0; i < lines.length; i += 2) {
             const studentName = lines[i];
             const studentDesc = lines[i + 1];
@@ -204,6 +229,10 @@
             // Append the list item to the student list
             studentsList.appendChild(li);
           }
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+          noDataMessage.style.display = 'block'; // Show the no data message
         });
 
       // Close the popup when clicking the close button

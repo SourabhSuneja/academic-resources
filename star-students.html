@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Star Students</title>
+  <style>
+    /* Resetting default styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+  background: linear-gradient(to bottom, #000428, #004e92);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Roboto", system-ui;
+  scroll-behavior: smooth; 
+  overflow-y: auto; 
+}
+
+.container {
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  margin-top: 30px; 
+  margin-bottom: 50px; 
+}
+
+    .title {
+      font-size: 2.1em;
+      margin-bottom: 40px;
+      color: #ffd700;
+      font-family: 'Roboto', sans-serif;
+      text-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .students-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .students-list li {
+      position: relative;
+      padding: 15px 20px 15px 60px;
+      margin: 10px 0;
+      background-color: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.3em;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .students-list li:hover {
+      transform: scale(1.07);
+      background-color: rgba(255, 215, 0, 0.2);
+    }
+
+    .students-list li::before {
+      content: '⭐';
+      font-size: 1.7em;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ffd700;
+      animation: spin 4s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: translateY(-50%) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-50%) rotate(360deg);
+      }
+    }
+
+    /* Pop-up Box styling */
+    .popup-box {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-content {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      color: #333;
+      animation: popUp 0.5s ease;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Animation for the pop-up */
+    @keyframes popUp {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .close-btn {
+      font-size: 2em;
+      color: #242526;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+      color: #f00;
+    }
+
+    #studentDetail {
+      font-size: 1.3em;
+      line-height: 1.8;
+      margin-top: 20px;
+      text-align: center;
+      color: #242526;
+    }
+
+    /* Additional smooth transitions */
+    li, .popup-box, .popup-content, .close-btn {
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">✨ Star Students ✨</h1>
+    <ul class="students-list" id="studentsList">
+      <!-- Student names will be dynamically injected here -->
+    </ul>
+
+    <!-- Pop-up Box for Student Details -->
+    <div class="popup-box" id="popupBox">
+      <div class="popup-content">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <p id="studentDetail"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const studentsList = document.getElementById('studentsList');
+      const popupBox = document.getElementById('popupBox');
+      const studentDetail = document.getElementById('studentDetail');
+      const closeBtn = document.getElementById('closeBtn');
+
+      // Fetch the data from the 'star-students.txt' file
+      fetch('star-students.txt')
+        .then(response => response.text())
+        .then(data => {
+          const lines = data.split('\n')
+                            .map(line => line.trim())
+                            .filter(line => line);
+
+          // Iterate over the data, assuming the first line is a name and the next is the description
+          for (let i = 0; i < lines.length; i += 2) {
+            const studentName = lines[i];
+            const studentDesc = lines[i + 1];
+
+            // Create the list item
+            const li = document.createElement('li');
+            li.textContent = studentName;
+
+            li.addEventListener('click', () => {
+              // Show the popup and display the student description
+              studentDetail.textContent = studentDesc;
+              popupBox.style.display = 'flex';
+            });
+
+            // Append the list item to the student list
+            studentsList.appendChild(li);
+          }
+        });
+
+      // Close the popup when clicking the close button
+      closeBtn.addEventListener('click', () => {
+        popupBox.style.display = 'none';
+      });
+
+      // Close the popup when clicking outside the popup content
+      popupBox.addEventListener('click', (e) => {
+        if (e.target === popupBox) {
+          popupBox.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

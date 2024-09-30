@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Crossy Road Game Clone</title>
+    <title>Crossy Road Game</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="styles.css" />
 
       <style>
+        * {
+         box-sizing: border-box;
+         max-height: 9999999px;
+        }
          /* Full-screen overlay with semi-transparent background */
          #questionOverlay {
          display: none;
@@ -24,6 +28,7 @@
          z-index: 9999;
          overflow: hidden;
          padding: 18px;
+         font-size: 16px;
          }
          /* Styling for the question text */
          #questionText {

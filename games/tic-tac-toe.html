@@ -20,6 +20,7 @@
 }
 body{
   background:#56baed;
+  padding: 0 20px;
 }
 .select-box, .play-board, .result-box{
   position: absolute;
@@ -27,8 +28,9 @@ body{
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.3s ease;
-  max-width: 90%;
-  width: 100%;
+  max-width: 400px; /* Limit maximum width */
+  width: 90%; /* Set width to 90% of the available screen */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a little shadow for better visual separation */
 }
 .select-box{
   background: #fff;

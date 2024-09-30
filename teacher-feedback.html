@@ -443,9 +443,16 @@
                 const section = sectionInput.value;
 
                 if (name && grade && section) {
+
+// check if name is spammy
+if(!isValidName(name)) {
+  alert('It looks like a spammy name. Please enter a valid name.');
+} else {
+
                     // Hide the modal and resolve the promise with the entered name, grade, and section
                     modal.style.display = 'none';
                     resolve({ name, grade, section });
+}
                 } else {
                     alert('Please fill all fields.');
                 }
@@ -483,6 +490,42 @@ async function getStudentDetails() {
 
   // create certificate generation link
   certificateLink = `https://sourabhsuneja.github.io/academic-resources/favourite-student-certificate.html?name=${encodeURIComponent(studentDetails.name + ', ' + studentDetails.grade + '-' + studentDetails.section)}`;
+}
+
+// function to identify possibly spammy names
+function isValidName(inputName) {
+    // Trim the input to remove leading and trailing spaces
+    inputName = inputName.trim();
+
+    // Basic check: length should be reasonable (between 3 and 30 characters)
+    if (inputName.length < 3 || inputName.length > 30) {
+        return false;
+    }
+
+    // Check for repeating characters like "aaaa" or "1111"
+    if (/(\w)\1{3,}/.test(inputName)) {
+        return false;
+    }
+
+    // Check for too many digits or symbols (considered spam)
+    if (/[^a-zA-Z\s]/.test(inputName)) {
+        return false;
+    }
+
+    // Check if there are too many consonants in a row (likely spam)
+    if (/[bcdfghjklmnpqrstvwxyz]{5,}/i.test(inputName)) {
+        return false;
+    }
+
+    // Check for a good mix of vowels and consonants (names should have vowels)
+    let vowels = inputName.match(/[aeiou]/gi) || [];
+    let consonants = inputName.match(/[bcdfghjklmnpqrstvwxyz]/gi) || [];
+    if (vowels.length === 0 || consonants.length === 0 || consonants.length / vowels.length > 5) {
+        return false;
+    }
+
+    // If all checks pass, consider it a valid name
+    return true;
 }
 
 // Call the function to execute the code

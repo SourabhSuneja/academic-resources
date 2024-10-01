@@ -182,6 +182,9 @@
     <script src="script.js"></script>
 
       <script>
+          // global variables
+          let gQuestions;
+          let currentQuestionIndex = 0;
          // Function to get URL parameter by name
                            function getQueryParam(name) {
                                const urlParams = new URLSearchParams(window.location.search);
@@ -283,7 +286,6 @@
                       const feedbackText = document.getElementById('feedbackText');
                   
                       let correctAnswersCount = 0;
-                      let currentQuestionIndex = 0;
                       let questionRoundActive = false;
                   
                       // Function to load the next question
@@ -367,8 +369,8 @@
                   
                   // Initialize the game and questions
                   async function init() {
-                      const questions = await loadQuestions();
-                      displayQuestion(questions);  // Start displaying questions
+                      gQuestions = await loadQuestions();
+                      displayQuestion(gQuestions);  // Start displaying questions
                   }
                   
                   window.onload = init;

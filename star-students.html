@@ -187,82 +187,90 @@
     </div>
   </div>
 
-  <script>
+<script>
+    // Function to get URL parameter by name
+    function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
 
-         // Function to get URL parameter by name
-         function getQueryParam(name) {
-             const urlParams = new URLSearchParams(window.location.search);
-             return urlParams.get(name);
-         }
+    // Get the grade from the URL, default to 6 if missing or invalid
+    const grade = parseInt(getQueryParam('grade')) || 6;
+    const validGrade = [6, 7, 8].includes(grade) ? grade : 6;
 
-         // Get the grade from the URL, default to 6 if missing or invalid
-         const grade = parseInt(getQueryParam('grade')) || 6;
-         const validGrade = [6, 7, 8].includes(grade) ? grade : 6;
-
-         // set baseURL
-         const baseURL = "https://sourabhsuneja.github.io/academic-resources/class-" + validGrade + "/";
+    // set baseURL
+    const baseURL = "https://sourabhsuneja.github.io/academic-resources/class-" + validGrade + "/";
 
     document.addEventListener('DOMContentLoaded', () => {
-      const studentsList = document.getElementById('studentsList');
-      const popupBox = document.getElementById('popupBox');
-      const studentDetail = document.getElementById('studentDetail');
-      const closeBtn = document.getElementById('closeBtn');
-      const noDataMessage = document.getElementById('noDataMessage');
+        const studentsList = document.getElementById('studentsList');
+        const popupBox = document.getElementById('popupBox');
+        const studentDetail = document.getElementById('studentDetail');
+        const closeBtn = document.getElementById('closeBtn');
+        const noDataMessage = document.getElementById('noDataMessage');
 
-      // Fetch the data from the 'star-students.txt' file
-      fetch(baseURL + 'star-students.txt')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('File not found');
-          }
-          return response.text();
-        })
-        .then(data => {
-          const lines = data.split('\n')
-                            .map(line => line.trim())
-                            .filter(line => line);
+        // Fetch the data from the 'star-students.txt' file
+        fetch(baseURL + 'star-students.txt')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('File not found');
+                }
+                return response.text();
+            })
+            .then(data => {
+                const lines = data.split('\n')
+                                  .map(line => line.trim())
+                                  .filter(line => line);
 
-          if (lines.length === 0) {
-            noDataMessage.style.display = 'block'; // Show the no data message
-            return;
-          }
+                if (lines.length === 0) {
+                    noDataMessage.style.display = 'block'; // Show the no data message
+                    return;
+                }
 
-          // Iterate over the data
-          for (let i = 0; i < lines.length; i += 2) {
-            const studentName = lines[i];
-            const studentDesc = lines[i + 1];
+                // Create an array to hold student data (name and description)
+                const students = [];
 
-            // Create the list item
-            const li = document.createElement('li');
-            li.textContent = studentName;
+                // Iterate over the data, pairing names with descriptions
+                for (let i = 0; i < lines.length; i += 2) {
+                    const studentName = lines[i];
+                    const studentDesc = lines[i + 1];
+                    students.push({ name: studentName, description: studentDesc });
+                }
 
-            li.addEventListener('click', () => {
-              // Show the popup and display the student description
-              studentDetail.textContent = studentDesc;
-              popupBox.style.display = 'flex';
+                // Sort the students array alphabetically by student name
+                students.sort((a, b) => a.name.localeCompare(b.name));
+
+                // Create and append list items for each student
+                students.forEach(student => {
+                    const li = document.createElement('li');
+                    li.textContent = student.name;
+
+                    li.addEventListener('click', () => {
+                        // Show the popup and display the student description
+                        studentDetail.textContent = student.description;
+                        popupBox.style.display = 'flex';
+                    });
+
+                    // Append the list item to the student list
+                    studentsList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                noDataMessage.style.display = 'block'; // Show the no data message
             });
 
-            // Append the list item to the student list
-            studentsList.appendChild(li);
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-          noDataMessage.style.display = 'block'; // Show the no data message
+        // Close the popup when clicking the close button
+        closeBtn.addEventListener('click', () => {
+            popupBox.style.display = 'none';
         });
 
-      // Close the popup when clicking the close button
-      closeBtn.addEventListener('click', () => {
-        popupBox.style.display = 'none';
-      });
-
-      // Close the popup when clicking outside the popup content
-      popupBox.addEventListener('click', (e) => {
-        if (e.target === popupBox) {
-          popupBox.style.display = 'none';
-        }
-      });
+        // Close the popup when clicking outside the popup content
+        popupBox.addEventListener('click', (e) => {
+            if (e.target === popupBox) {
+                popupBox.style.display = 'none';
+            }
+        });
     });
-  </script>
+</script>
 </body>
 </html>

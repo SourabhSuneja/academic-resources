@@ -27,11 +27,13 @@ button {
   visibility: hidden;
 }
 #end button {
-  background-color: #1dafad;
+  background-color: #cb3010;
   color: #fff;
-  padding: 20px 50px 20px 50px;
+  padding: 20px 80px 20px 80px;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 36px;
+  border: 2px solid white;
+  border-radius: 10px;
 }
 #controlls {
   position: absolute;

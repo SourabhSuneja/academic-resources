@@ -590,8 +590,7 @@ function animate(timestamp) {
         endDOM.style.visibility = 'visible';
         setTimeout(() => {
     document.getElementById("retry").click();
-    //document.getElementById('questionOverlay').style.display = 'flex'; 
-    //loadNextQuestion();
+    displayQuestion(gQuestions);
 }, 2000);
 // timeout ends
       }

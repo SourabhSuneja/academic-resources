@@ -590,7 +590,7 @@ function animate(timestamp) {
         endDOM.style.visibility = 'visible';
         setTimeout(() => {
     document.getElementById("retry").click();
-    displayQuestion(gQuestions);
+    
 }, 2000);
 // timeout ends
       }

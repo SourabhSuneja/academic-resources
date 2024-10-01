@@ -1,276 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover the shining stars of our class! Celebrate the students who excelled with top scores and stand out for their achievements. Will you be next?">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <title>Star Students</title>
-  <style>
-    /* Resetting default styling */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      max-height: 999999px;
-    }
-
-    html {
-      font-size: 14px;
-    }
-
-    body {
-      background: linear-gradient(to bottom, #000428, #004e92);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start; 
-      min-height: 100vh;
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      scroll-behavior: smooth; 
-      overflow-y: auto; 
-    }
-
-    .container {
-      text-align: center;
-      width: 90%;
-      max-width: 800px;
-      padding: 20px;
-      margin-top: 30px; 
-      margin-bottom: 50px; 
-    }
-
-    .title {
-      font-size: 2.1em;
-      margin-bottom: 40px;
-      color: #ffd700;
-      font-family: "Lato", system-ui;
-      text-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-    }
-
-    .students-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .students-list li {
-      position: relative;
-      padding: 15px 60px;
-      margin: 10px 0;
-      background-color: rgba(255, 255, 255, 0.15);
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 1.3em;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .students-list li:hover {
-      transform: scale(1.07);
-      background-color: rgb(92,175,221);
-    }
-
-    .students-list li::before {
-      content: '⭐';
-      font-size: 1.7em;
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #ffd700;
-      animation: spin 4s linear infinite;
-    }
-
-    @keyframes spin {
-      0% {
-        transform: translateY(-50%) rotate(0deg);
-      }
-      100% {
-        transform: translateY(-50%) rotate(360deg);
-      }
-    }
-
-    .message {
-      font-size: 1.4em;
-      color: #fff;
-      margin-top: 20px;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-      line-height: 1.5em;
-    }
-
-    /* Pop-up Box styling */
-    .popup-box {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
-      backdrop-filter: blur(5px);
-    }
-
-    .popup-content {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-      max-width: 500px;
-      width: 90%;
-      position: relative;
-      color: #333;
-      animation: popUp 0.5s ease;
-      border: 10px solid #f3b10ebf;
-    }
-
-    @keyframes popUp {
-      0% {
-        transform: scale(0.8);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    .close-btn {
-      font-size: 2em;
-      color: #242526;
-      cursor: pointer;
-      position: absolute;
-      top: 15px;
-      right: 25px;
-      transition: color 0.3s ease;
-    }
-
-    .close-btn:hover {
-      color: #f00;
-    }
-
-    #studentDetail {
-      font-size: 1.3em;
-      line-height: 1.6;
-      margin-top: 20px;
-      text-align: center;
-      color: #242526;
-    }
-
-    li, .popup-box, .popup-content, .close-btn {
-      transition: all 0.3s ease;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1 class="title">✨ Star Students ✨</h1>
-    <ul class="students-list" id="studentsList">
-      <!-- Student names will be dynamically injected here -->
-    </ul>
-    <div class="message" id="noDataMessage" style="display: none;">
-      Sourabh Sir is still updating the star performers' data. Stay tuned! A perfect Term-1 score might just land your name on this list.
-    </div>
-
-    <!-- Pop-up Box for Student Details -->
-    <div class="popup-box" id="popupBox">
-      <div class="popup-content">
-        <span class="close-btn" id="closeBtn">&times;</span>
-        <p id="studentDetail"></p>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Discover the shining stars of our class! Celebrate the students who excelled with top scores and stand out for their achievements. Will you be next?">
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+      <title>Star Students</title>
+      <style>
+         /* Resetting default styling */
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         max-height: 999999px;
+         }
+         html {
+         font-size: 14px;
+         }
+         body {
+         background: linear-gradient(to bottom, #000428, #004e92);
+         color: #fff;
+         display: flex;
+         justify-content: center;
+         align-items: flex-start; 
+         min-height: 100vh;
+         margin: 0;
+         font-family: 'Roboto', sans-serif;
+         scroll-behavior: smooth; 
+         overflow-y: auto; 
+         }
+         .container {
+         text-align: center;
+         width: 90%;
+         max-width: 800px;
+         padding: 20px;
+         margin-top: 30px; 
+         margin-bottom: 50px; 
+         }
+         .title {
+         font-size: 2.1em;
+         margin-bottom: 40px;
+         color: #ffd700;
+         font-family: "Lato", system-ui;
+         text-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+         }
+         .students-list {
+         list-style: none;
+         padding: 0;
+         }
+         .students-list li {
+         position: relative;
+         padding: 15px 60px;
+         margin: 10px 0;
+         background-color: rgba(255, 255, 255, 0.15);
+         border-radius: 10px;
+         cursor: pointer;
+         font-size: 1.3em;
+         transition: transform 0.3s ease, background-color 0.3s ease;
+         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+         }
+         .students-list li:hover {
+         transform: scale(1.07);
+         background-color: rgb(92,175,221);
+         }
+         .students-list li::before {
+         content: '⭐';
+         font-size: 1.7em;
+         position: absolute;
+         left: 20px;
+         top: 50%;
+         transform: translateY(-50%);
+         color: #ffd700;
+         animation: spin 4s linear infinite;
+         }
+         @keyframes spin {
+         0% {
+         transform: translateY(-50%) rotate(0deg);
+         }
+         100% {
+         transform: translateY(-50%) rotate(360deg);
+         }
+         }
+         .message {
+         font-size: 1.4em;
+         color: #fff;
+         margin-top: 20px;
+         padding: 20px;
+         background: rgba(255, 255, 255, 0.1);
+         border-radius: 10px;
+         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+         line-height: 1.5em;
+         }
+         /* Pop-up Box styling */
+         .popup-box {
+         display: none;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.7);
+         justify-content: center;
+         align-items: center;
+         backdrop-filter: blur(5px);
+         }
+         .popup-content {
+         background: rgba(255, 255, 255, 0.9);
+         padding: 40px;
+         border-radius: 20px;
+         box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+         max-width: 500px;
+         width: 90%;
+         position: relative;
+         color: #333;
+         animation: popUp 0.5s ease;
+         border: 10px solid #f3b10ebf;
+         }
+         @keyframes popUp {
+         0% {
+         transform: scale(0.8);
+         opacity: 0;
+         }
+         100% {
+         transform: scale(1);
+         opacity: 1;
+         }
+         }
+         .close-btn {
+         font-size: 2em;
+         color: #242526;
+         cursor: pointer;
+         position: absolute;
+         top: 15px;
+         right: 25px;
+         transition: color 0.3s ease;
+         }
+         .close-btn:hover {
+         color: #f00;
+         }
+         #studentDetail {
+         font-size: 1.3em;
+         line-height: 1.6;
+         margin-top: 20px;
+         text-align: center;
+         color: #242526;
+         }
+         li, .popup-box, .popup-content, .close-btn {
+         transition: all 0.3s ease;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <h1 class="title">✨ Star Students ✨</h1>
+         <ul class="students-list" id="studentsList">
+            <!-- Student names will be dynamically injected here -->
+         </ul>
+         <div class="message" id="noDataMessage" style="display: none;">
+            Sourabh Sir is still updating the star performers' data. Stay tuned! A perfect Term-1 score might just land your name on this list.
+         </div>
+         <!-- Pop-up Box for Student Details -->
+         <div class="popup-box" id="popupBox">
+            <div class="popup-content">
+               <span class="close-btn" id="closeBtn">&times;</span>
+               <p id="studentDetail"></p>
+            </div>
+         </div>
       </div>
-    </div>
-  </div>
-
-<script>
-    // Function to get URL parameter by name
-    function getQueryParam(name) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(name);
-    }
-
-    // Get the grade from the URL, default to 6 if missing or invalid
-    const grade = parseInt(getQueryParam('grade')) || 6;
-    const validGrade = [6, 7, 8].includes(grade) ? grade : 6;
-
-    // set baseURL
-    const baseURL = "https://sourabhsuneja.github.io/academic-resources/class-" + validGrade + "/";
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const studentsList = document.getElementById('studentsList');
-        const popupBox = document.getElementById('popupBox');
-        const studentDetail = document.getElementById('studentDetail');
-        const closeBtn = document.getElementById('closeBtn');
-        const noDataMessage = document.getElementById('noDataMessage');
-
-        // Fetch the data from the 'star-students.txt' file
-        fetch(baseURL + 'star-students.txt')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('File not found');
-                }
-                return response.text();
-            })
-            .then(data => {
-                const lines = data.split('\n')
-                                  .map(line => line.trim())
-                                  .filter(line => line);
-
-                if (lines.length === 0) {
-                    noDataMessage.style.display = 'block'; // Show the no data message
-                    return;
-                }
-
-                // Create an array to hold student data (name and description)
-                const students = [];
-
-                // Iterate over the data, pairing names with descriptions
-                for (let i = 0; i < lines.length; i += 2) {
-                    const studentName = lines[i];
-                    const studentDesc = lines[i + 1];
-                    students.push({ name: studentName, description: studentDesc });
-                }
-
-                // Sort the students array alphabetically by student name
-                students.sort((a, b) => a.name.localeCompare(b.name));
-
-                // Create and append list items for each student
-                students.forEach(student => {
-                    const li = document.createElement('li');
-                    li.textContent = student.name;
-
-                    li.addEventListener('click', () => {
-                        // Show the popup and display the student description
-                        studentDetail.textContent = student.description;
-                        popupBox.style.display = 'flex';
-                    });
-
-                    // Append the list item to the student list
-                    studentsList.appendChild(li);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-                noDataMessage.style.display = 'block'; // Show the no data message
-            });
-
-        // Close the popup when clicking the close button
-        closeBtn.addEventListener('click', () => {
-            popupBox.style.display = 'none';
-        });
-
-        // Close the popup when clicking outside the popup content
-        popupBox.addEventListener('click', (e) => {
-            if (e.target === popupBox) {
-                popupBox.style.display = 'none';
-            }
-        });
-    });
-</script>
-</body>
+      <script>
+         // Function to get URL parameter by name
+         function getQueryParam(name) {
+             const urlParams = new URLSearchParams(window.location.search);
+             return urlParams.get(name);
+         }
+         
+         // Get the grade from the URL, default to 6 if missing or invalid
+         const grade = parseInt(getQueryParam('grade')) || 6;
+         const validGrade = [6, 7, 8].includes(grade) ? grade : 6;
+         
+         // set baseURL
+         const baseURL = "https://sourabhsuneja.github.io/academic-resources/class-" + validGrade + "/";
+         
+         document.addEventListener('DOMContentLoaded', () => {
+             const studentsList = document.getElementById('studentsList');
+             const popupBox = document.getElementById('popupBox');
+             const studentDetail = document.getElementById('studentDetail');
+             const closeBtn = document.getElementById('closeBtn');
+             const noDataMessage = document.getElementById('noDataMessage');
+         
+             // Fetch the data from the 'star-students.txt' file
+             fetch(baseURL + 'star-students.txt')
+                 .then(response => {
+                     if (!response.ok) {
+                         throw new Error('File not found');
+                     }
+                     return response.text();
+                 })
+                 .then(data => {
+                     const lines = data.split('\n')
+                                       .map(line => line.trim())
+                                       .filter(line => line);
+         
+                     if (lines.length === 0) {
+                         noDataMessage.style.display = 'block'; // Show the no data message
+                         return;
+                     }
+         
+                     // Create an array to hold student data (name and description)
+                     const students = [];
+         
+                     // Iterate over the data, pairing names with descriptions
+                     for (let i = 0; i < lines.length; i += 2) {
+                         const studentName = lines[i];
+                         const studentDesc = lines[i + 1];
+                         students.push({ name: studentName, description: studentDesc });
+                     }
+         
+                     // Sort the students array alphabetically by student name
+                     students.sort((a, b) => a.name.localeCompare(b.name));
+         
+                     // Create and append list items for each student
+                     students.forEach(student => {
+                         const li = document.createElement('li');
+                         li.textContent = student.name;
+         
+                         li.addEventListener('click', () => {
+                             // Show the popup and display the student description
+                             studentDetail.textContent = student.description;
+                             popupBox.style.display = 'flex';
+                         });
+         
+                         // Append the list item to the student list
+                         studentsList.appendChild(li);
+                     });
+                 })
+                 .catch(error => {
+                     console.error('Error fetching data:', error);
+                     noDataMessage.style.display = 'block'; // Show the no data message
+                 });
+         
+             // Close the popup when clicking the close button
+             closeBtn.addEventListener('click', () => {
+                 popupBox.style.display = 'none';
+             });
+         
+             // Close the popup when clicking outside the popup content
+             popupBox.addEventListener('click', (e) => {
+                 if (e.target === popupBox) {
+                     popupBox.style.display = 'none';
+                 }
+             });
+         });
+      </script>
+   </body>
 </html>

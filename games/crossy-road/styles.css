@@ -16,6 +16,12 @@ button {
   position: absolute;
   top: 20px;
   right: 20px;
+  padding: 4px 36px;
+  font-size: 28px;
+  background: #6b8310;
+  border: 2px solid white;
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
 }
 #end {
   position: absolute;

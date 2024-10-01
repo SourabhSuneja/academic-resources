@@ -588,7 +588,12 @@ function animate(timestamp) {
       const carMaxX = vechicle.position.x + vechicleLength*zoom/2;
       if(chickenMaxX > carMinX && chickenMinX < carMaxX) {
         endDOM.style.visibility = 'visible';
-        setTimeout(() => document.getElementById("retry").click(), 2000);
+        setTimeout(() => {
+    document.getElementById("retry").click();
+    document.getElementById('questionOverlay').style.display = 'flex'; 
+    loadNextQuestion();
+}, 2000);
+// timeout ends
       }
     });
 

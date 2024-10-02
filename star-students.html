@@ -279,6 +279,26 @@
                  }
              });
          });
+
+// trigger confetti animation
+document.addEventListener("DOMContentLoaded", function() {
+    var ribbons = document.getElementById('ribbons');
+    
+    // Create an image element to preload the GIF
+    var img = new Image();
+    img.src = ribbons.src; // Set the source of the image
+    
+    img.onload = function() {
+        ribbons.style.display = 'block';  // Show the image when it's loaded
+        ribbons.style.animation = 'showHide 2s ease-in-out forwards';  // Start the animation
+    };
+
+    // If the image is already cached and loaded
+    if (img.complete) {
+        img.onload();
+    }
+});
+
       </script>
    </body>
 </html>

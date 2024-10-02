@@ -132,7 +132,7 @@ function filterQuestions(questions) {
             const choices = questionParts[2].split(/Option [A-D]} /).slice(1); // Extract options
             word = questionParts[3].trim(); // Correct answer
 
-            if (/^\w+$/.test(word) && (hint.endsWith('.') || hint.endsWith('___'))) {
+            if (/^\w+$/.test(word) && (hint.endsWith('.') || hint.endsWith('___')) && word.length > 2) {
                filteredQuestions.push({
                   word: word,
                   hint: hint
@@ -141,7 +141,7 @@ function filterQuestions(questions) {
          } else if (params.qType === 'Fill up') {
             hint = questionText.trim();
             word = params.ansExplanation.trim();
-            if (/^\w+$/.test(word)) {
+            if (/^\w+$/.test(word) && word.length > 2) {
                filteredQuestions.push({
                   word: word,
                   hint: hint

@@ -154,7 +154,7 @@ for (let i = 97; i <= 122; i++) {
     button.addEventListener("click", (e) => initGame(e.target, String.fromCharCode(i)));
 }
 
-const init = async () => {
+const initGeneral = async () => {
     try {
         allWordData = await fetchWords();
         wordList = await generateWordList(allWordData);
@@ -164,5 +164,5 @@ const init = async () => {
     }
 };
 
-init();
+
 playAgainBtn.addEventListener("click", getRandomWord);

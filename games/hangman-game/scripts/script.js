@@ -154,6 +154,82 @@ for (let i = 97; i <= 122; i++) {
     button.addEventListener("click", (e) => initGame(e.target, String.fromCharCode(i)));
 }
 
+
+// loading computer MCQs and fill up type questions from the question bank
+
+// Helper function to fetch text files and process them
+async function fetchQuestions(fileName) {
+   const response = await fetch(`https://sourabhsuneja.github.io/question-paper/question-bank/${fileName}.txt`);
+   const text = await response.text();
+   // Split by line and filter out any blank or whitespace-only lines
+   const lines = text.split('\n').filter(line => line.trim() !== '');
+   return lines;
+}
+
+// Fetch and process the questions from all files
+async function loadQuestions() {
+   const files = gradeArray;
+   let allQuestions = [];
+
+   for (const file of files) {
+      const questions = await fetchQuestions(file);
+      allQuestions = allQuestions.concat(questions);
+   }
+
+   return filterQuestions(allQuestions);
+}
+
+// Filter and structure only MCQs and Fill up type questions
+function filterQuestions(questions) {
+   const filteredQuestions = [];
+
+   questions.forEach((line) => {
+      const [questionText, jsonParams] = line.split('JSONParams:');
+      const params = JSON.parse(jsonParams);
+
+      // Only keep MCQs and Fill up type questions
+      if (params) {
+         let word, hint;
+
+         if (params.qType === 'MCQ') {
+            // Extract the MCQ options and correct answer from the question text
+            const questionParts = questionText.match(/(.*)\(Options: (.*?) Correct: (.*?)\)/);
+            hint = questionParts[1].trim(); // Cleaned question hint
+            const choices = questionParts[2].split(/Option [A-D]} /).slice(1); // Extract options
+            word = questionParts[3].trim(); // Correct answer
+
+            if (/^\w+$/.test(word) && (hint.endsWith('.') || hint.endsWith('___')) && word.length > 2) {
+               filteredQuestions.push({
+                  word: word,
+                  hint: hint
+               });
+            }
+         } else if (params.qType === 'Fill up') {
+            hint = questionText.trim();
+            word = params.ansExplanation.trim();
+            if (/^\w+$/.test(word) && word.length > 2) {
+               filteredQuestions.push({
+                  word: word,
+                  hint: hint
+               });
+            }
+         }
+      }
+   });
+
+   return shuffleArray(filteredQuestions); // Shuffle questions
+}
+
+// Shuffle an array using Fisher-Yates algorithm
+function shuffleArray(array) {
+   for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+   }
+   return array;
+}
+
+
 const initGeneral = async () => {
     try {
         allWordData = await fetchWords();
@@ -166,8 +242,7 @@ const initGeneral = async () => {
 
 const initComputer = async () => {
     try {
-        allWordData = await fetchWords();
-        wordList = await generateWordList(allWordData);
+        wordList = await loadQuestions();
         getRandomWord();
     } catch (error) {
         console.error('Error initializing the game:', error);

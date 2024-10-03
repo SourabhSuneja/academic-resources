@@ -164,5 +164,15 @@ const initGeneral = async () => {
     }
 };
 
+const initComputer = async () => {
+    try {
+        allWordData = await fetchWords();
+        wordList = await generateWordList(allWordData);
+        getRandomWord();
+    } catch (error) {
+        console.error('Error initializing the game:', error);
+    }
+};
+
 
 playAgainBtn.addEventListener("click", getRandomWord);

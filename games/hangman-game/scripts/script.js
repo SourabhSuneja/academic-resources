@@ -196,7 +196,7 @@ function filterQuestions(questions) {
             const questionParts = questionText.match(/(.*)\(Options: (.*?) Correct: (.*?)\)/);
             hint = questionParts[1].trim(); // Cleaned question hint
             const choices = questionParts[2].split(/Option [A-D]} /).slice(1); // Extract options
-            word = questionParts[3].trim(); // Correct answer
+            word = questionParts[3].trim().toLowerCase(); // Correct answer
 
             if (/^\w+$/.test(word) && (hint.endsWith('.') || hint.endsWith('___')) && word.length > 2) {
                filteredQuestions.push({
@@ -206,7 +206,7 @@ function filterQuestions(questions) {
             }
          } else if (params.qType === 'Fill up') {
             hint = questionText.trim();
-            word = params.ansExplanation.trim();
+            word = params.ansExplanation.trim().toLowerCase();
             if (/^\w+$/.test(word) && word.length > 2) {
                filteredQuestions.push({
                   word: word,

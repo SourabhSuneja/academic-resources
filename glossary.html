@@ -121,8 +121,8 @@
             xhr.onload = function() {
                 const glossaryList = document.getElementById('glossary-list');
                 if (xhr.status === 200) {
-                    // Split by newline and remove empty entries
-                    const glossaryEntries = xhr.responseText.split('\n').map(item => item.trim()).filter(item => item !== '');
+                    // Split by newline and remove empty entries or entries that start with double slashes
+                    const glossaryEntries = xhr.responseText.split('\n').map(item => item.trim()).filter(item => item !== '').filter(item => !item.startsWith('//'));
          
                     if (glossaryEntries.length === 0) {
                         displayNoGlossaryMessage();

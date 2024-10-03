@@ -59,8 +59,10 @@ body{
   border-radius: 5px;
   border: 1px solid #bfbfbf;
 }
-.content input:focus{
-  box-shadow: 0px 2px 4px rgba(0,0,0,0.08);
+.content input:focus {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08), 0 0 8px rgba(0, 123, 255, 0.8);
+  transition: box-shadow 0.4s ease;
+  outline: none;
 }
 .content input::placeholder{
   color: #aaa;
@@ -128,6 +130,15 @@ body{
   }
 }
 
+#scoreBox {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 16px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 1.2em;
+}
 
 /* Full-screen overlay with fade-in effect */
 #customAlertBox {
@@ -209,3 +220,4 @@ body{
     transform: translateY(0);
   }
 }
+

@@ -1,4 +1,4 @@
-Primary data is collected for the first time. Example: population census by the government.  
+// Primary data is collected for the first time. Example: population census by the government.  
 Secondary data is previously collected data that can be used by others.  
 Machine learning teaches computers to learn from data patterns and make decisions on their own.  
 Data filtering removes unwanted elements, like blank values, from data.  

@@ -293,7 +293,7 @@
          <div class="thumbnail">
             <i class="fas fa-child"></i>
             <h3>Hangman Word Game</h3>
-            <a id="hangman" href="https://sourabhsuneja.github.io/academic-resources/games/hangman-game/">Test Your English Vocab</a>
+            <a id="hangman" href="https://sourabhsuneja.github.io/academic-resources/games/hangman-game/">Play Now</a>
          </div>
          <!-- Snake Game Thumbnail -->
          <div class="thumbnail">
@@ -369,7 +369,8 @@
          document.getElementById('videos').href = linksByGrade[validGrade].videos;
          document.getElementById('glossary').href = linksByGrade[validGrade].glossary;
          document.getElementById('snakeGame').href = linksByGrade[validGrade].snakeGame;
-         
+
+document.getElementById('hangman').href += '?grade=' + validGrade;        
          document.getElementById('crossyRoadGame').href = linksByGrade[validGrade].crossyRoadGame;
          document.getElementById('star-students').href = linksByGrade[validGrade].starStudents;
       </script>

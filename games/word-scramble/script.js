@@ -102,7 +102,7 @@ function filterQuestions(questions) {
       const [questionText, jsonParams] = line.split('JSONParams:');
       const params = JSON.parse(jsonParams);
 
-      // Only keep fill up questions
+      // Only keep MCQs and Fill up type questions
       if (params) {
          let word, hint;
 

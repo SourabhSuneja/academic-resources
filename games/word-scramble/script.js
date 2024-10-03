@@ -5,10 +5,13 @@ const wordText = document.querySelector(".word"),
    timeText = document.querySelector(".time b"),
    inputField = document.querySelector("input"),
    refreshBtn = document.querySelector(".refresh-word"),
-   checkBtn = document.querySelector(".check-word");
+   checkBtn = document.querySelector(".check-word"),
+   scoreBox = document.querySelector("#scoreBox");
 
 let correctWord, timer;
 let currentWordIndex = 0;
+let score = 0;
+let total = 0;
 
 const initTimer = async (maxTime) => {
    clearInterval(timer);
@@ -25,6 +28,10 @@ const initTimer = async (maxTime) => {
 };
 
 const initGame = () => {
+   // update score box text
+   scoreBox.innerText = `Score: ${score}/${total}`;
+   // increment total questions asked
+   total++;
    initTimer(30);
    let randomObj = words[currentWordIndex];
    let wordArray = randomObj.word.split("");
@@ -47,7 +54,7 @@ const initGame = () => {
 const checkWord = async () => {
    let userWord = inputField.value.toLowerCase();
    if (!userWord) {
-      await customAlert("Please enter the word to check!", 'red');
+      await customAlert("Please enter a word to check!", 'red');
       return; // Exit the function after showing the alert
    }
    if (userWord !== correctWord) {
@@ -55,6 +62,7 @@ const checkWord = async () => {
       return; // Exit the function after showing the alert
    }
    await customAlert(`Congrats! ${correctWord.toUpperCase()} is the correct word`, 'green');
+   score++;
    initGame();
 };
 

@@ -48,5 +48,45 @@
             <button class="cp-prompt-option" id="cp-computer">Computer related words</button>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const choice = await showCustomPrompt();
+            startHangmanGame(choice); // Call your function to start the game with the chosen word category
+        });
+
+        function showCustomPrompt() {
+            return new Promise((resolve) => {
+                // Show the overlay
+                const overlay = document.getElementById('cp-overlay');
+                overlay.classList.add('show');
+
+                // Set up event listeners for the buttons
+                document.getElementById('cp-general').addEventListener('click', () => {
+                    resolve('general');
+                    hidePrompt();
+                });
+
+                document.getElementById('cp-computer').addEventListener('click', () => {
+                    resolve('computer');
+                    hidePrompt();
+                });
+            });
+        }
+
+        function hidePrompt() {
+            const overlay = document.getElementById('cp-overlay');
+            overlay.classList.remove('show');
+            setTimeout(() => overlay.classList.add('cp-hidden'), 500); // Delay hiding to match fade-out
+        }
+
+        function startHangmanGame(category) {
+            // Use the selected category to load the appropriate word list
+            if (category === 'general') {
+                
+            } else if (category === 'computer') {
+                
+            }
+        }
+    </script>
 </body>
 </html>

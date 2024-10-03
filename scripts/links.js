@@ -8,7 +8,7 @@ const linksByGrade = {
       wordScramble: "https://sourabhsuneja.github.io/academic-resources/games/word-scramble/?grade=6",
       videos: "https://sourabhsuneja.github.io/academic-resources/videos.html?grade=6",
       glossary: "https://sourabhsuneja.github.io/academic-resources/glossary.html?grade=6",
-      snakeGame: "https://sourabhsuneja.github.io/academic-resources/games/snake-game.html?grade=6",
+      snakeGame: "https://sourabhsuneja.github.io/academic-resources/games/snake-game/?grade=6",
       crossyRoadGame: "https://sourabhsuneja.github.io/academic-resources/games/crossy-road/?grade=6",
       starStudents: "https://sourabhsuneja.github.io/academic-resources/star-students.html?grade=6"
    },
@@ -20,7 +20,7 @@ const linksByGrade = {
       wordScramble: "https://sourabhsuneja.github.io/academic-resources/games/word-scramble/?grade=7",
       videos: "https://sourabhsuneja.github.io/academic-resources/videos.html?grade=7",
       glossary: "https://sourabhsuneja.github.io/academic-resources/glossary.html?grade=7",
-      snakeGame: "https://sourabhsuneja.github.io/academic-resources/games/snake-game.html?grade=7",
+      snakeGame: "https://sourabhsuneja.github.io/academic-resources/games/snake-game/?grade=7",
       crossyRoadGame: "https://sourabhsuneja.github.io/academic-resources/games/crossy-road/?grade=7",
       starStudents: "https://sourabhsuneja.github.io/academic-resources/star-students.html?grade=7"
    },
@@ -32,7 +32,7 @@ const linksByGrade = {
       wordScramble: "https://sourabhsuneja.github.io/academic-resources/games/word-scramble/?grade=8",
       videos: "https://sourabhsuneja.github.io/academic-resources/videos.html?grade=8",
       glossary: "https://sourabhsuneja.github.io/academic-resources/glossary.html?grade=8",
-      snakeGame: "https://sourabhsuneja.github.io/academic-resources/games/snake-game.html?grade=8",
+      snakeGame: "https://sourabhsuneja.github.io/academic-resources/games/snake-game/?grade=8",
       crossyRoadGame: "https://sourabhsuneja.github.io/academic-resources/games/crossy-road/?grade=8",
       starStudents: "https://sourabhsuneja.github.io/academic-resources/star-students.html?grade=8"
    }

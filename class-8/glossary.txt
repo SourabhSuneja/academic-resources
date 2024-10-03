@@ -1,5 +1,5 @@
-Clustering
-Forming groups on the basis of feature similarities. E.g. putting all "red" colour objects together.
+//Clustering
+// Forming groups on the basis of feature similarities. E.g. putting all "red" colour objects together.
 
 Machine Learning
 Teaching computers to learn from sample data and become capable of taking decisions on their own.

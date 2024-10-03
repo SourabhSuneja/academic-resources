@@ -2,14 +2,14 @@
 <html lang="en">
    <head>
       <!-- Google tag -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QF1MCK0B9Y"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QF1MCK0B9Y');
-</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF1MCK0B9Y"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-QF1MCK0B9Y');
+      </script>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="description" content="All-in-one stop for all computer resources for middle graders, including worksheets, exam blueprints, and quizzes for self-practice.">
@@ -394,7 +394,10 @@
                  })
                  .then(data => {
                      // Split the text by newlines to get individual boosters
-                     const boosters = data.split('\n').filter(Boolean); // Filter out any empty lines
+                     const boosters = data
+         .split('\n')                     // Split the string into an array by newline characters
+         .filter(Boolean)                // Filter out any empty lines
+         .filter(line => !line.startsWith('//')); // Remove lines that start with '//'
                      // Push each booster into the global array
                      knowledgeBoosters.push(...boosters);
                  })

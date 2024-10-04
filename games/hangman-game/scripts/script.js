@@ -246,6 +246,7 @@ const initComputer = async () => {
         if (wordList.length < 10){
             wordList = wordList.concat(computerTerms);
         }
+        wordList = shuffleArray(wordList);
         getRandomWord();
     } catch (error) {
         console.error('Error initializing the game:', error);

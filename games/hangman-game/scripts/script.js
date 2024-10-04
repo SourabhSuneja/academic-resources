@@ -107,8 +107,14 @@ const resetGame = () => {
 }
 
 const getRandomWord = () => {
+
     // Selecting the next word and hint from the wordList
     currentQuestionIndex++;
+    // if end is reached, reset question index back to 0
+    if(currentQuestionIndex >= wordList.length) {
+        currentQuestionIndex = 0;
+    }
+    
     const { word, hint } = wordList[currentQuestionIndex];
     currentWord = word.toLowerCase(); // Making currentWord as random word
     document.querySelector(".hint-text b").innerText = hint;

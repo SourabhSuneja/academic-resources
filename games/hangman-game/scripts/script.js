@@ -243,6 +243,9 @@ const initGeneral = async () => {
 const initComputer = async () => {
     try {
         wordList = await loadQuestions();
+        if (wordList.length < 10){
+            wordList = wordList.concat(computerTerms);
+        }
         getRandomWord();
     } catch (error) {
         console.error('Error initializing the game:', error);

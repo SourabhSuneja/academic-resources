@@ -88,6 +88,7 @@ const gameModal = document.querySelector(".game-modal");
 const playAgainBtn = gameModal.querySelector("button");
 let allWordData = [];
 let wordList = [];
+let currentQuestionIndex = -1;
 
 
 // Initializing game variables
@@ -106,8 +107,9 @@ const resetGame = () => {
 }
 
 const getRandomWord = () => {
-    // Selecting a random word and hint from the wordList
-    const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
+    // Selecting the next word and hint from the wordList
+    currentQuestionIndex++;
+    const { word, hint } = wordList[currentQuestionIndex];
     currentWord = word.toLowerCase(); // Making currentWord as random word
     document.querySelector(".hint-text b").innerText = hint;
     resetGame();

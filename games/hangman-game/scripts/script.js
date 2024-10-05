@@ -86,9 +86,12 @@ const keyboardDiv = document.querySelector(".keyboard");
 const hangmanImage = document.querySelector(".hangman-box img");
 const gameModal = document.querySelector(".game-modal");
 const playAgainBtn = gameModal.querySelector("button");
+const scoreBox = document.querySelector("#scoreBox");
 let allWordData = [];
 let wordList = [];
 let currentQuestionIndex = -1;
+let score = 0;
+let total = 0;
 
 
 // Initializing game variables
@@ -114,6 +117,11 @@ const getRandomWord = () => {
     if(currentQuestionIndex >= wordList.length) {
         currentQuestionIndex = 0;
     }
+
+       // update score box text
+       scoreBox.innerText = `Score: ${score}/${total}`;
+       // increment total questions asked
+       total++;
     
     const { word, hint } = wordList[currentQuestionIndex];
     currentWord = word.toLowerCase(); // Making currentWord as random word
@@ -127,6 +135,11 @@ const gameOver = (isVictory) => {
     gameModal.querySelector("img").src = `images/${isVictory ? 'victory' : 'lost'}.gif`;
     gameModal.querySelector("h4").innerText = isVictory ? 'Congrats!' : 'Game Over!';
     gameModal.querySelector("p").innerHTML = `${modalText} <b>${currentWord}</b>`;
+
+    // increment score upon victory
+    if(isVictory) {
+        score++;
+    }
     gameModal.classList.add("show");
 }
 

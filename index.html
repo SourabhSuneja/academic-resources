@@ -263,13 +263,13 @@
          <div class="thumbnail">
             <i class="fas fa-keyboard"></i>
             <h3>Word Scramble</h3>
-            <a id="word-scramble" href="#">Play Now</a>
+            <a id="word-scramble" href="https://sourabhsuneja.github.io/academic-resources/games/word-scramble/">Play Now</a>
          </div>
          <!-- Recommended Videos -->
          <div class="thumbnail">
             <i class="fas fa-video"></i>
             <h3>Recommended Videos</h3>
-            <a id="videos" href="#">Watch Videos</a>
+            <a id="videos" href="https://sourabhsuneja.github.io/academic-resources/videos.html">Watch Videos</a>
          </div>
          <!-- Glossary -->
          <div class="thumbnail">
@@ -365,8 +365,8 @@
          document.getElementById('worksheet').href += "class-" + validGrade + "/";
          document.getElementById('blueprint').href += '?grade=' + validGrade;
          document.getElementById('quiz').href = linksByGrade[validGrade].quiz;
-         document.getElementById('word-scramble').href = linksByGrade[validGrade].wordScramble;
-         document.getElementById('videos').href = linksByGrade[validGrade].videos;
+         document.getElementById('word-scramble').href += '?grade=' + validGrade;
+         document.getElementById('videos').href += '?grade=' + validGrade;
          document.getElementById('glossary').href = linksByGrade[validGrade].glossary;
          document.getElementById('snakeGame').href = linksByGrade[validGrade].snakeGame;
 

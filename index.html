@@ -241,6 +241,12 @@
             <h3>Complete Term-1 Book Work + Notebook Work</h3>
             <a id="classwork" href="#">View Work</a>
          </div>
+<!-- Audio Summaries of Chapters -->
+<div class="thumbnail">
+    <i class="fas fa-headphones"></i>
+    <h3>Audio Summaries of Chapters</h3>
+    <a id="audio-summaries" href="https://sourabhsuneja.github.io/academic-resources/music-player/">Listen Now</a>
+</div>
          <!-- Random Worksheet for Self-practice -->
          <div class="thumbnail">
             <i class="fas fa-file-alt"></i>
@@ -362,6 +368,8 @@
          
          // Update hrefs based on grade
          document.getElementById('classwork').href = linksByGrade[validGrade].classwork;
+
+document.getElementById('audio-summaries').href += '?grade=' + validGrade;
          document.getElementById('worksheet').href += "class-" + validGrade + "/";
          document.getElementById('blueprint').href += '?grade=' + validGrade;
          document.getElementById('quiz').href = linksByGrade[validGrade].quiz;

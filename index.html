@@ -251,7 +251,7 @@
          <div class="thumbnail">
             <i class="fas fa-clipboard-list"></i>
             <h3>Term-1 Examination Blueprint</h3>
-            <a id="blueprint" href="#">View Blueprint</a>
+            <a id="blueprint" href="https://sourabhsuneja.github.io/academic-resources/blueprint.html">View Blueprint</a>
          </div>
          <!-- Quiz for Self-practice -->
          <div class="thumbnail">
@@ -363,7 +363,7 @@
          // Update hrefs based on grade
          document.getElementById('classwork').href = linksByGrade[validGrade].classwork;
          document.getElementById('worksheet').href += "class-" + validGrade + "/";
-         document.getElementById('blueprint').href = linksByGrade[validGrade].blueprint;
+         document.getElementById('blueprint').href += '?grade=' + validGrade;
          document.getElementById('quiz').href = linksByGrade[validGrade].quiz;
          document.getElementById('word-scramble').href = linksByGrade[validGrade].wordScramble;
          document.getElementById('videos').href = linksByGrade[validGrade].videos;

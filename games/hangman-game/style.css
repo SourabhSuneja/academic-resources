@@ -186,6 +186,16 @@ body {
     }
 }
 
+#scoreBox {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 16px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 1.2em;
+}
+
         #cp-overlay {
             position: fixed;
             top: 0;

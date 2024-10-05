@@ -245,7 +245,7 @@
          <div class="thumbnail">
             <i class="fas fa-file-alt"></i>
             <h3>Random Worksheet for Self-practice</h3>
-            <a id="worksheet" href="#">Practice Now</a>
+            <a id="worksheet" href="https://sourabhsuneja.github.io/question-paper/random/">Practice Now</a>
          </div>
          <!-- Examination Blueprint -->
          <div class="thumbnail">
@@ -362,7 +362,7 @@
          
          // Update hrefs based on grade
          document.getElementById('classwork').href = linksByGrade[validGrade].classwork;
-         document.getElementById('worksheet').href = linksByGrade[validGrade].worksheet;
+         document.getElementById('worksheet').href += "class-" + validGrade + "/";
          document.getElementById('blueprint').href = linksByGrade[validGrade].blueprint;
          document.getElementById('quiz').href = linksByGrade[validGrade].quiz;
          document.getElementById('word-scramble').href = linksByGrade[validGrade].wordScramble;

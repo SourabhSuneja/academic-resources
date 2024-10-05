@@ -43,7 +43,7 @@ switch (validGrade) {
   {
     name: "What is Data Visualisation?",
     artist: "By Sourabh Sir",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Microsoft_Excel_2013-2019_logo.svg/1200px-Microsoft_Excel_2013-2019_logo.svg.png",
+    image: "https://sourabhsuneja.github.io/academic-resources/images/music-icon.png",
     path: "https://sourabhsuneja.github.io/academic-resources/class-8/audio/ch-3-data-visualisation-intro.mp3"
   },
 

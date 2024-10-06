@@ -463,7 +463,7 @@ document.querySelectorAll('.grade-attached a').forEach(a => {
       // Check if href is either blank or "#"
       if (hrefValue === "" || hrefValue === "#") {
         event.preventDefault(); // Prevent the default action
-        await customAlert('Nothing new here... yet! Stay tuned and check back soon for some fresh goodies!', 'green'); // show custom alert
+        await customAlert('Nothing new here... yet! Stay tuned and check back soon for some fresh goodies!', 'red'); // show custom alert
       }
     });
   });

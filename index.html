@@ -448,7 +448,8 @@
          document.getElementById('classwork').href = linksByGrade[validGrade].classwork;
 
 const worksheetLink = document.getElementById('worksheet');
-if(worksheetLink.href !== '' && worksheetLink.href !== '#') {
+const worksheetHrefValue = worksheetLink.getAttribute('href');
+if(worksheetHrefValue !== '' && worksheetHrefValue !== '#') {
 
 worksheetLink.href += "class-" + validGrade + "/";
 }
@@ -456,7 +457,8 @@ worksheetLink.href += "class-" + validGrade + "/";
 
 // Iterate through links where grade is to suffixed and append the grade to the href of such elements
 document.querySelectorAll('.grade-attached a').forEach(a => {
-  if(a.href !== '' && a.href !== '#') {
+  const hrefValue = a.getAttribute('href');
+  if(hrefValue !== '' && hrefValue !== '#') {
     a.href += '?grade=' + validGrade;
   }
 });
@@ -569,7 +571,8 @@ document.querySelectorAll('.grade-attached a').forEach(a => {
          document.querySelectorAll('.thumbnail:not(.no-link)').forEach(div => {
          div.addEventListener('click', function() {
          const link = this.querySelector('a');
-         if (link && link.href !== '' && link.href !== '#') {
+         const hrefValue = link.getAttribute('href');
+         if (link && hrefValue !== '' && hrefValue !== '#') {
              window.location.href = link.href;
          }
          });

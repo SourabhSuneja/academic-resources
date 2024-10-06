@@ -641,6 +641,36 @@ document.querySelectorAll('.grade-attached a').forEach(a => {
          closeWordCardButton.addEventListener('click', () => {
          wordCard.style.display = 'none';
          });
+
+// function to create a custom alert
+function customAlert(message, color) {
+   return new Promise((resolve) => {
+      const alertBox = document.getElementById('customAlertBox');
+      const alertMessage = document.getElementById('alertMessage');
+      const okButton = document.getElementById('alertOkBtn');
+
+      // Set the message text
+      alertMessage.textContent = message;
+
+      // Apply the color class (remove old and add new)
+      alertBox.classList.remove('red-background', 'green-background');
+      if (color === 'red') {
+         alertBox.classList.add('red-background');
+      } else if (color === 'green') {
+         alertBox.classList.add('green-background');
+      }
+
+      // Show the alert box
+      alertBox.style.display = 'flex';
+
+      // Handle the Ok button click
+      okButton.onclick = () => {
+         alertBox.style.display = 'none'; // Hide the alert box
+         resolve(); // Resolve the promise
+      };
+   });
+}
+
       </script>
    </body>
 </html>

@@ -371,10 +371,23 @@
  document.getElementById('worksheet').href += "class-" + validGrade + "/";
          document.getElementById('quiz').href = linksByGrade[validGrade].quiz;
 
-// Iterate through links where grade is to attached and append the grade to the href of such elements
+// Iterate through links where grade is to suffixed and append the grade to the href of such elements
 document.querySelectorAll('.grade-attached a').forEach(a => {
-  a.href += '?grade=' + validGrade;
+  if(a.href !== '' && a.href !== '#') {
+    a.href += '?grade=' + validGrade;
+  }
 });
+
+  // Add event listener to all links and prevent navigation on those with a blank href attribute
+  document.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      const hrefValue = link.getAttribute('href');
+      // Check if href is either blank or "#"
+      if (hrefValue === "" || hrefValue === "#") {
+        event.preventDefault(); // Prevent the default action
+      }
+    });
+  });
       </script>
       <script>
          // Global array to store knowledge boosters

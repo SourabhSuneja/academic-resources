@@ -472,7 +472,7 @@ document.querySelectorAll('.grade-attached a').forEach(a => {
          document.querySelectorAll('.thumbnail:not(.no-link)').forEach(div => {
          div.addEventListener('click', function() {
          const link = this.querySelector('a');
-         if (link) {
+         if (link && link.href !== '' && link.href !== '#') {
              window.location.href = link.href;
          }
          });

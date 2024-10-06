@@ -446,7 +446,12 @@
          
          // Update hrefs based on grade
          document.getElementById('classwork').href = linksByGrade[validGrade].classwork;
- document.getElementById('worksheet').href += "class-" + validGrade + "/";
+
+const worksheetLink = document.getElementById('worksheet');
+if(worksheetLink !== '' && worksheetLink !== '#') {
+
+worksheetLink.href += "class-" + validGrade + "/";
+}
          document.getElementById('quiz').href = linksByGrade[validGrade].quiz;
 
 // Iterate through links where grade is to suffixed and append the grade to the href of such elements

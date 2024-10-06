@@ -242,7 +242,7 @@
             <a id="classwork" href="#">View Work</a>
          </div>
 <!-- Audio Summaries of Chapters -->
-<div class="thumbnail">
+<div class="thumbnail grade-attached">
     <i class="fas fa-headphones"></i>
     <h3>Audio Summaries of Chapters</h3>
     <a id="audio-summaries" href="https://sourabhsuneja.github.io/academic-resources/music-player/">Listen Now</a>
@@ -254,7 +254,7 @@
             <a id="worksheet" href="https://sourabhsuneja.github.io/question-paper/random/">Practice Now</a>
          </div>
          <!-- Examination Blueprint -->
-         <div class="thumbnail">
+         <div class="thumbnail grade-attached">
             <i class="fas fa-clipboard-list"></i>
             <h3>Term-1 Examination Blueprint</h3>
             <a id="blueprint" href="https://sourabhsuneja.github.io/academic-resources/blueprint.html">View Blueprint</a>
@@ -266,19 +266,19 @@
             <a id="quiz" href="#">Take Quiz</a>
          </div>
          <!-- Word Scramble -->
-         <div class="thumbnail">
+         <div class="thumbnail grade-attached">
             <i class="fas fa-keyboard"></i>
             <h3>Word Scramble</h3>
             <a id="word-scramble" href="https://sourabhsuneja.github.io/academic-resources/games/word-scramble/">Play Now</a>
          </div>
          <!-- Recommended Videos -->
-         <div class="thumbnail">
+         <div class="thumbnail grade-attached">
             <i class="fas fa-video"></i>
             <h3>Recommended Videos</h3>
             <a id="videos" href="https://sourabhsuneja.github.io/academic-resources/videos.html">Watch Videos</a>
          </div>
          <!-- Glossary -->
-         <div class="thumbnail">
+         <div class="thumbnail grade-attached">
             <i class="fas fa-columns"></i>
             <h3>Glossary of Terms</h3>
             <a id="glossary" href="https://sourabhsuneja.github.io/academic-resources/glossary.html">View Key Terms</a>
@@ -296,19 +296,19 @@
             <a>Learn a New English Word</a>
          </div>
          <!-- Hangman Word Game -->
-         <div class="thumbnail">
+         <div class="thumbnail grade-attached">
             <i class="fas fa-child"></i>
             <h3>Hangman Word Game</h3>
             <a id="hangman" href="https://sourabhsuneja.github.io/academic-resources/games/hangman-game/">Play Now</a>
          </div>
          <!-- Snake Game Thumbnail -->
-         <div class="thumbnail">
+         <div class="thumbnail grade-attached">
             <i class="fas fa-gamepad"></i>
             <h3>Snake Game With MCQ Test</h3>
             <a id="snakeGame" href="https://sourabhsuneja.github.io/academic-resources/games/snake-game/">Play Now</a>
          </div>
          <!-- Crossy Road Game Thumbnail -->
-         <div class="thumbnail">
+         <div class="thumbnail grade-attached">
             <i class="fas fa-road"></i>
             <h3>Crossy Road Game With Trivia</h3>
             <a id="crossyRoadGame" href="https://sourabhsuneja.github.io/academic-resources/games/crossy-road/">Play Now</a>
@@ -320,7 +320,7 @@
             <a id="flashcardMemoryGame" href="https://sourabhsuneja.github.io/academic-resources/games/flashcard/">Play & Improve Memory</a>
          </div>
          <!-- Star Students -->
-         <div class="thumbnail">
+         <div class="thumbnail grade-attached">
             <i class="fas fa-star"></i>
             <h3>Star Students</h3>
             <a id="star-students" href="https://sourabhsuneja.github.io/academic-resources/star-students.html">View List</a>
@@ -368,18 +368,13 @@
          
          // Update hrefs based on grade
          document.getElementById('classwork').href = linksByGrade[validGrade].classwork;
-
-document.getElementById('audio-summaries').href += '?grade=' + validGrade;
-         document.getElementById('worksheet').href += "class-" + validGrade + "/";
-         document.getElementById('blueprint').href += '?grade=' + validGrade;
+ document.getElementById('worksheet').href += "class-" + validGrade + "/";
          document.getElementById('quiz').href = linksByGrade[validGrade].quiz;
-         document.getElementById('word-scramble').href += '?grade=' + validGrade;
-         document.getElementById('videos').href += '?grade=' + validGrade;
-         document.getElementById('glossary').href += '?grade=' + validGrade;
-         document.getElementById('snakeGame').href += '?grade=' + validGrade;
-         document.getElementById('hangman').href += '?grade=' + validGrade;        
-         document.getElementById('crossyRoadGame').href += '?grade=' + validGrade;
-         document.getElementById('star-students').href += '?grade=' + validGrade;
+
+// Iterate through links where grade is to attached and append the grade to the href of such elements
+document.querySelectorAll('.grade-attached a').forEach(a => {
+  a.href += '?grade=' + validGrade;
+});
       </script>
       <script>
          // Global array to store knowledge boosters

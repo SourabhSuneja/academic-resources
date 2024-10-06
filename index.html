@@ -574,6 +574,8 @@ document.querySelectorAll('.grade-attached a').forEach(a => {
          const hrefValue = link.getAttribute('href');
          if (link && hrefValue !== '' && hrefValue !== '#') {
              window.location.href = link.href;
+         } else {
+             link.click();
          }
          });
          });

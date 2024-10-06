@@ -448,7 +448,7 @@
          document.getElementById('classwork').href = linksByGrade[validGrade].classwork;
 
 const worksheetLink = document.getElementById('worksheet');
-if(worksheetLink !== '' && worksheetLink !== '#') {
+if(worksheetLink.href !== '' && worksheetLink.href !== '#') {
 
 worksheetLink.href += "class-" + validGrade + "/";
 }

@@ -225,77 +225,69 @@
          .word-card button:hover {
          background-color: #45a049;
          }
-
-/* Full-screen alert overlay with fade-in effect */
-#customAlertBox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-/* Centered alert content box */
-#alertContent {
-  background-color: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); 
-  text-align: center;
-  max-width: 340px;
-  width: 90%; 
-  animation: fadeInAlert 0.4s ease-in;
-  transform: translateY(-10px);
-}
-
-/* Alert message text */
-#alertMessage {
-  font-size: 20px;
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Styling for the OK button */
-#alertOkBtn {
-  padding: 10px 20px;
-  background-color: #007bff;
-  border: none;
-  border-radius: 25px;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-/* Button hover effect */
-#alertOkBtn:hover {
-  background-color: #0056b3;
-}
-
-/* Red and green background styles for the alert */
-.red-background #alertContent {
-  border-left: 8px solid red;
-}
-
-.green-background #alertContent {
-  border-left: 8px solid green;
-}
-
-/* Fade-in effect for the alert overlay */
-@keyframes fadeInAlert {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+         /* Full-screen alert overlay with fade-in effect */
+         #customAlertBox {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(0, 0, 0, 0.6);
+         display: none;
+         justify-content: center;
+         align-items: center;
+         z-index: 1000;
+         }
+         /* Centered alert content box */
+         #alertContent {
+         background-color: white;
+         padding: 30px;
+         border-radius: 12px;
+         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); 
+         text-align: center;
+         max-width: 340px;
+         width: 90%; 
+         animation: fadeInAlert 0.4s ease-in;
+         transform: translateY(-10px);
+         }
+         /* Alert message text */
+         #alertMessage {
+         font-size: 20px;
+         font-weight: 500;
+         color: #333;
+         margin-bottom: 20px;
+         }
+         /* Styling for the OK button */
+         #alertOkBtn {
+         padding: 10px 20px;
+         background-color: #007bff;
+         border: none;
+         border-radius: 25px;
+         color: white;
+         font-size: 16px;
+         cursor: pointer;
+         transition: background-color 0.2s ease;
+         }
+         /* Button hover effect */
+         #alertOkBtn:hover {
+         background-color: #0056b3;
+         }
+         /* Red and green background styles for the alert */
+         .red-background #alertContent {
+         border-left: 8px solid red;
+         }
+         .green-background #alertContent {
+         border-left: 8px solid green;
+         }
+         /* Fade-in effect for the alert overlay */
+         @keyframes fadeInAlert {
+         from {
+         opacity: 0;
+         }
+         to {
+         opacity: 1;
+         }
+         }
       </style>
    </head>
    <body>
@@ -312,12 +304,12 @@
             <h3>Complete Term-1 Book Work + Notebook Work</h3>
             <a id="classwork" href="#">View Work</a>
          </div>
-<!-- Audio Summaries of Chapters -->
-<div class="thumbnail grade-attached">
-    <i class="fas fa-headphones"></i>
-    <h3>Audio Summaries of Chapters</h3>
-    <a id="audio-summaries" href="https://sourabhsuneja.github.io/academic-resources/music-player/">Listen Now</a>
-</div>
+         <!-- Audio Summaries of Chapters -->
+         <div class="thumbnail grade-attached">
+            <i class="fas fa-headphones"></i>
+            <h3>Audio Summaries of Chapters</h3>
+            <a id="audio-summaries" href="https://sourabhsuneja.github.io/academic-resources/music-player/">Listen Now</a>
+         </div>
          <!-- Random Worksheet for Self-practice -->
          <div class="thumbnail">
             <i class="fas fa-file-alt"></i>
@@ -446,34 +438,34 @@
          
          // Update hrefs based on grade
          document.getElementById('classwork').href = linksByGrade[validGrade].classwork;
-
-const worksheetLink = document.getElementById('worksheet');
-const worksheetHrefValue = worksheetLink.getAttribute('href');
-if(worksheetHrefValue !== '' && worksheetHrefValue !== '#') {
-
-worksheetLink.href += "class-" + validGrade + "/";
-}
+         
+         const worksheetLink = document.getElementById('worksheet');
+         const worksheetHrefValue = worksheetLink.getAttribute('href');
+         if(worksheetHrefValue !== '' && worksheetHrefValue !== '#') {
+         
+         worksheetLink.href += "class-" + validGrade + "/";
+         }
          document.getElementById('quiz').href = linksByGrade[validGrade].quiz;
-
-// Iterate through links where grade is to suffixed and append the grade to the href of such elements
-document.querySelectorAll('.grade-attached a').forEach(a => {
-  const hrefValue = a.getAttribute('href');
-  if(hrefValue !== '' && hrefValue !== '#') {
-    a.href += '?grade=' + validGrade;
-  }
-});
-
-  // Add event listener to all links and prevent navigation on those with a blank href attribute
-  document.querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', async function(event) {
-      const hrefValue = link.getAttribute('href');
-      // Check if href is either blank or "#"
-      if (hrefValue === "" || hrefValue === "#") {
-        event.preventDefault(); // Prevent the default action
-        await customAlert('Nothing new here... yet! Stay tuned and check back soon for some fresh goodies!', 'red'); // show custom alert
-      }
-    });
-  });
+         
+         // Iterate through links where grade is to suffixed and append the grade to the href of such elements
+         document.querySelectorAll('.grade-attached a').forEach(a => {
+         const hrefValue = a.getAttribute('href');
+         if(hrefValue !== '' && hrefValue !== '#') {
+         a.href += '?grade=' + validGrade;
+         }
+         });
+         
+         // Add event listener to all links and prevent navigation on those with a blank href attribute
+         document.querySelectorAll('a').forEach(function(link) {
+         link.addEventListener('click', async function(event) {
+         const hrefValue = link.getAttribute('href');
+         // Check if href is either blank or "#"
+         if (hrefValue === "" || hrefValue === "#") {
+         event.preventDefault(); // Prevent the default action
+         await customAlert('Nothing new here... yet! Stay tuned and check back soon for some fresh goodies!', ''); // show custom alert
+         }
+         });
+         });
       </script>
       <script>
          // Global array to store knowledge boosters
@@ -652,36 +644,36 @@ document.querySelectorAll('.grade-attached a').forEach(a => {
          closeWordCardButton.addEventListener('click', () => {
          wordCard.style.display = 'none';
          });
-
-// function to create a custom alert
-function customAlert(message, color) {
-   return new Promise((resolve) => {
-      const alertBox = document.getElementById('customAlertBox');
-      const alertMessage = document.getElementById('alertMessage');
-      const okButton = document.getElementById('alertOkBtn');
-
-      // Set the message text
-      alertMessage.textContent = message;
-
-      // Apply the color class (remove old and add new)
-      alertBox.classList.remove('red-background', 'green-background');
-      if (color === 'red') {
+         
+         // function to create a custom alert
+         function customAlert(message, color) {
+         return new Promise((resolve) => {
+         const alertBox = document.getElementById('customAlertBox');
+         const alertMessage = document.getElementById('alertMessage');
+         const okButton = document.getElementById('alertOkBtn');
+         
+         // Set the message text
+         alertMessage.textContent = message;
+         
+         // Apply the color class (remove old and add new)
+         alertBox.classList.remove('red-background', 'green-background');
+         if (color === 'red') {
          alertBox.classList.add('red-background');
-      } else if (color === 'green') {
+         } else if (color === 'green') {
          alertBox.classList.add('green-background');
-      }
-
-      // Show the alert box
-      alertBox.style.display = 'flex';
-
-      // Handle the Ok button click
-      okButton.onclick = () => {
+         }
+         
+         // Show the alert box
+         alertBox.style.display = 'flex';
+         
+         // Handle the Ok button click
+         okButton.onclick = () => {
          alertBox.style.display = 'none'; // Hide the alert box
          resolve(); // Resolve the promise
-      };
-   });
-}
-
+         };
+         });
+         }
+         
       </script>
    </body>
 </html>

@@ -458,11 +458,12 @@ document.querySelectorAll('.grade-attached a').forEach(a => {
 
   // Add event listener to all links and prevent navigation on those with a blank href attribute
   document.querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', function(event) {
+    link.addEventListener('click', async function(event) {
       const hrefValue = link.getAttribute('href');
       // Check if href is either blank or "#"
       if (hrefValue === "" || hrefValue === "#") {
         event.preventDefault(); // Prevent the default action
+        await customAlert('Nothing new here... yet! Stay tuned and check back soon for some fresh goodies!', 'green'); // show custom alert
       }
     });
   });

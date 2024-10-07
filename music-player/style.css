@@ -43,6 +43,8 @@ body {
 
 .track-name {
   font-size: 1.8rem;
+  text-align: center;
+  margin: 8px;
 }
 
 .track-artist {

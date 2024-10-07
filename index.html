@@ -320,7 +320,7 @@
          <div class="thumbnail grade-attached">
             <i class="fas fa-clipboard-list"></i>
             <h3>Term-1 Examination Blueprint</h3>
-            <a id="blueprint" href="https://sourabhsuneja.github.io/academic-resources/blueprint.html">View Blueprint</a>
+            <a id="blueprint" href="" data-na-msg="Great job on completing your Term-1 Computer Exam! Take some time to relax and enjoy until the next exam comes around.">View Blueprint</a>
          </div>
          <!-- Quiz for Self-practice -->
          <div class="thumbnail">
@@ -462,7 +462,8 @@
          // Check if href is either blank or "#"
          if (hrefValue === "" || hrefValue === "#") {
          event.preventDefault(); // Prevent the default action
-         await customAlert('Nothing new here... yet! Stay tuned and check back soon for some fresh goodies!', ''); // show custom alert
+         const message = this.getAttribute("data-na-msg") || 'Nothing new here... yet! Stay tuned and check back soon for some fresh goodies!';
+         await customAlert(message, ''); // show custom alert
          }
          });
          });

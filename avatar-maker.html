@@ -1,241 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Create your personalized avatar and express yourself in fun and unique ways. Join us for an exciting avatar-making experience tailored just for you!" />
-  <title>Fun Avatar Creator</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      max-height: 9999999px;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #000428, #004e92);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 900px;
-      width: 100%;
-      background: #fff;
-      border-radius: 10px;
-      padding: 30px;
-      color: #333;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: #004e92;
-    }
-
-    #avatar-preview {
-      width: 250px;
-      height: 250px;
-      margin: 20px auto;
-      border-radius: 50%;
-      border: 5px solid #004e92;
-    }
-
-    select, button {
-      padding: 10px;
-      margin: 10px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    select {
-      background: #f1f1f1;
-      color: #333;
-      width: 180px;
-      max-width: 100%;
-    }
-
-    button {
-      background-color: #004e92;
-      color: white;
-      min-width: 180px;
-      border-radius: 25px;
-      padding: 12px;
-    }
-
-    button:hover {
-      background-color: #002d63;
-    }
-
-    .customize-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .button-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
-    }
-
-    #download-avatar {
-      margin-top: 10px;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .container {
-        padding: 20px;
-      }
-
-      select {
-        width: 100%;
-      }
-
-      .customize-container {
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Create Your Avatar</h1>
-
-    <div id="avatar-preview">
-      <img id="avatar" src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortCurly&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Light" alt="Avatar" width="100%" height="100%">
-    </div>
-
-    <div class="customize-container">
-      <div>
-        <label for="topType">Hair Style:</label>
-        <select id="topType">
-          <option value="ShortHairShortCurly">Short Curly</option>
-          <option value="ShortHairDreads01">Dreads</option>
-          <option value="LongHairCurly">Long Curly</option>
-          <option value="Hijab">Hijab</option>
-          <option value="Hat">Hat</option>
-        </select>
+   <head>
+      <!-- Google tag -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF1MCK0B9Y"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-QF1MCK0B9Y');
+      </script>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Create your personalized avatar and express yourself in fun and unique ways. Join us for an exciting avatar-making experience tailored just for you!" />
+      <title>Fun Avatar Creator</title>
+      <style>
+         * {
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+         max-height: 9999999px;
+         }
+         body {
+         font-family: 'Poppins', sans-serif;
+         background: linear-gradient(to right, #000428, #004e92);
+         color: #fff;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         min-height: 100vh;
+         padding: 20px;
+         }
+         .container {
+         max-width: 900px;
+         width: 100%;
+         background: #fff;
+         border-radius: 10px;
+         padding: 30px;
+         color: #333;
+         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+         text-align: center;
+         }
+         h1 {
+         font-size: 2.5rem;
+         margin-bottom: 20px;
+         color: #004e92;
+         }
+         #avatar-preview {
+         width: 250px;
+         height: 250px;
+         margin: 20px auto;
+         border-radius: 50%;
+         border: 5px solid #004e92;
+         }
+         select, button {
+         padding: 10px;
+         margin: 10px;
+         border: none;
+         border-radius: 5px;
+         font-size: 1rem;
+         cursor: pointer;
+         }
+         select {
+         background: #f1f1f1;
+         color: #333;
+         width: 180px;
+         max-width: 100%;
+         }
+         button {
+         background-color: #004e92;
+         color: white;
+         min-width: 180px;
+         border-radius: 25px;
+         padding: 12px;
+         }
+         button:hover {
+         background-color: #002d63;
+         }
+         .customize-container {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: space-between;
+         gap: 15px;
+         }
+         .button-container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top: 20px;
+         }
+         #download-avatar {
+         margin-top: 10px;
+         }
+         @media (max-width: 768px) {
+         h1 {
+         font-size: 2rem;
+         }
+         .container {
+         padding: 20px;
+         }
+         select {
+         width: 100%;
+         }
+         .customize-container {
+         flex-direction: column;
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <h1>Create Your Avatar</h1>
+         <div id="avatar-preview">
+            <img id="avatar" src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortCurly&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Happy&eyebrowType=Default&mouthType=Smile&skinColor=Light" alt="Avatar" width="100%" height="100%">
+         </div>
+         <div class="customize-container">
+            <div>
+               <label for="topType">Hair Style:</label>
+               <select id="topType">
+                  <option value="ShortHairShortCurly">Short Curly</option>
+                  <option value="ShortHairDreads01">Dreads</option>
+                  <option value="LongHairCurly">Long Curly</option>
+                  <option value="Hijab">Hijab</option>
+                  <option value="Hat">Hat</option>
+               </select>
+            </div>
+            <div>
+               <label for="hairColor">Hair Color:</label>
+               <select id="hairColor">
+                  <option value="BrownDark">Dark Brown</option>
+                  <option value="Blonde">Blonde</option>
+                  <option value="Black">Black</option>
+                  <option value="Red">Red</option>
+                  <option value="SilverGray">Silver Gray</option>
+               </select>
+            </div>
+            <div>
+               <label for="clotheType">Clothing:</label>
+               <select id="clotheType">
+                  <option value="BlazerSweater">Blazer & Sweater</option>
+                  <option value="ShirtCrewNeck">Crew Neck Shirt</option>
+                  <option value="Hoodie">Hoodie</option>
+                  <option value="ShirtScoopNeck">Scoop Neck Shirt</option>
+               </select>
+            </div>
+            <div>
+               <label for="eyeType">Eye Type:</label>
+               <select id="eyeType">
+                  <option value="Happy">Happy</option>
+                  <option value="Surprised">Surprised</option>
+                  <option value="Squint">Squint</option>
+                  <option value="Wink">Wink</option>
+               </select>
+            </div>
+            <div>
+               <label for="mouthType">Mouth Type:</label>
+               <select id="mouthType">
+                  <option value="Smile">Smile</option>
+                  <option value="Grimace">Grimace</option>
+                  <option value="Serious">Serious</option>
+                  <option value="ScreamOpen">Scream Open</option>
+               </select>
+            </div>
+            <div>
+               <label for="skinColor">Skin Color:</label>
+               <select id="skinColor">
+                  <option value="Light">Light</option>
+                  <option value="Tanned">Tanned</option>
+                  <option value="Pale">Pale</option>
+                  <option value="Brown">Brown</option>
+                  <option value="DarkBrown">Dark Brown</option>
+               </select>
+            </div>
+            <!-- Added new customization options -->
+            <div>
+               <label for="facialHairType">Facial Hair:</label>
+               <select id="facialHairType">
+                  <option value="Blank">None</option>
+                  <option value="BeardLight">Light Beard</option>
+                  <option value="MoustacheFancy">Fancy Moustache</option>
+                  <option value="BeardMajestic">Majestic Beard</option>
+               </select>
+            </div>
+            <div>
+               <label for="accessoriesType">Accessories:</label>
+               <select id="accessoriesType">
+                  <option value="Blank">None</option>
+                  <option value="Kurt">Glasses</option>
+                  <option value="Round">Round Glasses</option>
+                  <option value="Sunglasses">Sunglasses</option>
+               </select>
+            </div>
+         </div>
+         <div class="button-container">
+            <button id="generate-avatar">Generate Avatar</button>
+         </div>
       </div>
-
-      <div>
-        <label for="hairColor">Hair Color:</label>
-        <select id="hairColor">
-          <option value="BrownDark">Dark Brown</option>
-          <option value="Blonde">Blonde</option>
-          <option value="Black">Black</option>
-          <option value="Red">Red</option>
-          <option value="SilverGray">Silver Gray</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="clotheType">Clothing:</label>
-        <select id="clotheType">
-          <option value="BlazerSweater">Blazer & Sweater</option>
-          <option value="ShirtCrewNeck">Crew Neck Shirt</option>
-          <option value="Hoodie">Hoodie</option>
-          <option value="ShirtScoopNeck">Scoop Neck Shirt</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="eyeType">Eye Type:</label>
-        <select id="eyeType">
-          <option value="Happy">Happy</option>
-          <option value="Surprised">Surprised</option>
-          <option value="Squint">Squint</option>
-          <option value="Wink">Wink</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="mouthType">Mouth Type:</label>
-        <select id="mouthType">
-          <option value="Smile">Smile</option>
-          <option value="Grimace">Grimace</option>
-          <option value="Serious">Serious</option>
-          <option value="ScreamOpen">Scream Open</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="skinColor">Skin Color:</label>
-        <select id="skinColor">
-          <option value="Light">Light</option>
-          <option value="Tanned">Tanned</option>
-          <option value="Pale">Pale</option>
-          <option value="Brown">Brown</option>
-          <option value="DarkBrown">Dark Brown</option>
-        </select>
-      </div>
-
-      <!-- Added new customization options -->
-      <div>
-        <label for="facialHairType">Facial Hair:</label>
-        <select id="facialHairType">
-          <option value="Blank">None</option>
-          <option value="BeardLight">Light Beard</option>
-          <option value="MoustacheFancy">Fancy Moustache</option>
-          <option value="BeardMajestic">Majestic Beard</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="accessoriesType">Accessories:</label>
-        <select id="accessoriesType">
-          <option value="Blank">None</option>
-          <option value="Kurt">Glasses</option>
-          <option value="Round">Round Glasses</option>
-          <option value="Sunglasses">Sunglasses</option>
-        </select>
-      </div>
-
-    </div>
-
-    <div class="button-container">
-      <button id="generate-avatar">Generate Avatar</button>
-    </div>
-  </div>
-
-  <script>
-    const avatarImage = document.getElementById('avatar');
-    const topType = document.getElementById('topType');
-    const hairColor = document.getElementById('hairColor');
-    const clotheType = document.getElementById('clotheType');
-    const eyeType = document.getElementById('eyeType');
-    const mouthType = document.getElementById('mouthType');
-    const skinColor = document.getElementById('skinColor');
-    const facialHairType = document.getElementById('facialHairType');
-    const accessoriesType = document.getElementById('accessoriesType');
-    const generateButton = document.getElementById('generate-avatar');
-
-    function updateAvatar() {
-      const avatarUrl = `https://avataaars.io/?avatarStyle=Circle&topType=${topType.value}&hairColor=${hairColor.value}&clotheType=${clotheType.value}&eyeType=${eyeType.value}&mouthType=${mouthType.value}&skinColor=${skinColor.value}&facialHairType=${facialHairType.value}&accessoriesType=${accessoriesType.value}`;
-      avatarImage.src = avatarUrl;
-
-      // Scroll to top after generating avatar
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-
-    generateButton.addEventListener('click', updateAvatar);
-  </script>
-</body>
+      <script>
+         const avatarImage = document.getElementById('avatar');
+         const topType = document.getElementById('topType');
+         const hairColor = document.getElementById('hairColor');
+         const clotheType = document.getElementById('clotheType');
+         const eyeType = document.getElementById('eyeType');
+         const mouthType = document.getElementById('mouthType');
+         const skinColor = document.getElementById('skinColor');
+         const facialHairType = document.getElementById('facialHairType');
+         const accessoriesType = document.getElementById('accessoriesType');
+         const generateButton = document.getElementById('generate-avatar');
+         
+         function updateAvatar() {
+           const avatarUrl = `https://avataaars.io/?avatarStyle=Circle&topType=${topType.value}&hairColor=${hairColor.value}&clotheType=${clotheType.value}&eyeType=${eyeType.value}&mouthType=${mouthType.value}&skinColor=${skinColor.value}&facialHairType=${facialHairType.value}&accessoriesType=${accessoriesType.value}`;
+           avatarImage.src = avatarUrl;
+         
+           // Scroll to top after generating avatar
+           window.scrollTo({ top: 0, behavior: 'smooth' });
+         }
+         
+         
+         generateButton.addEventListener('click', updateAvatar);
+      </script>
+   </body>
 </html>

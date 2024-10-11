@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Stay updated with the latest live news headlines from India, covering breaking news, current events, politics, business, technology, and more.">
+      <title>Live News Headlines</title>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      <style>
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         max-height: 99999999px;
+         }
+         body {
+         font-family: 'Poppins', sans-serif;
+         background: linear-gradient(135deg, #f0f4f8, #fff);
+         color: #333;
+         padding: 20px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         min-height: 100vh;
+         }
+         header {
+         text-align: center;
+         margin-bottom: 40px;
+         }
+         h1 {
+         font-size: 2rem;
+         color: #004e92;
+         font-weight: 700;
+         letter-spacing: 2px;
+         margin-bottom: 10px;
+         }
+         p {
+         font-size: 1.3rem;
+         color: #555;
+         font-weight: 300;
+         }
+         #loading {
+         font-size: 1.5rem;
+         color: #004e92;
+         margin-top: 40px;
+         display: none; /* Initially hidden */
+         }
+         #news-container {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+         gap: 20px;
+         width: 100%;
+         max-width: 1200px;
+         opacity: 0;
+         transform: translateY(30px);
+         transition: opacity 0.5s ease, transform 0.5s ease;
+         }
+         .news-item {
+         background: #fff;
+         padding: 25px;
+         border-radius: 12px;
+         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+         transition: transform 0.4s ease, box-shadow 0.4s ease;
+         position: relative;
+         overflow: hidden;
+         }
+         .news-item:hover {
+         transform: translateY(-8px);
+         box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+         }
+         .news-title {
+         font-size: 1.4rem;
+         color: #004e92;
+         margin-bottom: 10px;
+         font-weight: 600;
+         }
+         .news-date {
+         font-size: 0.9rem;
+         color: #777;
+         margin-bottom: 10px;
+         }
+         .news-description {
+         font-size: 1rem;
+         color: #666;
+         margin-bottom: 40px;
+         }
+         .news-link {
+         text-decoration: none;
+         color: #004e92;
+         font-weight: 600;
+         position: absolute;
+         bottom: 20px;
+         right: 20px;
+         background-color: #004e92;
+         color: #fff;
+         padding: 8px 16px;
+         border-radius: 20px;
+         transition: background-color 0.3s ease, box-shadow 0.3s ease;
+         }
+         .news-link:hover {
+         background-color: #003366;
+         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+         }
+         footer {
+         text-align: center;
+         margin-top: 40px;
+         padding: 20px 0;
+         background-color: #f9f9f9;
+         border-radius: 8px;
+         width: 100%;
+         }
+         footer p {
+         font-size: 1rem;
+         color: #777;
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <h1>Live News Headlines</h1>
+         <p>Stay updated with the latest news from India</p>
+      </header>
+      <div id="loading">Loading...</div>
+      <!-- Loading message -->
+      <main id="news-container">
+         <!-- News articles will be dynamically inserted here -->
+      </main>
+      <footer>
+         <p>News Courtesy: The Hindu | All items have been fetched from The Hindu RSS feeds.</p>
+      </footer>
+      <script>
+         document.addEventListener('DOMContentLoaded', function() {
+           const newsContainer = document.getElementById('news-container');
+           const loadingElement = document.getElementById('loading');
+         
+           // Function to show loading message
+           function showLoading() {
+             loadingElement.style.display = 'block';
+             newsContainer.style.opacity = '0';
+           }
+         
+           // Function to hide loading message and show news
+           function hideLoading() {
+             loadingElement.style.display = 'none';
+             newsContainer.style.opacity = '1';
+             newsContainer.style.transform = 'translateY(0)';
+           }
+         
+           // Function to fetch news from The Hindu RSS feed
+           function fetchNews() {
+             showLoading(); // Show loading while fetching
+         
+             const proxy = 'https://api.allorigins.win/get?url=';
+             const rssUrl = 'https%3A%2F%2Fwww.thehindu.com%2Fnews%2Fnational%2Ffeeder%2Fdefault.rss'; // The Hindu RSS URL
+         
+             fetch(`${proxy}${rssUrl}`)
+               .then(response => {
+                 if (!response.ok) {
+                   throw new Error('Failed to fetch news.');
+                 }
+                 return response.json();
+               })
+               .then(data => {
+                 const parser = new DOMParser();
+                 const rssDocument = parser.parseFromString(data.contents, "application/xml");
+                 const items = rssDocument.querySelectorAll("item");
+         
+                 items.forEach(item => {
+                   const title = item.querySelector("title").textContent;
+                   const description = item.querySelector("description").textContent;
+                   const link = item.querySelector("link").textContent;
+                   const pubDate = item.querySelector("pubDate").textContent;
+         
+                   const newsItem = document.createElement('div');
+                   newsItem.classList.add('news-item');
+         
+                   newsItem.innerHTML = `
+                     <h2 class="news-title">${title}</h2>
+                     <p class="news-date">${new Date(pubDate).toLocaleDateString()}</p>
+                     <p class="news-description">${description.substring(0, 150)}...</p>
+                     <a href="${link}" class="news-link" target="_blank">Read more</a>
+                   `;
+         
+                   newsContainer.appendChild(newsItem);
+                 });
+         
+                 hideLoading(); // Hide loading once news is loaded
+               })
+               .catch(error => {
+                 console.error('Error fetching news:', error);
+                 newsContainer.innerHTML = `<p>Sorry, we couldn't fetch the news at this time. Please try again later.</p>`;
+                 hideLoading(); // Hide loading even if there's an error
+               });
+           }
+         
+           // Call the fetchNews function on page load
+           fetchNews();
+         });
+           
+      </script>
+   </body>
+</html>

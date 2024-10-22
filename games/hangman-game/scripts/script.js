@@ -1,4 +1,4 @@
-// Function to fetch data from all 7 JSON files
+// Function to fetch data from all JSON files
 async function fetchWords() {
     const jsonFiles = [
         'data1.json', 'data2.json', 'data3.json', 'data4.json',

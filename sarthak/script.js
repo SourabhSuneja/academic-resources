@@ -21,7 +21,7 @@ async function sendMessage(event) {
             response = formatResponse(response);
          } catch (error) {
             // Handle error by setting default response
-            response = "I couldn't generate a response for this. You may have violated the terms and conditions of use.";
+            response = "I couldn't create a response for this. It may go against the terms and conditions of use.";
          } finally {
             // Hide Typing Animation
             hideTypingIndicator();

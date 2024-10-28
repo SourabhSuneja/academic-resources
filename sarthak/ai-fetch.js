@@ -1,7 +1,7 @@
 window.fetchResponse = function(prompt) {
     return new Promise((resolve, reject) => {
         const callbackName = `jsonpCallback_${Date.now()}`;
-        const url = `https://node-app-dc4.pages.dev/sarthak?prompt=${encodeURIComponent(prompt)}&callback=${callbackName}`;
+        const url = `https://cloudflare-serverless.pages.dev/sarthak?prompt=${encodeURIComponent(prompt)}&callback=${callbackName}`;
         
         // Create a script element to fetch the data
         const script = document.createElement('script');

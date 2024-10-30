@@ -1,0 +1,20 @@
+Cell
+A single box in an Excel worksheet where you can enter data.
+
+Worksheet
+A single page or sheet in Excel containing rows and columns for data.
+
+Workbook
+A file in Excel containing one or more worksheets.
+
+Excel
+A software program by Microsoft used for creating spreadsheets.
+
+Formula
+An expression in Excel used to perform calculations on data. For example: =A1+A2
+
+Row
+A horizontal line of cells in a worksheet, labeled by numbers.
+
+Column
+A vertical line of cells in a worksheet, labeled by letters.

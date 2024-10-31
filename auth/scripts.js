@@ -118,7 +118,7 @@ async function signInWithGoogle() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: 'https://sourabhsuneja.github.io/academic-resources/sarthak/'
+      redirectTo: 'https://sourabhsuneja.github.io/academic-resources/auth/'
     }
   });
 

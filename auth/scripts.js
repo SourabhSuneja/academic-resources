@@ -80,7 +80,7 @@ async function checkAuth() {
       signInWithGoogle();
     }
   } catch (error) {
-    alert("Authentication error:", error);
+    showSignUpForm();
   }
 }
 

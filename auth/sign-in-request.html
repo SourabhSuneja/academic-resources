@@ -98,8 +98,8 @@
          const { data: { session } } = await supabase.auth.getSession();
          
          // Check if a valid session exists
-         if (session) {
-         // user is already logged in, redirect to main auth page
+         if (session && session.user) {
+         // session token present, redirect to main auth page
          redirectToAuth();
          }
          }

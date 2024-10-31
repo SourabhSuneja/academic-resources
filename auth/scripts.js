@@ -67,7 +67,7 @@ const signUpSuccessMessage = document.getElementById('signup-success-message');
       if (session) {
         // User is signed in, fetch the user data
         const userId = session.user.id;
-        const userName = fetchUserData(userId, 'students'));
+        const userName = fetchUserData(userId, 'students');
         alert(userName);
         document.getElementById('authentication-happening').innerHTML = '<i class="fas white fa-check-circle"></i> Verified';
       } else {

@@ -86,7 +86,7 @@ const signUpSuccessMessage = document.getElementById('signup-success-message');
       .single()
       .then(({ data: user, error }) => {
         if (error) {
-          renderErrorMessage(`Error fetching user data: ${error.message}`);
+          alert(`Error fetching user data: ${error.message}`);
         } else {
           alert(user['name']);
           return user['name'];

@@ -54,7 +54,7 @@ async function checkAuth() {
          }
       } = await supabase.auth.getSession();
 
-      if (session) {
+      if (session && session.user) {
          // User is signed in, fetch the user data
          userId = session.user.id;
 
@@ -111,6 +111,10 @@ function signUp(name, userClass, section) {
          error: insertError
       }) => {
          if (insertError) {
+            let msg = insertError.message;
+            if (msg.startsWith('duplicate')) {
+               msg = 'An account with this name already exists.';
+            }
             renderErrorMessage('signup', insertError.message);
          } else {
             renderSuccessMessage('signup', 'Account created successfully!');

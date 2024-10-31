@@ -5,6 +5,37 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
   const supabase = createClient(supabaseUrl, supabaseKey);
 
 
+// initialize session if tokens are present in the URL
+async function initializeSupabaseSession() {
+  // Parse the URL to check for access and refresh tokens
+  const url = new URL(window.location.href);
+  const accessToken = url.searchParams.get('access_token');
+  const refreshToken = url.searchParams.get('refresh_token');
+  
+  // If tokens are present in the URL, set the session
+  if (accessToken && refreshToken) {
+    try {
+      // Set the session with the provided tokens
+      await supabase.auth.setSession({
+        access_token: accessToken,
+        refresh_token: refreshToken,
+      });
+
+      
+
+      // Remove tokens from the URL for a cleaner look
+      window.history.replaceState({}, document.title, window.location.pathname);
+    } catch (error) {
+      console.error("Error initializing Supabase session:", error);
+    }
+  } else {
+    //console.log("No tokens found in URL parameters.");
+  }
+}
+
+initializeSupabaseSession();
+
+
 // Select form components to be frequently manipulated
 const signInBtn = document.getElementById('sign-in-btn');
 const signUpBtn = document.getElementById('sign-up-btn');

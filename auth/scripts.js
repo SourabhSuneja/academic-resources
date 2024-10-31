@@ -46,7 +46,6 @@ const signUpSuccessMessage = document.getElementById('signup-success-message');
 
  // Function to check authentication status
 async function checkAuth() {
-  showSignUpForm(); return;
   try {
     const { data: { session } } = await supabase.auth.getSession();
     

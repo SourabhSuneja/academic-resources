@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Sign In Request</title>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+      <style>
+         * {
+         box-sizing: border-box;
+         max-height: 9999999px;
+         }
+         body {
+         font-family: 'Poppins', sans-serif;
+         background: linear-gradient(135deg, #004e92, #000428);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         margin: 0;
+         }
+         .container {
+         background-color: white;
+         border-radius: 12px;
+         padding: 40px 30px;
+         max-width: 600px;
+         max-height: 90vh;
+         overflow-y: scroll;
+         width: 97%;
+         text-align: center;
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+         }
+         h1 {
+         color: #004e92;
+         font-weight: 600;
+         margin-bottom: 20px;
+         }
+         ul {
+         text-align: left;
+         margin: 0 auto;
+         padding: 0;
+         list-style: none;
+         font-weight: 400;
+         color: #333;
+         margin-bottom: 20px;
+         }
+         ul li {
+         margin-bottom: 12px;
+         padding-left: 15px;
+         position: relative;
+         }
+         ul li::before {
+         content: '•';
+         color: #004e92;
+         font-weight: 600;
+         position: absolute;
+         left: 0;
+         }
+         .btn-signin {
+         background-color: #004e92;
+         color: white;
+         padding: 15px 30px;
+         border-radius: 25px;
+         border: none;
+         font-size: 16px;
+         font-weight: 600;
+         cursor: pointer;
+         transition: background-color 0.3s ease, transform 0.2s ease;
+         }
+         .btn-signin:hover {
+         background-color: #003060;
+         transform: translateY(-2px);
+         }
+         .link {
+         display: none;
+         margin-top: 15px;
+         color: #004e92;
+         font-weight: 400;
+         text-decoration: none;
+         font-size: 14px;
+         transition: color 0.3s ease, transform 0.2s ease;
+         }
+         .link:hover {
+         color: #003060;
+         text-decoration: underline;
+         transform: translateY(-1px);
+         }
+      </style>
+      <script type="module">
+         import {
+         createClient
+         } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+         
+         async function checkAuth() {
+         const supabase = createClient('https://jmalbtekzzmktcvreyio.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptYWxidGVrenpta3RjdnJleWlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg2NjYzNzEsImV4cCI6MjA0NDI0MjM3MX0.vZtttF81KZh9zpHeB_qAk-upey532m75Tk7Itb0YggE');
+         
+         // Get the current session
+         const { data: { session } } = await supabase.auth.getSession();
+         
+         // Check if a valid session exists
+         if (session) {
+         // user is already logged in, redirect to main auth page
+         redirectToAuth();
+         }
+         }
+         function redirectToAuth() {
+         window.location.href = 'https://sourabhsuneja.github.io/academic-resources/auth/';
+         }
+         checkAuth();
+      </script>
+   </head>
+   <body>
+      <div class="container">
+         <h1>Sign in to continue..</h1>
+         <ul>
+            <li>Sign in with your name, class, section, and Gmail ID to track your progress.</li>
+            <li>Receive personalized content that fits your learning style and pace.</li>
+            <li>Explore more games, quizzes, and resources that match your interests.</li>
+            <li>Signing in is mandatory for accessing some parts of this website, such as the chatbot builder.</li>
+            <li>It will also help Sourabh Sir understand your needs better and provide activities that suit you.</li>
+         </ul>
+         <a href="login-form/index.html">
+         <button class="btn-signin" onclick="redirectToAuth()">Sign In</button>
+         </a>
+         <a href="#" class="link">Continue without Sign In</a>
+      </div>
+   </body>
+</html>

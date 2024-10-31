@@ -61,38 +61,45 @@ const signUpSuccessMessage = document.getElementById('signup-success-message');
     return details;
   }
 
-  // Function to check authentication status
-  async function checkAuth() {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        // User is signed in, fetch the user data
-        const userId = session.user.id;
-        const userName = fetchUserData(userId, 'students');
-        //alert(userName);
-        document.getElementById('authentication-happening').innerHTML = '<i class="fas white fa-check-circle"></i> Verified';
-      } else {
-        // User is not signed in, redirect to OAuth screen
-        signInWithGoogle();
-      }
-    });
-  }
+ // Function to check authentication status
+async function checkAuth() {
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+    
+    if (session) {
+      // User is signed in, fetch the user data
+      const userId = session.user.id;
 
-  // Function to fetch user data
-  function fetchUserData(userId, tableName) {
-    supabase
+      // Wait for fetchUserData to resolve or reject
+      const userName = await fetchUserData(userId, 'students');
+
+      document.getElementById('authentication-happening').innerHTML = '<i class="fas white fa-check-circle"></i> Verified';
+      alert(`Welcome, ${userName}`);
+    } else {
+      // User is not signed in, redirect to OAuth screen
+      signInWithGoogle();
+    }
+  } catch (error) {
+    alert("Authentication error:", error);
+  }
+}
+
+// Function to fetch user data
+function fetchUserData(userId, tableName) {
+  return new Promise(async (resolve, reject) => {
+    const { data: user, error } = await supabase
       .from(tableName)
       .select('name')
       .eq('id', userId)
-      .single()
-      .then(({ data: user, error }) => {
-        if (error) {
-          alert(`Error fetching user data: ${error.message}`);
-        } else {
-          alert(user['name']);
-          return user['name'];
-        }
-      });
-  }
+      .single();
+
+    if (error || !user) {
+      reject(`Error fetching user data: ${error ? error.message : 'User not found'}`);
+    } else {
+      resolve(user.name);
+    }
+  });
+}
 
   // Function to sign out
   function signOut() {

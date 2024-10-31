@@ -37,31 +37,18 @@
             <form id="sign-up-form" class="form">
                 <h2>Sign Up</h2>
                 <div class="input-group">
-                    <label for="name"><i class="fas fa-user"></i> Name *</label>
-                    <input type="text" id="name" name="name" required>
-                    <small class="error-message" id="name-error"></small>
                 </div>
                 <div class="input-group">
-                    <select id="class" name="class" required>
+                    <select id="class" name="class" onchange="updateNames()" required>
                         <option value="" selected disabled>Select Class *</option>
-                        <option value="I">I</option>
-                        <option value="II">II</option>
-                        <option value="III">III</option>
-                        <option value="IV">IV</option>
-                        <option value="V">V</option>
-                        <option value="VI">VI</option>
-                        <option value="VII">VII</option>
-                        <option value="VIII">VIII</option>
-                        <option value="IX">IX</option>
-                        <option value="X">X</option>
-                        <option value="XI">XI</option>
-                        <option value="XII">XII</option>
-                        <!-- Add options for Class III to XII -->
+                        <option value="6">VI</option>
+                        <option value="7">VII</option>
+                        <option value="8">VIII</option>
                     </select>
                     <small class="error-message" id="class-error"></small>
                 </div>
                 <div class="input-group">
-                    <select id="section" name="section" required>
+                    <select id="section" name="section" onchange="updateNames()" required>
                         <option value="" selected disabled>Select Section *</option>
                         <option value="A1">A1</option>
                         <option value="A2">A2</option>
@@ -71,27 +58,70 @@
                     <small class="error-message" id="section-error"></small>
                 </div>
                 <div class="input-group">
-                    <label for="sign-up-email"><i class="fas fa-envelope"></i> Email *</label>
-                    <input type="email" id="sign-up-email" name="sign-up-email" required>
-                    <small class="error-message" id="sign-up-email-error"></small>
-                </div>
-                <div class="input-group">
-                    <label for="sign-up-password"><i class="fas fa-lock"></i> Password *</label>
-                    <input type="password" id="sign-up-password" name="sign-up-password" required>
-                    <small class="error-message" id="sign-up-password-error"></small>
-                </div>
-                <div class="input-group">
-                    <label for="confirm-password"><i class="fas fa-lock"></i> Confirm Password *</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required>
-                    <small class="error-message" id="confirm-password-error"></small>
+                    <select id="name" name="name" required>
+                        <option value="" selected disabled>Select Name *</option>
+                    </select>
+                    <small class="error-message" id="name-error"></small>
                 </div>
                 <div class="error-message" id="signup-error"></div>
                 <div class="success-message" id="signup-success-message"></div>
                 <button id="sign-up-btn" type="submit" class="btn">Sign Up</button>
-                <p>Already have an account? <a href="#" id="show-sign-in">Sign in</a></p>
+                
             </form>
         </div>
     </div>
+
+      <script>
+    const baseURL = "https://sourabhsuneja.github.io/quiz/";
+    const studentNames = {};
+
+    async function fetchNamesForClassSection(classSection) {
+      try {
+        const response = await fetch(`${baseURL}${classSection}.txt`);
+        if (!response.ok) throw new Error(`Failed to fetch ${classSection}`);
+        const text = await response.text();
+        
+        // Process the text content, ignoring blank lines
+        studentNames[classSection] = text.split('\n')
+          .map(name => name.trim())
+          .filter(name => name); // Filter out any empty lines
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    async function fetchAllClasses() {
+      const classes = ['6A1', '6A2', '6A3', '6A4', '7A1', '7A2', '7A3', '8A1', '8A2', '8A3'];
+      await Promise.all(classes.map(fetchNamesForClassSection));
+    }
+
+    function updateNames() {
+      const selectedClass = document.getElementById("class").value;
+      const selectedSection = document.getElementById("section").value;
+      const classSection = `${selectedClass}${selectedSection}`;
+      
+      const nameSelect = document.getElementById("name");
+      nameSelect.innerHTML = ''; // Clear previous options
+
+      const option = document.createElement("option");
+        option.textContent = "Select Name *";
+        option.selected = true;
+        option.disabled = true;
+        nameSelect.appendChild(option);
+
+      if (studentNames[classSection]) {
+        studentNames[classSection].forEach(name => {
+          const option = document.createElement("option");
+          option.value = name;
+          option.textContent = name;
+          nameSelect.appendChild(option);
+        });
+      } 
+    }
+
+    // Fetch all class-section files once the page loads
+    fetchAllClasses();
+  </script>
 
     <script type="module" src="scripts.js"></script>
 </body>

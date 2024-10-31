@@ -62,12 +62,12 @@ const signUpSuccessMessage = document.getElementById('signup-success-message');
   }
 
   // Function to check authentication status
-  function checkAuth() {
+  async function checkAuth() {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
         // User is signed in, fetch the user data
         const userId = session.user.id;
-        const userName = fetchUserData(userId, 'students');
+        const userName = await fetchUserData(userId, 'students');
         alert(userName);
         document.getElementById('authentication-happening').innerHTML = '<i class="fas white fa-check-circle"></i> Verified';
       } else {

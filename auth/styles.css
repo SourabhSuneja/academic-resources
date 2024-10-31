@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    max-height: 99999999px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #004e92, #000428);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;   
+}
+
+.form-container {
+    max-height: 90vh;
+    overflow-y: scroll;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: black;
+    background: white;
+}
+
+.form {
+    display: none;
+    padding: 40px;
+}
+
+.form.active {
+    display: block;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 0;
+    outline: 1px solid #bbb;
+    transition: all 0.4s;
+}
+
+select {
+    background-color: #fff;
+}
+
+input:focus, select:focus {    
+    outline: 2px solid #004e92;
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 20px;
+}
+
+.error-message, .success-message {
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    color: red;
+}
+
+.success-message {
+    color: #09821f;
+}
+
+input.error {
+    border-color: red;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #004e92;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #003a6d;
+}
+
+p {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+a {
+    color: #004e92;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.fas {
+    margin-right: 7px;
+    color: #004e92;
+}
+
+.white {
+    color: #fff;
+}
+
+#authentication-happening {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}

@@ -104,7 +104,7 @@ function signUp(name, userClass, section) {
       .insert([{
          id: userId,
          name,
-         "class": userClass,
+         "class": parseInt(userClass, 10),
          section
       }])
       .then(({

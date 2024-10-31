@@ -87,7 +87,7 @@ const signUpSuccessMessage = document.getElementById('signup-success-message');
         if (error) {
           renderErrorMessage(`Error fetching user data: ${error.message}`);
         } else {
-          //renderWelcomeMessage(user.name);
+          renderWelcomeMessage(user.name);
         }
       });
   }

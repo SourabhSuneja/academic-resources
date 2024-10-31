@@ -115,7 +115,7 @@ function signUp(name, userClass, section) {
             if (msg.startsWith('duplicate')) {
                msg = 'An account with this name already exists.';
             }
-            renderErrorMessage('signup', insertError.message);
+            renderErrorMessage('signup', msg);
          } else {
             renderSuccessMessage('signup', 'Account created successfully!');
             window.location.href = "https://sourabhsuneja.github.io/academic-resources/";

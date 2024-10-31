@@ -45,7 +45,7 @@ const signUpError = document.getElementById('signup-error');
 const signUpSuccessMessage = document.getElementById('signup-success-message');
 
   // Function to fetch student's name, class and section (as was provided during sign up)
-  async function getStudentInfo() {
+  async function getStudentInfoFromMetaData() {
     const { data: { user }, error } = await supabase.auth.getUser();
     let details;
     if(error) {
@@ -67,7 +67,8 @@ const signUpSuccessMessage = document.getElementById('signup-success-message');
       if (session) {
         // User is signed in, fetch the user data
         const userId = session.user.id;
-        //alert(fetchUserData(userId, 'students'));
+        const userName = fetchUserData(userId, 'students'));
+        alert(userName);
         document.getElementById('authentication-happening').innerHTML = '<i class="fas white fa-check-circle"></i> Verified';
       } else {
         // User is not signed in, redirect to OAuth screen
@@ -87,7 +88,7 @@ const signUpSuccessMessage = document.getElementById('signup-success-message');
         if (error) {
           renderErrorMessage(`Error fetching user data: ${error.message}`);
         } else {
-          renderWelcomeMessage(user.name);
+          return user.name;
         }
       });
   }

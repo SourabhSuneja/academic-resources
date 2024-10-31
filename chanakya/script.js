@@ -1,3 +1,26 @@
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+const supabaseUrl = 'https://jmalbtekzzmktcvreyio.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImptYWxidGVrenpta3RjdnJleWlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg2NjYzNzEsImV4cCI6MjA0NDI0MjM3MX0.vZtttF81KZh9zpHeB_qAk-upey532m75Tk7Itb0YggE';
+  const supabase = createClient(supabaseUrl, supabaseKey);
+
+  // Function to check authentication status
+  function checkAuth() {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        // User is signed in, fetch the user data
+        const userId = session.user.id;
+        //alert(fetchUserData(userId, 'students'));
+        alert('Verified');
+      } else {
+        // User is not signed in, redirect to OAuth screen
+        //signInWithGoogle();
+      }
+    });
+  }
+
+checkAuth();
+
 // Toggle Chat Visibility
 function toggleChat() {
    document.getElementById('chatContainer').classList.toggle('active');

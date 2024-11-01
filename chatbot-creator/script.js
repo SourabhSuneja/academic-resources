@@ -82,14 +82,17 @@ function fetchBotList() {
          .eq('student_id', userId);
 
       if (error || !bots) {
+         displayNoBotsMessage();
          reject(`Error fetching bots: ${error ? error.message : 'Bots not found'}`);
       } else {
-         console.log(bots);
+         // Loop through the bots array and pass id and bot_name to addBotRow
+bots.forEach(bot => {
+  addBotRow(bot.id, bot.bot_name);
+});
          resolve(bots);
       }
    });
 }
-
 
 function addBotRow(botId, botName) {
     // Get the tbody element

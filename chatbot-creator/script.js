@@ -182,7 +182,11 @@ function insertBotData(botName, personality, language, knowledgeScope, responseT
       .then(({
          error: insertError
       }) => {
-         if (insertError) {             renderMessage('error', 'Oops! Something went wrong');
+         if (insertError) {        
+         console.log(insertError.message);
+         renderMessage('error', 'Oops! Something went wrong');
+         createBotBtn.innerHTML = 'Create My Chatbot';
+         createBotBtn.disabled = false;
          } else {
             renderMessage('success', 'Bot created successfully!');
          }

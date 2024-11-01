@@ -148,7 +148,11 @@ function addBotRow(botId, botName) {
                 type: 'alert'
             });
             // update bot list
-            fetchBotList();
+               try {
+                 await fetchBotList();
+               } catch (err) {
+                 alert('An unexpected error occurred.');
+               }
         }
         else if(success === false) {
              // failure dialog
@@ -260,7 +264,11 @@ function insertBotData(botName, personality, language, knowledgeScope, responseT
             renderMessage('success', 'Bot created successfully!');
 createBotBtn.innerHTML = 'Create My Chatbot';
          createBotBtn.disabled = false;
-         fetchBotList();
+             try {
+               await fetchBotList();
+             } catch (err) {
+               alert('An unexpected error occurred.');
+             }
          }
       });
 }
@@ -324,8 +332,12 @@ function clearError(input) {
 
 
 async function init() {
-  await checkAuth();
-  await fetchBotList();
+  try {
+    await checkAuth();
+    await fetchBotList();
+  } catch (err) {
+    alert('An unexpected error occurred.');
+  }
 }
 
 init();

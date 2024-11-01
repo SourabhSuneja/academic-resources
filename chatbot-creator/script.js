@@ -25,13 +25,13 @@ async function checkAuth() {
          userId = session.user.id;
 
          // Wait for fetchUserData to resolve or reject
-         const userName = await fetchUserData(userId, 'students'); 
+         const userDetails = await fetchUserData(userId, 'students'); 
 
 // Enable the input field
 document.getElementById('creatorName').disabled = false;
 
 // Set the placeholder to the value of the userName variable
-document.getElementById('creatorName').placeholder = userName;
+document.getElementById('creatorName').placeholder = userDetails.name + '(' + userDetails.class + '-' + userDetails.section + ')';
 
 // Disable the input field
 document.getElementById('creatorName').disabled = true;
@@ -57,14 +57,14 @@ function fetchUserData(userId, tableName) {
          error
       } = await supabase
          .from(tableName)
-         .select('name')
+         .select('*')
          .eq('id', userId)
          .single();
 
       if (error || !user) {
          reject(`Error fetching user data: ${error ? error.message : 'User not found'}`);
       } else {
-         resolve(user.name);
+         resolve(user);
       }
    });
 }

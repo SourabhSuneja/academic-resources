@@ -73,26 +73,27 @@
       <p>Create a chatbot that fits your needs by providing a few details below. Select from available options or enter custom information to personalize your bot.</p>
       <form id="chatbotForm">
          <label for="botName">Chatbot Name</label>
-         <input type="text" id="botName" name="botName" placeholder="Enter chatbot name" required>
+         <input type="text" id="botName" name="botName" placeholder="Enter chatbot name">
+         <small class="error-message" id="bot-name-error"></small>
          <label for="creatorName">Your Name</label>
          <input type="text" id="creatorName" name="creatorName" placeholder="Enter your name" disabled>
          <label for="botPersonality">Chatbot Personality</label>
          <select id="botPersonality" name="botPersonality" required>
-            <option value="Friendly">Friendly</option>
+            <option value="Friendly" selected>Friendly</option>
             <option value="Professional">Professional</option>
             <option value="Enthusiastic">Enthusiastic</option>
             <option value="Empathetic">Empathetic</option>
          </select>
             <label for="primaryLanguage">Primary Language</label>
             <select id="primaryLanguage" name="primaryLanguage" required>
-               <option value="English">English</option>
+               <option value="English" selected>English</option>
                <option value="Hindi">Hindi</option>
                <option value="Hinglish">Hinglish</option>
             </select>
 
             <label for="knowledgeScope">Knowledge Scope</label>
             <select id="knowledgeScope" name="knowledgeScope" required>
-               <option value="General Knowledge">General Knowledge</option>
+               <option value="General Knowledge" selected>General Knowledge</option>
                <option value="Technical Support">Technical Support</option>
                <option value="Education">Education</option>
                <option value="Finance">Finance</option>
@@ -100,14 +101,14 @@
 
             <label for="responseTone">Response Tone</label>
             <select id="responseTone" name="responseTone" required>
-               <option value="Formal">Formal</option>
+               <option value="Formal" selected>Formal</option>
                <option value="Conversational">Conversational</option>
                <option value="Humorous">Humorous</option>
                <option value="Neutral">Neutral</option>
             </select>
 
             <label for="additionalInstructions">Additional Instructions (Optional)</label>
-            <textarea id="additionalInstructions" name="additionalInstructions" placeholder="Enter any additional instructions..."></textarea>
+            <textarea id="additionalInstructions" name="additionalInstructions" placeholder="Enter any additional instructions..." maxlength="500"></textarea>
                <div class="error-message" id="creation-error"></div>
                <div class="success-message" id="creation-success"></div>
          <button id="createBotBtn" type="submit" class="submit-btn">Create My Chatbot</button>

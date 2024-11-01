@@ -9,6 +9,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 let userId = null;
+let userDetails = null;
 
 
 // Function to check authentication status
@@ -25,13 +26,13 @@ async function checkAuth() {
          userId = session.user.id;
 
          // Wait for fetchUserData to resolve or reject
-         const userDetails = await fetchUserData(userId, 'students'); 
+         userDetails = await fetchUserData(userId, 'students'); 
 
 // Enable the input field
 document.getElementById('creatorName').disabled = false;
 
 // Set the placeholder to the value of the userName variable
-document.getElementById('creatorName').placeholder = userDetails.name + '(' + userDetails.class + '-' + userDetails.section + ')';
+document.getElementById('creatorName').placeholder = userDetails.name + ' (' + userDetails.class + '-' + userDetails.section + ')';
 
 // Disable the input field
 document.getElementById('creatorName').disabled = true;

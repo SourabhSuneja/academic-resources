@@ -276,8 +276,6 @@ function clearError(input) {
 }
 
 
-displayNoBotsMessage();
-
 async function init() {
   await checkAuth();
   await fetchBotList();

@@ -81,7 +81,7 @@
             message: 'Are you sure you want to proceed?',
             type: 'confirm'
         });
-        console.log('Confirmation Result:', confirmResult);
+        
 
         // Show "Processing..." dialog for 3 seconds
         window.showProcessingDialog();

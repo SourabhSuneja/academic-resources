@@ -227,6 +227,7 @@ document.getElementById('chatbotForm').addEventListener('submit', function (even
    } else {
       createBotBtn.innerHTML = 'Create My Chatbot';
       createBotBtn.disabled = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
    }
 });
 

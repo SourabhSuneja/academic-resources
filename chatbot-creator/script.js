@@ -151,7 +151,7 @@ function addBotRow(botId, botName) {
                try {
                  await fetchBotList();
                } catch (err) {
-                 console.log(err);
+                 
                }
         }
         else if(success === false) {
@@ -266,7 +266,7 @@ async function insertBotData(botName, personality, language, knowledgeScope, res
          await fetchBotList(); // await here as well
       }
    } catch (err) {
-      console.log(err);
+      
    } finally {
       createBotBtn.innerHTML = 'Create My Chatbot';
       createBotBtn.disabled = false;
@@ -335,7 +335,7 @@ async function init() {
     await checkAuth();
     await fetchBotList();
   } catch (err) {
-    console.log(err);
+    
   }
 }
 

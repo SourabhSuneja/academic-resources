@@ -177,7 +177,7 @@ function insertBotData(botName, personality, language, knowledgeScope, responseT
          bot_personality: personality,
          primary_language: language,
          knowledge_scope: knowledgeScope,
-         additional_instructions: (instructions.value.trim() === '')? null : instructions.value.trim()
+         additional_instructions: (instructions.trim() === '')? null : instructions.trim()
       }])
       .then(({
          error: insertError

@@ -130,7 +130,7 @@ function addBotRow(botId, botName) {
     
     // Attach the openBot event listener to the button
     openButton.addEventListener('click', function() {
-        openBot(botId);
+        window.open(`https://example.com/?botID=${botId}`, '_blank');
     });
     
     const deleteButton = document.createElement('button');

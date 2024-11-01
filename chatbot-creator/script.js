@@ -138,8 +138,25 @@ function addBotRow(botId, botName) {
     deleteButton.textContent = 'Delete';
 
     // Attach the deleteBot event listener to the button
-    deleteButton.addEventListener('click', function() {
-        deleteBot(botId);
+    deleteButton.addEventListener('click', async function() {
+        const success = await deleteBot(botId);
+        window.hideProcessingDialog();
+        if(success === true) {
+             // success dialog
+            const alertResult = await window.showDialog({
+                title: 'Success',
+                message: 'Chatbot deleted successfully!',
+                type: 'alert'
+            });
+        }
+        else if(success === false) {
+             // failure dialog
+            const alertResult = await window.showDialog({
+                title: 'Operation Failed',
+                message: 'Could not delete chatbot!',
+                type: 'alert'
+            });
+        }
     });
     
     // Append buttons to the popup menu
@@ -181,6 +198,7 @@ async function deleteBot(id) {
     if(!confirmResult) {
         return 'aborted';
     }
+    window.showProcessingDialog();
     try {
         // Perform delete operation
         const { error } = await supabase

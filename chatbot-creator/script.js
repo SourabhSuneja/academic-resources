@@ -26,6 +26,16 @@ async function checkAuth() {
 
          // Wait for fetchUserData to resolve or reject
          const userName = await fetchUserData(userId, 'students'); 
+
+// Enable the input field
+document.getElementById('creatorName').disabled = false;
+
+// Set the placeholder to the value of the userName variable
+document.getElementById('creatorName').placeholder = userName;
+
+// Disable the input field
+document.getElementById('creatorName').disabled = true;
+
           // stay on page, authentication successful
          // do nothing
          

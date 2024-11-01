@@ -81,12 +81,10 @@ function fetchBotList() {
          .select('*')
          .eq('student_id', userId);
 
-      if (error || !bots) {
-         console.log('No bots found');
+      if (error || !bots || (Array.isArray(bots) && bots.length === 0 )) {
          displayNoBotsMessage();
          reject(`Error fetching bots: ${error ? error.message : 'Bots not found'}`);
       } else {
-console.log('No error');
          // clear previous bot list from the table before adding a new one
         document.getElementById('botTableBody').innerHTML = '';
          // Loop through the bots array and pass id and bot_name to addBotRow

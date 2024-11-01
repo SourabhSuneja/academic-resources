@@ -29,6 +29,21 @@
       .submit-btn { display: inline-block; padding: 12px 22px; font-size: 1.2em; color: white; background-color: #004e92; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s, transform 0.3s; }
       .submit-btn:hover { background-color: #003b73; transform: translateY(-2px); }
 
+.error-message, .success-message {
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    color: red;
+}
+
+.success-message {
+    color: #09821f;
+}
+
       /* Table Styling */
       .table-container { margin-top: 40px; }
       table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 1em; }
@@ -93,7 +108,9 @@
 
             <label for="additionalInstructions">Additional Instructions (Optional)</label>
             <textarea id="additionalInstructions" name="additionalInstructions" placeholder="Enter any additional instructions..."></textarea>
-         <button type="submit" class="submit-btn">Create My Chatbot</button>
+               <div class="error-message" id="creation-error"></div>
+               <div class="success-message" id="creation-success"></div>
+         <button id="createBotBtn" type="submit" class="submit-btn">Create My Chatbot</button>
       </form>
 
       <!-- Chatbots Created Table -->

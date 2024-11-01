@@ -23,7 +23,7 @@ async function checkAuth() {
       if (session && session.user) {
          // User is signed in, fetch the user data
          userId = session.user.id;
-alert(userId);
+
          // Wait for fetchUserData to resolve or reject
          const userName = await fetchUserData(userId, 'students'); 
           // stay on page, authentication successful
@@ -31,7 +31,7 @@ alert(userId);
          
       } else {
          // User is not signed in, redirect to page with sign in request
-         //window.location.href = redirectURL;
+         window.location.href = redirectURL;
       }
    } catch (error) {
       // OAuth done but user details pending

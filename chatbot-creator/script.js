@@ -148,6 +148,8 @@ function addBotRow(botId, botName) {
                 message: 'Chatbot deleted successfully!',
                 type: 'alert'
             });
+            // update bot list
+            fetchBotList();
         }
         else if(success === false) {
              // failure dialog

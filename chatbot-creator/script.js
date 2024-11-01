@@ -242,42 +242,41 @@ async function insertBotData(botName, personality, language, knowledgeScope, res
       renderMessage('error', 'Error fetching user ID');
       return;
    }
-   supabase
-      .from('custom_bots')
-      .insert([{
-         student_id: userId,
-         bot_name: botName,
-         bot_personality: personality,
-         primary_language: language,
-         knowledge_scope: knowledgeScope,
-         response_tone: responseTone,
-         additional_instructions: (instructions.trim() === '')? null : instructions.trim()
-      }])
-      .then(({
-         error: insertError
-      }) => {
-         if (insertError) {        
+
+   createBotBtn.innerHTML = '<i class="fas white fa-spinner fa-spin"></i> Wait...';
+   createBotBtn.disabled = true;
+
+   try {
+      const { error: insertError } = await supabase
+         .from('custom_bots')
+         .insert([{
+            student_id: userId,
+            bot_name: botName,
+            bot_personality: personality,
+            primary_language: language,
+            knowledge_scope: knowledgeScope,
+            response_tone: responseTone,
+            additional_instructions: (instructions.trim() === '') ? null : instructions.trim()
+         }]);
+
+      if (insertError) {
          renderMessage('error', 'Oops! Something went wrong');
-         createBotBtn.innerHTML = 'Create My Chatbot';
-         createBotBtn.disabled = false;
-         } else {
-            renderMessage('success', 'Bot created successfully!');
-createBotBtn.innerHTML = 'Create My Chatbot';
-         createBotBtn.disabled = false;
-             try {
-               await fetchBotList();
-             } catch (err) {
-               alert('An unexpected error occurred.');
-             }
-         }
-      });
+      } else {
+         renderMessage('success', 'Bot created successfully!');
+         await fetchBotList(); // await here as well
+      }
+   } catch (err) {
+      alert('An unexpected error occurred.');
+   } finally {
+      createBotBtn.innerHTML = 'Create My Chatbot';
+      createBotBtn.disabled = false;
+   }
 }
 
 function renderMessage(action, message) {
    const msgElement = (action === 'error') ?  creationError : creationSuccess;
    msgElement.innerText = message;
    msgElement.style.display = 'block';
-   createBotBtn.disabled = false;
 }
 
 

@@ -214,6 +214,7 @@ function insertBotData(botName, personality, language, knowledgeScope, responseT
             renderMessage('success', 'Bot created successfully!');
 createBotBtn.innerHTML = 'Create My Chatbot';
          createBotBtn.disabled = false;
+         fetchBotList();
          }
       });
 }

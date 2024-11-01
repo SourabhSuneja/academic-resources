@@ -156,7 +156,100 @@ function displayNoBotsMessage() {
             tableBody.innerHTML = '<tr class="no-data"><td colspan="3">No bots created yet</td></tr>';
          }
 
+
+// Select form components to be frequently manipulated
+const createBotBtn = document.getElementById('createBotBtn');
+const creationError = document.getElementById('creation-error');
+const creationSuccess = document.getElementById('creation-success');
+
+
+// Function to insert new bot data
+function insertBotData(botName, personality, language, knowledgeScope, responseTone, instructions) {
+   if (!userId) {
+      renderMessage('error', 'Error fetching user ID');
+      return;
+   }
+   supabase
+      .from('custom_bots')
+      .insert([{
+         student_id: userId,
+         bot_name: botName,
+         bot_personality: personality,
+         primary_language: language,
+         knowledge_scope: knowledgeScope,
+         additional_instructions: (instructions.value.trim() === '')? null : instructions.value.trim()
+      }])
+      .then(({
+         error: insertError
+      }) => {
+         if (insertError) {             renderMessage('error', 'Oops! Something went wrong');
+         } else {
+            renderMessage('success', 'Bot created successfully!');
+         }
+      });
+}
+
+function renderMessage(action, message) {
+   const msgElement = (action === 'error') ?  creationError : creationSuccess;
+   msgElement.innerText = message;
+   msgElement.style.display = 'block';
+   createBotBtn.disabled = false;
+}
+
+
+// Form Validation
+document.getElementById('chatbotForm').addEventListener('submit', function (event) {
+   event.preventDefault();
+   let isValid = true;
+
+   // Clear previous error
+   creationError.textContent = '';
+   creationError.style.display = 'none';
+   const botName = document.getElementById('botName');
+   const botPersonality = document.getElementById('botPersonality');
+   const primaryLanguage = document.getElementById('primaryLanguage');
+   const knowledgeScope = document.getElementById('knowledgeScope');
+   const responseTone = document.getElementById('responseTone');
+   const additionalInstructions = document.getElementById('additionalInstructions');
+
+   // bot name validation
+   if (botName.value.trim() === '') {
+      showError(botName, 'Please provide a name to your bot.');
+      isValid = false;
+   } else {
+      clearError(botName);
+   }
+
+   if (isValid) {
+      createBotBtn.innerHTML = '<i class="fas white fa-spinner fa-spin"></i> Wait...';
+      createBotBtn.disabled = true;
+      insertBotData(botName.value.trim(), botPersonality.value, primaryLanguage.value, knowledgeScope.value, responseTone.value, additionalInstructions.value);
+   } else {
+      createBotBtn.innerHTML = 'Create My Chatbot';
+      createBotBtn.disabled = false;
+   }
+});
+
+// Helper functions
+function showError(input, message) {
+   const errorField = input.nextElementSibling;
+   errorField.textContent = message;
+   errorField.style.display = 'block';
+   input.classList.add('error');
+}
+
+function clearError(input) {
+   const errorField = input.nextElementSibling;
+   errorField.textContent = '';
+   errorField.style.display = 'none';
+   input.classList.remove('error');
+}
+
+
 displayNoBotsMessage();
 
 
 checkAuth();
+
+
+

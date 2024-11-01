@@ -70,6 +70,26 @@ function fetchUserData(userId, tableName) {
    });
 }
 
+// Function to fetch and update list of created bots
+function fetchBotList() {
+   return new Promise(async (resolve, reject) => {
+      const {
+         data: bots,
+         error
+      } = await supabase
+         .from('custom_bots')
+         .select('*')
+         .eq('student_id', userId);
+
+      if (error || !bots) {
+         reject(`Error fetching bots: ${error ? error.message : 'Bots not found'}`);
+      } else {
+         console.log(bots);
+         resolve(bots);
+      }
+   });
+}
+
 
 function addBotRow(botId, botName) {
     // Get the tbody element
@@ -255,8 +275,12 @@ function clearError(input) {
 
 displayNoBotsMessage();
 
+async function init() {
+  await checkAuth();
+  await fetchBotList();
+}
 
-checkAuth();
+init();
 
 
 

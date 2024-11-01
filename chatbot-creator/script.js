@@ -184,12 +184,13 @@ function insertBotData(botName, personality, language, knowledgeScope, responseT
          error: insertError
       }) => {
          if (insertError) {        
-         console.log(insertError.message);
          renderMessage('error', 'Oops! Something went wrong');
          createBotBtn.innerHTML = 'Create My Chatbot';
          createBotBtn.disabled = false;
          } else {
             renderMessage('success', 'Bot created successfully!');
+createBotBtn.innerHTML = 'Create My Chatbot';
+         createBotBtn.disabled = false;
          }
       });
 }

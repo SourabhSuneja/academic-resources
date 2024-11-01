@@ -170,9 +170,33 @@ function addBotRow(botId, botName) {
          document.querySelectorAll('.popup-menu').forEach(menu => menu.style.display = 'none');
       }
 
-      // Open and Delete bot functions
-      function openBot(id) { alert(`Open Bot with ID: ${id}`); }
-      function deleteBot(id) { alert(`Delete Bot with ID: ${id}`); }
+ // Function to delete a bot
+async function deleteBot(id) {
+        // Confirmation dialog
+        const confirmResult = await window.showDialog({
+            title: 'Confirmation',
+            message: 'Are you sure you want to delete this bot?',
+            type: 'confirm'
+        });
+    if(!confirmResult) {
+        return 'aborted';
+    }
+    try {
+        // Perform delete operation
+        const { error } = await supabase
+            .from('custom_bots')
+            .delete()
+            .eq('id', id);
+        
+        if (error) {
+            return false;
+        } else {
+            return true;
+        }
+    } catch (err) {
+        return false;
+    }
+}
 
       // Close popup on clicking anywhere outside
       document.addEventListener('click', closeAllPopups);

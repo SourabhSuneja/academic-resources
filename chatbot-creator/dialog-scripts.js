@@ -73,17 +73,4 @@
         document.getElementById('dialog-overlay').classList.remove('show');
     };
 
-    // Example usage
-    document.addEventListener('DOMContentLoaded', async () => {
-        // Confirmation dialog
-        const confirmResult = await window.showDialog({
-            title: 'Confirmation',
-            message: 'Are you sure you want to proceed?',
-            type: 'confirm'
-        });
-        
-
-        // Show "Processing..." dialog for 3 seconds
-        window.showProcessingDialog();
-        setTimeout(window.hideProcessingDialog, 3000);
-    });
+ 

@@ -237,7 +237,7 @@ const creationSuccess = document.getElementById('creation-success');
 
 
 // Function to insert new bot data
-function insertBotData(botName, personality, language, knowledgeScope, responseTone, instructions) {
+async function insertBotData(botName, personality, language, knowledgeScope, responseTone, instructions) {
    if (!userId) {
       renderMessage('error', 'Error fetching user ID');
       return;

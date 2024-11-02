@@ -69,12 +69,12 @@
             font-size: 1em;
         }
 
-        .button-yes {
+        .button-no {
             background-color: #4CAF50;
             color: #fff;
         }
 
-        .button-no {
+        .button-yes {
             background-color: #f44336;
             color: #fff;
         }

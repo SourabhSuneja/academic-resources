@@ -135,5 +135,4 @@ function logChatHistory(message, role) {
   
   // Append the new message object to chatHistory
   chatHistory.push(newMessage);
-  console.log(chatHistory);
 }

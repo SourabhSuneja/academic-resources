@@ -33,11 +33,11 @@ function toggleChat() {
 
 // Send User Message and receive Chatbot Response
 async function sendMessage(event) {
+   let userInput;
    if (event.key === "Enter" || event.type === "click") {
-      const userInput = document.getElementById("userInput").value.trim();
+      userInput = document.getElementById("userInput").value.trim();
       if (userInput) {
          logMessage(userInput, "user");
-         logChatHistory(userInput, "user");
          document.getElementById("userInput").value = "";
 
          // Show Typing Animation
@@ -54,8 +54,10 @@ async function sendMessage(event) {
          } finally {
             // Hide Typing Animation
             hideTypingIndicator();
+            
             logMessage(response, 'bot');
-            logChatHistory(originalResponse, "model");
+            logChatHistory(userInput, "user"); logChatHistory(originalResponse, "model");
+            
          }
       }
    }

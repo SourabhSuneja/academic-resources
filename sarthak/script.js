@@ -1,3 +1,5 @@
+// Global chatHistory array to store the chat logs
+let chatHistory = [];
 const qaPairs = [
   { question: "What is the largest planet in our solar system?", answer: "The largest planet in our solar system is Jupiter." },
   { question: "What is the process by which plants make their own food called?", answer: "The process is called photosynthesis." },
@@ -35,16 +37,17 @@ async function sendMessage(event) {
       const userInput = document.getElementById("userInput").value.trim();
       if (userInput) {
          logMessage(userInput, "user");
+         logChatHistory(userInput, "user");
          document.getElementById("userInput").value = "";
 
          // Show Typing Animation
          showTypingIndicator();
 
-         let response;
+         let originalResponse, response;
          try {
             // Attempt to fetch response
-            response = await window.fetchResponse(userInput);
-            response = formatResponse(response);
+            originalResponse = await window.fetchResponse(userInput);
+            response = formatResponse(originalResponse);
          } catch (error) {
             // Handle error by setting default response
             response = "I couldn't create a response for this. It may go against the terms and conditions of use.";
@@ -52,6 +55,7 @@ async function sendMessage(event) {
             // Hide Typing Animation
             hideTypingIndicator();
             logMessage(response, 'bot');
+            logChatHistory(originalResponse, "model");
          }
       }
    }
@@ -110,4 +114,26 @@ function formatResponse(markdown) {
    html = html.replace(/<br\s*\/?>\s*\*/g, '<br> >');
 
    return html;
+}
+
+// Function to log (append) messages to chatHistory
+function logChatHistory(message, role) {
+  // Split the message into words
+  const words = message.split(" ");
+  
+  // Check if the message length exceeds 40 words
+  let truncatedMessage = message;
+  if (words.length > 40) {
+    truncatedMessage = words.slice(0, 20).join(" ") + " ... " + words.slice(-20).join(" ");
+  }
+  
+  // Construct the message object
+  const newMessage = {
+    role: role,
+    parts: [{ text: truncatedMessage }]
+  };
+  
+  // Append the new message object to chatHistory
+  chatHistory.push(newMessage);
+  console.log(chatHistory);
 }

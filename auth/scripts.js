@@ -62,7 +62,7 @@ async function checkAuth() {
          const userName = await fetchUserData(userId, 'students');
 
          document.getElementById('authentication-happening').innerHTML = '<i class="fas white fa-check-circle"></i> Verified';
-         window.location.href = "https://sourabhsuneja.github.io/academic-resources/";
+         window.location.href = "https://sourabhsuneja.github.io/academic-resources/chatbot-creator/";
       } else {
          // User is not signed in, redirect to OAuth screen
          signInWithGoogle();

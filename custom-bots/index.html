@@ -1,1 +1,91 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- Google tag -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF1MCK0B9Y"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-QF1MCK0B9Y');
+      </script>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Explore our student-designed AI chatbot, providing personalized help and engaging conversations.">
+      <title>Custom AI Chatbot</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <header>
+         <i id="logo" class="fas fa-robot chat-icon"></i>
+         <h1 id="botHeading">Fetching Bot Name...</h1>
+      </header>
+      <div class="content">
+         <h2>Know About Me</h2>
+         <p id="botIntro">Fetching Details....</p>
+         <ul id="featureList">
+            <li id="botGender"></li>
+            <li id="botScope"></li>
+            <li id="responseTone"></li>
+         </ul>
+         <h2>Terms and Conditions</h2>
+         <p>When you use me, you agree to these rules:</p>
+         <ul>
+            <li>1. You will use me only for good reasons.</li>
+            <li>2. Do not use mean or violent words.</li>
+            <li>3. The answers that I give might be sometimes wrong or irrelevant. Always check with your books or teachers to make sure you get the right information.</li>
+            <li>4. Do not share any personal details about yourself.</li>
+            <li>5. Your conversations might be saved to help keep things safe.</li>
+         </ul>
+         <div style="text-align: center;">
+            <!-- Centering the button -->
+            <a onclick="toggleChat()" class="get-started-btn">Get Started</a>
+         </div>
+      </div>
+      <footer>
+         <p id="credit"></p>
+      </footer>
+      <!-- Floating Chat Button -->
+      <div id="chatButton" onclick="toggleChat()">
+         <i class="fas fa-comment"></i>
+      </div>
+      <!-- Chatbot Container -->
+      <div id="chatContainer" class="fade-in">
+         <!-- Chat Header -->
+         <div id="chatHeader">
+            <i class="fas fa-robot chat-icon"></i>
+            <span id="chatName" class="chat-name"></span>
+            <button id="closeChat" onclick="toggleChat()">&times;</button>
+         </div>
+         <!-- Chat Messages -->
+         <div id="chatMessages">
+            <!-- Sample Messages -->
+            <div id="sampleMsg" class="chat-msg bot-msg"></div>
+         </div>
+         <!-- Typing Animation -->
+         <div id="typingIndicator" class="typing hidden">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+         </div>
+         <!-- Message Input -->
+         <div id="chatInputArea">
+            <input type="text" id="userInput" placeholder="Type your message here..." onkeypress="sendMessage(event)">
+            <button onclick="sendMessage(event)"><i class="fas fa-paper-plane"></i></button>
+         </div>
+      </div>
+      <div id="invalid-overlay" class="invalid-overlay">
+         <div class="invalid-overlay-content">
+            <i class="fas fa-meh invalid-sad-face"></i>
+            <p>Invalid Bot ID</p>
+         </div>
+      </div>
+      <script type="module" src="bot-fetch.js"></script>
+      <script src="script.js"></script>
+      <script src="ai-fetch.js"></script>
+   </body>
+</html>

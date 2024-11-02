@@ -237,7 +237,7 @@ const creationSuccess = document.getElementById('creation-success');
 
 
 // Function to insert new bot data
-async function insertBotData(botName, personality, language, knowledgeScope, responseTone, instructions) {
+async function insertBotData(botName, botGender, personality, language, knowledgeScope, responseTone, instructions) {
    if (!userId) {
       renderMessage('error', 'Error fetching user ID');
       return;
@@ -252,6 +252,7 @@ async function insertBotData(botName, personality, language, knowledgeScope, res
          .insert([{
             student_id: userId,
             bot_name: botName,
+            bot_gender: botGender,
             bot_personality: personality,
             primary_language: language,
             knowledge_scope: knowledgeScope,
@@ -290,6 +291,7 @@ document.getElementById('chatbotForm').addEventListener('submit', function (even
    creationError.style.display = 'none';
    const botName = document.getElementById('botName');
    const botPersonality = document.getElementById('botPersonality');
+   const botGender = document.getElementById('botGender');
    const primaryLanguage = document.getElementById('primaryLanguage');
    const knowledgeScope = document.getElementById('knowledgeScope');
    const responseTone = document.getElementById('responseTone');
@@ -306,7 +308,7 @@ document.getElementById('chatbotForm').addEventListener('submit', function (even
    if (isValid) {
       createBotBtn.innerHTML = '<i class="fas white fa-spinner fa-spin"></i> Wait...';
       createBotBtn.disabled = true;
-      insertBotData(botName.value.trim(), botPersonality.value, primaryLanguage.value, knowledgeScope.value, responseTone.value, additionalInstructions.value);
+      insertBotData(botName.value.trim(), botGender.value, botPersonality.value, primaryLanguage.value, knowledgeScope.value, responseTone.value, additionalInstructions.value);
    } else {
       createBotBtn.innerHTML = 'Create My Chatbot';
       createBotBtn.disabled = false;

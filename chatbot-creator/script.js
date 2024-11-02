@@ -115,6 +115,12 @@ function addBotRow(botId, botName) {
     
     const actionIcon = document.createElement('i');
     actionIcon.className = 'fas fa-cog action-icon';
+
+    // Attach click event listener to the bot name so that the chatbot window is opened when clicked
+    nameCell.addEventListener('click', function(event) {
+        window.open(`https://sourabhsuneja.github.io/academic-resources/custom-bots/?botID=${botId}`, '_blank');
+    });
+
     
     // Attach the togglePopup event listener to the icon
     actionIcon.addEventListener('click', function(event) {

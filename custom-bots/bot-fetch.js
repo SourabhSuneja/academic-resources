@@ -109,7 +109,7 @@ function getGreeting(lang) {
 async function init() {
    try {
       const id = new URLSearchParams(window.location.search).get('botID') || 0;
-      const bot = await fetchBotData(id);
+      const bot = await fetchBotData(id); console.log(bot);
       window.botDetails = encodeURIComponent(JSON.stringify(bot));
       // set heading
       document.getElementById('botHeading').innerText = bot.bot_name + ' | AI Chatbot';

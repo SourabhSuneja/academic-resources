@@ -314,7 +314,7 @@ document.getElementById('chatbotForm').addEventListener('submit', function (even
    if (isValid) {
       createBotBtn.innerHTML = '<i class="fas white fa-spinner fa-spin"></i> Wait...';
       createBotBtn.disabled = true;
-      insertBotData(botName.value.trim(), botGender.value, botPersonality.value, primaryLanguage.value, knowledgeScope.value, responseTone.value, additionalInstructions.value);
+      insertBotData(capitalizeWords(botName.value.trim()), botGender.value, botPersonality.value, primaryLanguage.value, knowledgeScope.value, responseTone.value, additionalInstructions.value);
    } else {
       createBotBtn.innerHTML = 'Create My Chatbot';
       createBotBtn.disabled = false;
@@ -335,6 +335,18 @@ function clearError(input) {
    errorField.textContent = '';
    errorField.style.display = 'none';
    input.classList.remove('error');
+}
+
+function capitalizeWords(str) {
+    return str.split(' ').map(word => {
+        // Check if the word is in all caps
+        if (word === word.toUpperCase()) {
+            return word; // Keep the word as is
+        } else {
+            // Capitalize the first letter and lowercase the rest
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }
+    }).join(' ');
 }
 
 

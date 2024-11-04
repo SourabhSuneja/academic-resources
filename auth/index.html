@@ -74,6 +74,7 @@
          async function fetchAllClasses() {
            const classes = ['6A1', '6A2', '6A3', '6A4', '7A1', '7A2', '7A3', '8A1', '8A2', '8A3', '9A1', '9A2', '9A3', '10A1', '10A2'];
            await Promise.all(classes.map(fetchNamesForClassSection));
+           alert(JSON.stringify(studentNames)); 
          }
          
          function updateNames() {

@@ -11,7 +11,6 @@ window.fetchResponse = function (prompt) {
 
       const url = `https://cloudflare-serverless.pages.dev/customBot?prompt=${encodeURIComponent(prompt)}&callback=${callbackName}&history=${historyParam}&botDetails=${window.botDetails}`;
 
-      console.log(url);
 
       // Create a script element to fetch the data
       const script = document.createElement('script');

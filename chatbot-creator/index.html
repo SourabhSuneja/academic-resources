@@ -39,6 +39,11 @@
       select { background: rgb(240,240,240); }
       .submit-btn { display: inline-block; padding: 12px 22px; font-size: 1.2em; color: white; background-color: #004e92; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s, transform 0.3s; }
       .submit-btn:hover { background-color: #003b73; transform: translateY(-2px); }
+input:focus, textarea:focus {
+    box-shadow: 0 0 8px 2px rgba(0, 123, 255, 0.6);  /* Blue glow */
+    border-color: #007bff;  /* Adds a blue border */
+}
+
 
 .error-message, .success-message {
     font-size: 14px;

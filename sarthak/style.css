@@ -36,11 +36,12 @@ body {
 #chatContainer {
 	display: none;
 	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	width: 420px;
-	max-width: 100%;
-	height: 90vh;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);  /* Centers the container */
+	width: 420px;  /* You can adjust this width if necessary */
+	max-width: 100%;  /* Ensures it doesn’t stretch beyond screen width */
+	height: 80vh;  /* You can adjust this height as needed */
 	background: #f9f9f9;
 	border-radius: 8px;
 	box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);

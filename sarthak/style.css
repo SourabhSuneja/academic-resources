@@ -270,6 +270,7 @@ li {
 	transition: background-color 0.3s, transform 0.3s;
 	text-align: center;
 	/* Center align */
+	cursor: pointer;
 }
 
 .get-started-btn:hover {

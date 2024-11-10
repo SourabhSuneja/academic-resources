@@ -14,7 +14,7 @@ const validGrade = [6, 7, 8].includes(grade) ? grade : 6;
 let gradeArray;
 switch (validGrade) {
    case 6:
-      gradeArray = ['kips-6-ch-1', 'kips-6-ch-2', 'kips-6-ch-3', 'kips-6-ch-4'];
+      gradeArray = ['kips-6-ch-5', 'kips-6-ch-6'];
       break;
    case 7:
       gradeArray = ['kips-7-ch-1', 'kips-7-ch-2', 'kips-7-ch-3', 'kips-7-ch-4'];

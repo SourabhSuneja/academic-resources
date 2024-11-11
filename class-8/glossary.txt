@@ -1,32 +1,62 @@
-Clustering
-Forming groups on the basis of feature similarities. E.g. putting all "red" colour objects together.
+//Clustering
+//Forming groups on the basis of feature similarities. E.g. putting all "red" colour objects together.
 
-Machine Learning
-Teaching computers to learn from sample data and become capable of taking decisions on their own.
+//Machine Learning
+//Teaching computers to learn from sample data and become capable of taking decisions on their own.
 
-Data
-Any raw facts, figures or concepts that can be communicated.
+//Data
+//Any raw facts, figures or concepts that can be communicated.
 
-Information
-Data which has been processed to obtain something meaningful.
+//Information
+//Data which has been processed to obtain something meaningful.
 
-Quantitative Data
-Data which can be expressed in numbers. E.g. height, number of students etc.
+//Quantitative Data
+//Data which can be expressed in numbers. E.g. height, number of students etc.
 
-Qualitative Data
-Data which cannot be expressed in numbers. E.g. honesty, beauty etc.
+//Qualitative Data
+//Data which cannot be expressed in numbers. E.g. honesty, beauty etc.
 
-Discrete Data
-Data which is "counted" in whole numbers like 0, 1, 2, 3 and so on. E.g. number of students in a class.
+//Discrete Data
+//Data which is "counted" in whole numbers like 0, 1, 2, 3 and so on. E.g. number of students in a class.
 
-Continuous Data
-Data which is "measured" and may also have decimals. E.g. weight (47.5 kg), length (156.2 metres).
+//Continuous Data
+//Data which is "measured" and may also have decimals. E.g. weight (47.5 kg), length (156.2 metres).
 
-Anomaly Detection
-Finding data points which are significantly different from other normal points. E.g. a transaction of Rs. 20 lakhs in a bank account that usually sees transactions in the thousands.
+//Anomaly Detection
+//Finding data points which are significantly different from other normal points. E.g. a transaction of Rs. 20 lakhs in a bank account that usually sees transactions in the thousands.
 
-Data Science
-A field that uses data for making intelligent decisions. 
+//Data Science
+//A field that uses data for making intelligent decisions. 
 
-Outlier
-An object that is different (odd one out) from other objects in the group.
+//Outlier
+//An object that is different (odd one out) from other objects in the group.
+
+
+
+Data Visualisation
+Showing data in pictures or graphs to make it easier to understand.
+
+Chart
+A way to display data visually, using symbols like lines, bars, or slices to quickly show information.
+
+Pie Chart
+A circular chart divided into parts, with each part showing a portion of the total data.
+
+Line Chart
+A chart that connects data points with lines to show trends over time.
+
+Column Chart
+A chart with vertical bars to compare values across different categories.
+
+Heatmap
+A chart that uses colors to show how much or how little something is happening in different areas.
+
+Regression
+A method for finding the relationship between two or more variables, often used for making predictions.
+
+Cohort Analysis
+Analysing the behaviour of different groups of people over time.
+
+Predictive Analysis
+Using past data and patterns to make predictions about future events or trends.
+

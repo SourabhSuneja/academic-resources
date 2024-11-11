@@ -14,3 +14,31 @@
 //The Ink Annotation feature in PowerPoint allows us to write or draw shapes using the mouse just like we draw with a pen on paper.
 //F5 is the shortcut key to run the slide show.
 //You can make your PowerPoint presentation more appealing by using pictures, adding animations, using a good colour combination and fonts.
+
+Excel is a popular spreadsheet program that helps us organise and analyse data.
+
+Excel stores data in a table-like grid having "rows" and "columns". 
+
+Rows are horizontal lines marked by numbers. Columns are vertical and marked by letters. 
+
+Excel helps us to organise data quickly. It also allows us to perform calculations on data. 
+
+A complete Excel file is a workbook and different "pages" in the workbook are called worksheets. 
+
+You can think of a workbook like a notebook, and worksheets like the pages of that notebook.
+
+A cell is a rectangular box formed by the intersection of a row and column.
+
+A group of cells selected together is called a range.
+
+We can enter data in cells. The data can be text, numbers and formulas.
+
+Each cell has a unique address and it can be used to refer to that cell when creating a formula. Example, A1, A2, etc.
+
+A formula is an equation that we use to perform calculations in Excel. For example: =A1+B1
+
+The Autofill feature of Excel allows us to fill cells with data automatically based on a pattern. Example, automatically filling the names of months (Jan, Feb etc) or writing roll numbers (1, 2, 3 etc).
+
+Undo is used to reverse the last performed action, whereas redo is used to repeat the action which was undone. 
+
+

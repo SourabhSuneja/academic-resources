@@ -49,8 +49,8 @@ Quality data must be accessible, clear to understand, relevant, accurate and ava
 
 Regression is a method to find relationship between two variables and predict one on the basis of another.
 
+In regression, the variable that we are trying to predict is called the dependent variable, and the variable which affects the dependent variable is called the independent variable. Example: consider a relationship between the number of hours you study and the marks you score. Your marks are a "dependent" variable because they depend on the number of hours you study. The hours studied are the "independent" variable.
+
 Cohort analysis is a way to study how different groups of people behave over time.
-
-
 
 

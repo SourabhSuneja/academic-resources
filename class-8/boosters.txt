@@ -16,3 +16,41 @@
 //Data science is important because it helps us make better decisions by finding useful information in data.
 //Do you know even IPL teams use data science to select best-performing players? Factors like strike rate, and hard-hitting ability are considered for choosing best batsmen.
 //Discrete data is always "counted" in whole numbers while continuous data is "measured", and may have decimal values as well.
+
+
+Data visualisation means representing data graphically so that it can be easily understood.
+
+Data can be visualised through a variety of techniques: charts, graphs, maps etc.
+
+Maps are used to represent geographical information, like what places are located where.
+
+Charts can be of different types: pie chart, line chart, column chart, bar chart etc.
+
+
+A pie chart displays data in the form of a circle. It represents compositions and proportions of a whole.
+
+
+A line chart is a graph with lines showing changes over time. Suitable for analysing trends over time.
+
+
+A column chart is a chart with tall bars going up and down to show different values.
+
+
+A heatmap is a data visualisation technique that uses colors to show how much or how little something is happening in different areas. For example, a heatmap can show how crowded different areas of a park are, with red for busy spots and blue for quiet ones.
+
+
+Data visualisation is important because it helps us understand and see patterns in information quickly.
+
+
+It's important to have good quality data for any kind of analysis.
+
+Quality data must be accessible, clear to understand, relevant, accurate and available on time.
+
+
+Regression is a method to find relationship between two variables and predict one on the basis of another.
+
+Cohort analysis is a way to study how different groups of people behave over time.
+
+
+
+

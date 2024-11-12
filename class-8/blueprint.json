@@ -3,23 +3,15 @@
     "term": "Term-1",
     "chapters": [
       {
-        "title": "Chapter 1: Introduction to Data"
-      },
-      {
-        "title": "Chapter 2: Introduction to Data Science"
+        "title": "Chapter 3: Data Visualisation"
       }
     ]
   },
   "blueprint": {
-    "totalMarks": 30,
+    "totalMarks": 20,
     "sections": [
       {
         "type": "Multiple Choice Questions (MCQs)",
-        "questions": "5 questions, 1 mark each",
-        "totalMarks": 5
-      },
-      {
-        "type": "True/False Questions",
         "questions": "5 questions, 1 mark each",
         "totalMarks": 5
       },
@@ -34,11 +26,6 @@
         "questions": "4 questions, attempt any 2",
         "marksEach": "3 marks each",
         "totalMarks": 6
-      },
-      {
-        "type": "Match the Following",
-        "questions": "5 pairs",
-        "totalMarks": 5
       },
       {
         "type": "Application-Based Question",

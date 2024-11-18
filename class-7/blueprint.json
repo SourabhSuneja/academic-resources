@@ -1,31 +1,20 @@
 {
   "syllabus": {
-    "term": "Term-1",
+    "term": "Periodic Test-3",
     "chapters": [
       {
-        "title": "Chapter 1: Number System"
+        "title": "Chapter 5: Advanced Features of Excel"
       },
       {
-        "title": "Chapter 2: Browsing Safely"
-      },
-      {
-        "title": "Chapter 3: Cloud Computing"
-      },
-      {
-        "title": "Chapter 4: Formulas and Functions in Excel"
+        "title": "Chapter 6: Control Statements in Python"
       }
     ]
   },
   "blueprint": {
-    "totalMarks": 30,
+    "totalMarks": 20,
     "sections": [
       {
         "type": "Multiple Choice Questions (MCQs)",
-        "questions": "5 questions, 1 mark each",
-        "totalMarks": 5
-      },
-      {
-        "type": "True/False Questions",
         "questions": "5 questions, 1 mark each",
         "totalMarks": 5
       },
@@ -42,13 +31,8 @@
         "totalMarks": 6
       },
       {
-        "type": "Match the Following (based on Excel functions)",
-        "questions": "5 pairs",
-        "totalMarks": 5
-      },
-      {
-        "type": "Application-Based Question",
-        "questions": "1 question",
+        "type": "Application-based question (predicting the output of Python commands)",
+        "questions": "1 question, split into 4 parts",
         "totalMarks": 4
       }
     ]

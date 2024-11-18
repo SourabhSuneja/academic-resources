@@ -1,23 +1,17 @@
 {
   "syllabus": {
-    "term": "Term-1",
+    "term": "Periodic Test-3",
     "chapters": [
       {
-        "title": "Chapter 1: Computer Languages"
+        "title": "Chapter 5: Introduction to Excel"
       },
       {
-        "title": "Chapter 2: Internet Services"
-      },
-      {
-        "title": "Chapter 3: Using Mail Merge"
-      },
-      {
-        "title": "Chapter 4: More on PowerPoint"
+        "title": "Chapter 6: Editing in Excel"
       }
     ]
   },
   "blueprint": {
-    "totalMarks": 30,
+    "totalMarks": 20,
     "sections": [
       {
         "type": "Multiple Choice Questions (MCQs)",
@@ -25,9 +19,9 @@
         "totalMarks": 5
       },
       {
-        "type": "True/False Questions",
-        "questions": "5 questions, 1 mark each",
-        "totalMarks": 5
+        "type": "True/False",
+        "questions": "4 questions, 1 mark each",
+        "totalMarks": 4
       },
       {
         "type": "Short Answer Questions",
@@ -37,19 +31,9 @@
       },
       {
         "type": "Long Answer Questions",
-        "questions": "4 questions, attempt any 2",
+        "questions": "3 questions, attempt any 2",
         "marksEach": "3 marks each",
         "totalMarks": 6
-      },
-      {
-        "type": "Match the Following",
-        "questions": "5 pairs",
-        "totalMarks": 5
-      },
-      {
-        "type": "Application-Based Question",
-        "questions": "1 question",
-        "totalMarks": 4
       }
     ]
   }

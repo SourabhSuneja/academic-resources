@@ -29,4 +29,4 @@ The IDLE environment can work in 2 different modes: Interactive mode and Script 
 In the interactive mode, commands are written and executed one by one. You write a command, press the Enter key and get its ouput immediately on the next line.
 In the script mode, the entite program is written as one single file and then saved. The program is run by pressing the shortcut key F5.
 In Python, operators are symbols which are used to perform different operations on operands, such as addition, subtraction etc.
-The operators used to perform basic mathematical operations (addition, subtraction, division etc) are called arithmetic operators.
+Conditional statements are used to change the flow of a program depending on the result of a condition. We can use if, if...else or if..elif..else constructs to evaluate conditions in Python.

@@ -1,16 +1,32 @@
-A number system is a way of representing quantities.
-The different types of number systems are: Binary, Octal, Decimal, and Hexadecimal number systems.
-The number of digits present in a number system is called the base of that number system. 
-The base of the binary number system is 2 while that of the decimal number system is 10.
-To convert a decimal number into its binary form, we divide the number by 2.
-The binary number system is important because it's the only number system that a computer understands.
-Any crime committed with computers or the internet is called a cybercrime. Examples: hacking, phishing, spamming etc.
-Cyber security means taking all measures and precautions to protect yourself from cybercrimes.
-Examples of cyber attacks include hacking, phishing, spamming, identity theft, cyberbullying etc.
-Hacking is the unauthorized access to someone else's computer to exploit or manipulate data.
-Phishing is an act of sending an email to a user, giving an impression that it is from a trusted person or organisation.
-Cyberbullying is using the internet to harass, threaten, or harm someone.
-To protect yourself from cybercrimes, i) Never click on links from unknown people, ii) Use strong passwords, and iii) Keep your antivirus updated.
-A strong password is long, unique, and includes a mix of letters, numbers, and symbols. It should not have guessable patterns like 123, abc etc.
-Cloud computing is the process of manipulating, configuring, and accessing online applications.
-Google Drive is a popular cloud storage service that allows you to store files online. It offers 15 GB of free storage.
+//A number system is a way of representing quantities.
+//The different types of number systems are: Binary, Octal, Decimal, and Hexadecimal number systems.
+//The number of digits present in a number system is called the base of that number system. 
+//The base of the binary number system is 2 while that of the decimal number system is 10.
+//To convert a decimal number into its binary form, we divide the number by 2.
+//The binary number system is important because it's the only number system that a computer understands.
+//Any crime committed with computers or the internet is called a cybercrime. Examples: hacking, phishing, spamming etc.
+//Cyber security means taking all measures and precautions to protect yourself from cybercrimes.
+//Examples of cyber attacks include hacking, phishing, spamming, identity theft, cyberbullying etc.
+//Hacking is the unauthorized access to someone else's computer to exploit or manipulate data.
+//Phishing is an act of sending an email to a user, giving an impression that it is from a trusted person or organisation.
+//Cyberbullying is using the internet to harass, threaten, or harm someone.
+//To protect yourself from cybercrimes, i) Never click on links from unknown people, ii) Use strong passwords, and iii) Keep your antivirus updated.
+//A strong password is long, unique, and includes a mix of letters, numbers, and symbols. It should not have guessable patterns like 123, abc etc.
+//Cloud computing is the process of manipulating, configuring, and accessing online applications.
+//Google Drive is a popular cloud storage service that allows you to store files online. It offers 15 GB of free storage.
+A chart is an effective way to display data in a pictorial form.
+Excel allows us to create different kinds of charts to better understand data: Column chart, bar chart, pie chart, line chart etc.
+The chart area includes the entire chart, including titles and legends, whereas the plot area is the section where the actual data is shown with bars, lines etc.
+The titles given to the X-Axis and Y-Axis are called axis titles.
+The data values on the basis of which a chart is plotted are called "data series".
+Sparklines are mini charts that fit into a single cell to show data trends at a glance.
+A combo chart is a combination of two or more charts.
+The sort feature of Excel helps you arrange the data either in ascending or descending order.
+Python is a very popular programming language used to create computer programs and software.
+Python is very easy to learn and user-friendly.
+Python programs are written in the IDLE environment.
+The IDLE environment can work in 2 different modes: Interactive mode and Script mode.
+In the interactive mode, commands are written and executed one by one. You write a command, press the Enter key and get its ouput immediately on the next line.
+In the script mode, the entite program is written as one single file and then saved. The program is run by pressing the shortcut key F5.
+In Python, operators are symbols which are used to perform different operations on operands, such as addition, subtraction etc.
+The operators used to perform basic mathematical operations (addition, subtraction, division etc) are called arithmetic operators.

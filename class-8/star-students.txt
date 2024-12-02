@@ -1,15 +1,15 @@
-Aarna Singh  
-An introverted and quiet girl, Aarna is sincere and always focused on her work. Her dedication and attention to detail make her a consistent and reliable student.
+//Aarna Singh  
+//An introverted and quiet girl, Aarna is sincere and always focused on her work. Her dedication and attention to detail make her a consistent and reliable student.
 
 
 
-Abhinav Saini  
-A brilliant student with sharp logical abilities, Abhinav is known for his sincerity and dedication. His consistent efforts make him stand out in both academics and problem-solving.
+//Abhinav Saini  
+//A brilliant student with sharp logical abilities, Abhinav is known for his sincerity and dedication. His consistent efforts make him stand out in both academics and problem-solving.
 
 
 
-Anshu Devanda  
-Anshu possesses excellent communication and interpersonal skills. With a talent for music and kinesthetic activities, he thrives in team environments and shows remarkable versatility.
+//Anshu Devanda  
+//Anshu possesses excellent communication and interpersonal skills. With a talent for music and kinesthetic activities, he thrives in team environments and shows remarkable versatility.
 
 
 
@@ -36,10 +36,14 @@ Devanshi is academically strong and possesses excellent dance, speaking, and sta
 Gourav Saini  
 Gourav is a sincere and academically strong student who has a keen interest in coding. His problem-solving skills make him excel in both academics and technology-related projects.
 
-
+Harsh
+Harsh is a sincere student, dedicated to his studies and focused on excellence. His introverted nature leads him to work quietly and independently.
 
 Harshita  
 Harshita is a brilliant student with outstanding communication, speaking, and vocal skills, paired with a good sense of music. Her smartness and high IQ make her a natural leader and an asset to any academic or extracurricular task.
+
+Jigyasa Sharma
+Jigyasa has an effervescent personality, lighting up the classroom with her energy and enthusiasm. Her impressive stage presence and dance skills also make her a standout performer.
 
 
 
@@ -58,18 +62,18 @@ Energetic and enthusiastic, Krishna takes initiative in all that he does. His ef
 
 
 
-Madhavi Kumawat  
-Madhavi is a sincere student with a strong academic record. Her dedication to her studies is unwavering, and she always strives for excellence.
+//Madhavi Kumawat  
+//Madhavi is a sincere student with a strong academic record. Her dedication to her studies is unwavering, and she always strives for excellence.
 
 
 
-Manan Kanungo  
-Manan excels in kinesthetic skills and is always eager to participate in group activities. His enthusiasm for teamwork and hands-on tasks makes him a vital part of every class project.
+//Manan Kanungo  
+//Manan excels in kinesthetic skills and is always eager to participate in group activities. His enthusiasm for teamwork and hands-on tasks makes him a vital part of every class project.
 
 
 
-Naman Kumawat  
-Naman is an energetic boy with excellent speaking skills and outstanding gross motor abilities. He actively participates in all physical activities and shows great enthusiasm in team tasks.
+//Naman Kumawat  
+//Naman is an energetic boy with excellent speaking skills and outstanding gross motor abilities. He actively participates in all physical activities and shows great enthusiasm in team tasks.
 
 
 

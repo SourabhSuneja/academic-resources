@@ -1,96 +1,96 @@
-Aaditya Pareek  
-Aaditya is a smart student with a quick grasp of concepts. His intelligence and keen understanding make him an asset to the class.
+//Aaditya Pareek  
+//Aaditya is a smart student with a quick grasp of concepts. His intelligence and keen understanding make him an asset to the class.
 
-Khushal Saini  
-Sincere and focused, Khushal is always attentive and dedicated to his work. His perseverance is evident in his consistent academic performance.
+//Khushal Saini  
+//Sincere and focused, Khushal is always attentive and dedicated to his work. His perseverance is evident in his consistent academic performance.
 
-Laksh Choudhary  
-Laksh is a smart student, known for his intellectual curiosity and ability to solve problems with ease.
+//Laksh Choudhary  
+//Laksh is a smart student, known for his intellectual curiosity and ability to solve problems with ease.
 
-Paridhi Sharma  
-Paridhi is a sincere and brilliant student. Her grace and poise shine through not only in academics but also in her exceptional dancing skills.
+//Paridhi Sharma  
+//Paridhi is a sincere and brilliant student. Her grace and poise shine through not only in academics but also in her exceptional dancing skills.
 
-Samika Godara  
-Samika's brilliance and sincerity set her apart. She consistently delivers high-quality work and excels across subjects.
+//Samika Godara  
+//Samika's brilliance and sincerity set her apart. She consistently delivers high-quality work and excels across subjects.
 
-Sidhika Kumawat  
-Sidhika is a diligent and brilliant student, always committed to her studies and producing excellent results.
+//Sidhika Kumawat  
+//Sidhika is a diligent and brilliant student, always committed to her studies and producing excellent results.
 
-Mishika Yadav  
-Mishika is a smart and perceptive student. Her sharp intellect and curiosity make her stand out in class discussions.
+//Mishika Yadav  
+//Mishika is a smart and perceptive student. Her sharp intellect and curiosity make her stand out in class discussions.
 
-Neerav Agarwal  
-Neerav is academically strong, consistently demonstrating a good understanding of subjects and performing well in all assessments.
+//Neerav Agarwal  
+//Neerav is academically strong, consistently demonstrating a good understanding of subjects and performing well in all assessments.
 
-Niket Sharma  
-Niket is academically solid, regularly showing good effort and understanding in his work. His results reflect his hard work.
+//Niket Sharma  
+//Niket is academically solid, regularly showing good effort and understanding in his work. His results reflect his hard work.
 
-Sunidhi Choudhary  
-Sunidhi is a brilliant and sincere student, always striving for excellence in her academic pursuits.
+//Sunidhi Choudhary  
+//Sunidhi is a brilliant and sincere student, always striving for excellence in her academic pursuits.
 
-Swarnim Nagori  
-Swarnim's brilliance and sincerity are evident in his commitment to learning. He is a role model for her peers.
+//Swarnim Nagori  
+//Swarnim's brilliance and sincerity are evident in his commitment to learning. He is a role model for her peers.
 
-Yuvansh Kumawat  
-Yuvansh is a sincere and hardworking student. His dedication to his studies makes him a good student who consistently performs well.
-
-
-
-Aayush Choudhary  
-Aayush is an intelligent and sincere boy, consistently showing focus and dedication in his studies.
-
-Ansh Pratap Singh  
-Ansh is an outgoing and extroverted student with a good academic record. His enthusiasm and social nature complement his academic success.
-
-Divya Pareek  
-Divya is a sincere and disciplined student, always focused on her tasks and maintaining a high level of commitment to her studies.
-
-Khushi Gupta  
-Khushi, with her high IQ and brilliance, is always eager to learn. Her enthusiasm for gaining knowledge makes her stand out in the classroom.
-
-Naman Choudhary  
-Naman is a brilliant and sincere student who always strives for excellence in his academics, making him a consistent high achiever.
-
-Priyanshu Jakhar  
-Priyanshu is academically good, consistently performing well in class and showing a strong understanding of the subject.
-
-Sameeksha Beniwal  
-Sameeksha's brilliance, discipline, and sincerity define her academic journey. She is a role model for her peers with her consistent hard work.
-
-Yashraj Shekhawat  
-Yashraj is a sincere student with a deep interest in learning. His dedication and curiosity make him a valuable participant in class activities.
+//Yuvansh Kumawat  
+//Yuvansh is a sincere and hardworking student. His dedication to his studies makes him a good student who consistently performs well.
 
 
 
-Aakriti Sharma  
-Aakriti is a very sincere student, always dedicated to her studies. She is also a talented dancer, excelling both academically and artistically.
+//Aayush Choudhary  
+//Aayush is an intelligent and sincere boy, consistently showing focus and dedication in his studies.
 
-Abhay Kumar  
-Abhay is energetic and academically brilliant, consistently performing at a high level and bringing enthusiasm to all his tasks.
+//Ansh Pratap Singh  
+//Ansh is an outgoing and extroverted student with a good academic record. His enthusiasm and social nature complement his academic success.
 
-Avni Saini  
-An introverted yet sincere and disciplined student, Avni is always focused on her studies and demonstrates a strong sense of responsibility.
+//Divya Pareek  
+//Divya is a sincere and disciplined student, always focused on her tasks and maintaining a high level of commitment to her studies.
 
-Bhavika Yadav  
-Bhavika is a very sincere student and a keen learner, always eager to expand her knowledge and consistently striving for excellence.
+//Khushi Gupta  
+//Khushi, with her high IQ and brilliance, is always eager to learn. Her enthusiasm for gaining knowledge makes her stand out in the classroom.
 
-Hitanshi Agarwal  
-Quiet and sincere, Hitanshi is focused and diligent, consistently performing well and contributing thoughtfully to class discussions.
+//Naman Choudhary  
+//Naman is a brilliant and sincere student who always strives for excellence in his academics, making him a consistent high achiever.
 
-Khushi Choudhary  
-Khushi is brilliant and sincere, with a strong interest in learning. Her commitment to her studies is reflected in her excellent performance.
+//Priyanshu Jakhar  
+//Priyanshu is academically good, consistently performing well in class and showing a strong understanding of the subject.
 
-Kinjal Choudhary  
-Outgoing, sincere, and curious, Kinjal is always eager to learn and explore new ideas, making her an active participant in class.
+//Sameeksha Beniwal  
+//Sameeksha's brilliance, discipline, and sincerity define her academic journey. She is a role model for her peers with her consistent hard work.
 
-Lavanshi Rajawat  
-Lavanshi is a sincere student who actively participates in various activities, balancing her academics with extracurricular involvement.
+//Yashraj Shekhawat  
+//Yashraj is a sincere student with a deep interest in learning. His dedication and curiosity make him a valuable participant in class activities.
 
-Prince Dara  
-Prince is a smart and academically good student, consistently showing strong results and a quick understanding of concepts.
 
-Shorya Choudhary  
-Shorya has a high IQ and is an analytical, brilliant, and energetic student. His sharp mind and enthusiasm make him excel in both academics and problem-solving.
 
-Vanshika Sharma  
-Vanshika is brilliant, social, and excels in dance as well as in her studies. Her outgoing nature and diverse talents make her stand out in all areas.
+//Aakriti Sharma  
+//Aakriti is a very sincere student, always dedicated to her studies. She is also a talented dancer, excelling both academically and artistically.
+
+//Abhay Kumar  
+//Abhay is energetic and academically brilliant, consistently performing at a high level and bringing enthusiasm to all his tasks.
+
+//Avni Saini  
+//An introverted yet sincere and disciplined student, Avni is always focused on her studies and demonstrates a strong sense of responsibility.
+
+//Bhavika Yadav  
+//Bhavika is a very sincere student and a keen learner, always eager to expand her knowledge and consistently striving for excellence.
+
+//Hitanshi Agarwal  
+//Quiet and sincere, Hitanshi is focused and diligent, consistently performing well and contributing thoughtfully to class discussions.
+
+//Khushi Choudhary  
+//Khushi is brilliant and sincere, with a strong interest in learning. Her commitment to her studies is reflected in her excellent performance.
+
+//Kinjal Choudhary  
+//Outgoing, sincere, and curious, Kinjal is always eager to learn and explore new ideas, making her an active participant in class.
+
+//Lavanshi Rajawat  
+//Lavanshi is a sincere student who actively participates in various activities, balancing her academics with extracurricular involvement.
+
+//Prince Dara  
+//Prince is a smart and academically good student, consistently showing strong results and a quick understanding of concepts.
+
+//Shorya Choudhary  
+//Shorya has a high IQ and is an analytical, brilliant, and energetic student. His sharp mind and enthusiasm make him excel in both academics and problem-solving.
+
+//Vanshika Sharma  
+//Vanshika is brilliant, social, and excels in dance as well as in her studies. Her outgoing nature and diverse talents make her stand out in all areas.

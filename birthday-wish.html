@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Wishes for Sourabh Sir</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 600px;
+      margin: 50px auto;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.6em;
+      margin-bottom: 20px;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    label {
+      font-size: 1.1em;
+      color: #333;
+      font-weight: 600;
+    }
+
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 12px;
+      font-size: 1em;
+      margin-top: 8px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus, select:focus, textarea:focus {
+      border-color: #2575fc;
+      outline: none;
+      box-shadow: 0 0 8px rgba(37, 117, 252, 0.5);
+    }
+
+    textarea {
+      resize: vertical;
+      height: 150px;
+    }
+
+    .btn {
+      background-color: #2575fc;
+      color: white;
+      border: none;
+      padding: 14px 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 8px;
+      width: 100%;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #6a11cb;
+      transform: translateY(-3px);
+    }
+
+    .btn:active {
+      background-color: #4a7bf7;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #333;
+      font-weight: 400;
+    }
+
+    .footer p {
+      font-size: 1em;
+      color: #555;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 2.5em;
+      }
+
+      .form-group {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Birthday Wishes for Sourabh Sir</h1>
+    <form id="birthdayForm" onsubmit="sendWishes(event)">
+      <div class="form-group">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="class">Class:</label>
+        <select id="class" name="class" required>
+          <option value="" disabled selected>Select your class</option>
+          <option value="I">I</option>
+          <option value="II">II</option>
+          <option value="III">III</option>
+          <option value="IV">IV</option>
+          <option value="V">V</option>
+          <option value="VI">VI</option>
+          <option value="VII">VII</option>
+          <option value="VIII">VIII</option>
+          <option value="IX">IX</option>
+          <option value="X">X</option>
+          <option value="XI">XI</option>
+          <option value="XII">XII</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="section">Section:</label>
+        <select id="section" name="section" required>
+          <option value="" disabled selected>Select your section</option>
+          <option value="A1">A1</option>
+          <option value="A2">A2</option>
+          <option value="A3">A3</option>
+          <option value="A4">A4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="wishes">Birthday Wishes:</label>
+        <textarea id="wishes" name="wishes" placeholder="Write your birthday wishes for Sourabh Sir..." required></textarea>
+      </div>
+      <button type="submit" class="btn">Send</button>
+    </form>
+    <div class="footer">
+      <p></p>
+    </div>
+  </div>
+
+  <script>
+    function sendWishes(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      const name = document.getElementById('name').value;
+      const classValue = document.getElementById('class').value;
+      const section = document.getElementById('section').value;
+      const wishes = document.getElementById('wishes').value;
+
+      // set timestamp
+      let timestamp = new Date().toLocaleString("en-IN", {
+             timeZone: "Asia/Kolkata",
+             day: 'numeric',
+             month: 'long',
+             year: 'numeric',
+             hour: 'numeric',
+             minute: 'numeric',
+             hour12: true
+       });
+     
+      const data = [name, (classValue+'-'+section), wishes, timestamp];
+      
+     const scriptURL = 'https://script.google.com/macros/s/AKfycbxCEqFycL4EgHcg5dTmMSttZt484EQW53Smz9uKnJg9YS1XGVy5dO_dR2d6LjTmCfwb/exec';
+           const formData = new FormData();
+           formData.append('responses', JSON.stringify(data));
+         
+           fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
+             .then(() => {
+               alert('Wishes sent successfully!');
+             })
+             .catch(() => {
+               alert('Error sending wishes!');
+             })
+             .finally(() => {
+               // reset the form after submission
+               document.getElementById('birthdayForm').reset();
+             });
+    }
+
+    // function to capitalize first letter of each word
+         function capitalizeFirstLetter(string) {
+           return string
+               .toLowerCase() // Convert the entire string to lowercase
+               .split(' ')    // Split the string into an array of words
+               .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+               .join(' ');    // Join the array of words back into a single string
+         }
+  </script>
+
+</body>
+</html>

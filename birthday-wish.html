@@ -189,7 +189,7 @@
     function sendWishes(event) {
       event.preventDefault(); // Prevent form submission
       const sendBtn = document.getElementById('sendBtn');
-      const name = document.getElementById('name').value;
+      const name = capitalizeFirstLetter(document.getElementById('name').value).trim();
       const classValue = document.getElementById('class').value;
       const section = document.getElementById('section').value;
       const wishes = document.getElementById('wishes').value;

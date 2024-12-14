@@ -178,7 +178,7 @@
         <label for="wishes">Birthday Wishes:</label>
         <textarea id="wishes" name="wishes" placeholder="Write your birthday wishes for Sourabh Sir..." required></textarea>
       </div>
-      <button type="submit" class="btn">Send</button>
+      <button id="sendBtn" type="submit" class="btn">Send</button>
     </form>
     <div class="footer">
       <p></p>
@@ -188,11 +188,13 @@
   <script>
     function sendWishes(event) {
       event.preventDefault(); // Prevent form submission
-      
+      const sendBtn = document.getElementById('sendBtn');
       const name = document.getElementById('name').value;
       const classValue = document.getElementById('class').value;
       const section = document.getElementById('section').value;
       const wishes = document.getElementById('wishes').value;
+
+      sendBtn.innerText = "Sending..";
 
       // set timestamp
       let timestamp = new Date().toLocaleString("en-IN", {
@@ -221,6 +223,7 @@
              .finally(() => {
                // reset the form after submission
                document.getElementById('birthdayForm').reset();
+               sendBtn.innerText = "Send";
              });
     }
 

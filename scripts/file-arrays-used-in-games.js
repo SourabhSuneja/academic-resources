@@ -20,7 +20,7 @@ switch (validGrade) {
       gradeArray = ['kips-7-ch-7', 'kips-7-ch-8'];
       break;
    case 8:
-      gradeArray = ['kips-8-ch-4'];
+      gradeArray = ['kips-8-ch-4', 'between-8-ch-4'];
       break;
    default:
       gradeArray = [];

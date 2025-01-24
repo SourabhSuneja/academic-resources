@@ -72,3 +72,8 @@ Natural Language Processing is an AI field that teaches computers to understand 
 Information Retrieval means teaching computers to find the right information from a huge collection and answer our questions quickly.
 Image Data Analytics is a field that teaches computers to process images and figure out what is inside them on its own!
 Several apps use image data analytics: Google Lens, TapTapSee, LeafSnap, Calorie Mama etc.
+Artificial Intelligence means creating machines or applications that can work as intelligently as humans. It is closely related with data science because all AI applications are "pre-trained" with lots of data! Data is a fuel to AI.
+AI makes it possible to create applications that reduce human interference and helps do things easily.
+Machine Learning means teaching computers to learn from sample data so that it becomes capable of doing a task on its own. It is the heart and soul of AI.
+Deep learning also teaches computers to learn something but it uses complex data to learn more deeply.
+Artificial Neural Networks (ANNs) are computer programs that work like the human brain. They are used in deep learning.

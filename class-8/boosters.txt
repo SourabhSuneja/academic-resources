@@ -55,4 +55,20 @@
 
 Data Science is a field that has applications in many different areas, including e-commerce, banking, education, healthcare, agriculture and more.
 E-commerce companies use data science to understand their customers and recommend products accordingly. It also helps them analyse product reviews.
-
+In education, data science can be used to analyse student performance, assess teachers' skills and for career guidance.
+Banks use data science for fraud detection, checking who is eligible for loans and credit cards and for designing saving schemes for different customers. They also use data science for predicting loan recoveries.
+In healthcare, data science is used to improve patient care, diagnose diseases, and find better treatment options.
+Apps like Uber use data science to figure out the closest driver to pick you up quickly and the best route to get you where you want to go.
+The ability of computers and other devices to understand our spoken words is called speech recognition.
+Speech recognition makes it possible for us to give commands to a computer or phone simply by speaking.
+Speech recognition also helps people with disabilities to type easily.
+Some examples of apps that use speech recognition are Alexa, Siri, Cortana etc.
+Text data analytics is a field that teaches computers to extract, read and understand lots of text!
+Text data analytics is mainly used to analyse "unstructured" text data - data which is scattered in different places and has no proper structure.
+With text data analytics, companies can create AI programs that can automatically read product reviews and analyse what products are most liked by the customers.
+Text data analytics involves 3 things: Data Mining, Natural Language Processing and Information Retrieval.
+Data mining means digging through a big pile of data, and identifying hidden patterns and useful information.
+Natural Language Processing is an AI field that teaches computers to understand and generate human languages on their own.
+Information Retrieval means teaching computers to find the right information from a huge collection and answer our questions quickly.
+Image Data Analytics is a field that teaches computers to process images and figure out what is inside them on its own!
+Several apps use image data analytics: Google Lens, TapTapSee, LeafSnap, Calorie Mama etc.

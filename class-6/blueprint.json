@@ -1,12 +1,12 @@
 {
   "syllabus": {
-    "term": "Periodic Test-3",
+    "term": "Periodic Test-4",
     "chapters": [
       {
-        "title": "Chapter 5: Introduction to Excel"
+        "title": "Chapter 7: Introduction to Python"
       },
       {
-        "title": "Chapter 6: Editing in Excel"
+        "title": "Chapter 8: Computer Vision"
       }
     ]
   },

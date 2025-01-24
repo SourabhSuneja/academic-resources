@@ -70,7 +70,7 @@ Text data analytics involves 3 things: Data Mining, Natural Language Processing 
 Data mining means digging through a big pile of data, and identifying hidden patterns and useful information.
 Natural Language Processing is an AI field that teaches computers to understand and generate human languages on their own.
 Information Retrieval means teaching computers to find the right information from a huge collection and answer our questions quickly.
-Image Data Analytics is a field that teaches computers to process images and figure out what is inside them on its own!
+Image Data Analytics is a field that teaches computers to process images and figure out what is inside them on their own!
 Several apps use image data analytics: Google Lens, TapTapSee, LeafSnap, Calorie Mama etc.
 Artificial Intelligence means creating machines or applications that can work as intelligently as humans. It is closely related with data science because all AI applications are "pre-trained" with lots of data! Data is a fuel to AI.
 AI makes it possible to create applications that reduce human interference and helps do things easily.

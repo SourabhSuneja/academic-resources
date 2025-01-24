@@ -33,30 +33,30 @@
 
 
 
-Data Visualisation
-Showing data in pictures or graphs to make it easier to understand.
+//Data Visualisation
+//Showing data in pictures or graphs to make it easier to understand.
 
-Chart
-A way to display data visually, using symbols like lines, bars, or slices to quickly show information.
+//Chart
+//A way to display data visually, using symbols like lines, bars, or slices to quickly show information.
 
-Pie Chart
-A circular chart divided into parts, with each part showing a portion of the total data.
+//Pie Chart
+//A circular chart divided into parts, with each part showing a portion of the total data.
 
-Line Chart
-A chart that connects data points with lines to show trends over time.
+//Line Chart
+//A chart that connects data points with lines to show trends over time.
 
-Column Chart
-A chart with vertical bars to compare values across different categories.
+//Column Chart
+//A chart with vertical bars to compare values across different categories.
 
-Heatmap
-A chart that uses colors to show how much or how little something is happening in different areas.
+//Heatmap
+//A chart that uses colors to show how much or how little something is happening in different areas.
 
-Regression
-A method for finding the relationship between two or more variables, often used for making predictions.
+//Regression
+//A method for finding the relationship between two or more variables, often used for making predictions.
 
-Cohort Analysis
-Analysing the behaviour of different groups of people over time.
+//Cohort Analysis
+//Analysing the behaviour of different groups of people over time.
 
-Predictive Analysis
-Using past data and patterns to make predictions about future events or trends.
+//Predictive Analysis
+//Using past data and patterns to make predictions about future events or trends.
 

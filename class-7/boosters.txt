@@ -14,19 +14,32 @@
 //A strong password is long, unique, and includes a mix of letters, numbers, and symbols. It should not have guessable patterns like 123, abc etc.
 //Cloud computing is the process of manipulating, configuring, and accessing online applications.
 //Google Drive is a popular cloud storage service that allows you to store files online. It offers 15 GB of free storage.
-A chart is an effective way to display data in a pictorial form.
-Excel allows us to create different kinds of charts to better understand data: Column chart, bar chart, pie chart, line chart etc.
-The chart area includes the entire chart, including titles and legends, whereas the plot area is the section where the actual data is shown with bars, lines etc.
-The titles given to the X-Axis and Y-Axis are called axis titles.
-The data values on the basis of which a chart is plotted are called "data series".
-Sparklines are mini charts that fit into a single cell to show data trends at a glance.
-A combo chart is a combination of two or more charts.
-The sort feature of Excel helps you arrange the data either in ascending or descending order.
-Python is a very popular programming language used to create computer programs and software.
-Python is very easy to learn and user-friendly.
-Python programs are written in the IDLE environment.
-The IDLE environment can work in 2 different modes: Interactive mode and Script mode.
-In the interactive mode, commands are written and executed one by one. You write a command, press the Enter key and get its ouput immediately on the next line.
-In the script mode, the entite program is written as one single file and then saved. The program is run by pressing the shortcut key F5.
-In Python, operators are symbols which are used to perform different operations on operands, such as addition, subtraction etc.
-Conditional statements are used to change the flow of a program depending on the result of a condition. We can use if, if...else or if..elif..else constructs to evaluate conditions in Python.
+//A chart is an effective way to display data in a pictorial form.
+//Excel allows us to create different kinds of charts to better understand data: Column chart, bar chart, pie chart, line //chart etc.
+//The chart area includes the entire chart, including titles and legends, whereas the plot area is the section where the actual data is shown with bars, lines etc.
+//The titles given to the X-Axis and Y-Axis are called axis titles.
+//The data values on the basis of which a chart is plotted are called "data series".
+//Sparklines are mini charts that fit into a single cell to show data trends at a glance.
+//A combo chart is a combination of two or more charts.
+//The sort feature of Excel helps you arrange the data either in ascending or descending order.
+//Python is a very popular programming language used to create computer programs and software.
+//Python is very easy to learn and user-friendly.
+//Python programs are written in the IDLE environment.
+//The IDLE environment can work in 2 different modes: Interactive mode and Script mode.
+//In the interactive mode, commands are written and executed one by one. You write a command, press the Enter key and get its ouput immediately on the next line.
+//In the script mode, the entite program is written as one single file and then saved. The program is run by pressing the shortcut key F5.
+//In Python, operators are symbols which are used to perform different operations on operands, such as addition, subtraction etc.
+//Conditional statements are used to change the flow of a program depending on the result of a condition. We can use if, if...else or if..elif..else constructs to evaluate conditions in Python.
+HTML is a language used for creating webpages for the Internet.
+In HTML, we have "tags", which tell the browser how to display a particular element. For example, <p>Some text</p> instructs the browser to display "Some text" as a paragraph.
+Similarly, we have different tags for different things, like headings, images etc.
+In HTML, we have six different tags to display headings in different font sizes. <H1> represents the largest heading whereas <H6> represents the smallest one.
+CSS is a language used to style and format HTML elements. It is used along with HTML to change the look and feel of HTML elements.
+CSS can be used to change the font size, alignment, colours or the background of elements.
+NLP stands for Natural Language Processing. It is the process of making computers understand human languages.
+NLP helps voice assistants like Alexa understand your commands.
+NLP also helps in language translation.
+Sentence segmentation is the process of breaking a paragraph into individual sentences.
+Tokenisation is the process of breaking a sentence into individual words.
+Stemming and lemmatisation are used to extract the base part of a word.
+Stemming simplifies a word by removing any affixes. For example, the words "playing" and "played" are changed to just "play". Whereas, lemmatisation reduces a word to its proper base form while still keeping it accurate. For example, "sang" and "sung" are changed to "sing".

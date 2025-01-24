@@ -15,30 +15,45 @@
 //F5 is the shortcut key to run the slide show.
 //You can make your PowerPoint presentation more appealing by using pictures, adding animations, using a good colour combination and fonts.
 
-Excel is a popular spreadsheet program that helps us organise and analyse data.
+//Excel is a popular spreadsheet program that helps us organise and analyse data.
 
-Excel stores data in a table-like grid having "rows" and "columns". 
+//Excel stores data in a table-like grid having "rows" and "columns". 
 
-Rows are horizontal lines marked by numbers. Columns are vertical and marked by letters. 
+//Rows are horizontal lines marked by numbers. Columns are vertical and marked by letters. 
 
-Excel helps us to organise data quickly. It also allows us to perform calculations on data. 
+//Excel helps us to organise data quickly. It also allows us to perform calculations on data. 
 
-A complete Excel file is a workbook and different "pages" in the workbook are called worksheets. 
+//A complete Excel file is a workbook and different "pages" in the workbook are called worksheets. 
 
-You can think of a workbook like a notebook, and worksheets like the pages of that notebook.
+//You can think of a workbook like a notebook, and worksheets like the pages of that notebook.
 
-A cell is a rectangular box formed by the intersection of a row and column.
+//A cell is a rectangular box formed by the intersection of a row and column.
 
-A group of cells selected together is called a range.
+//A group of cells selected together is called a range.
 
-We can enter data in cells. The data can be text, numbers and formulas.
+//We can enter data in cells. The data can be text, numbers and formulas.
 
-Each cell has a unique address and it can be used to refer to that cell when creating a formula. Example, A1, A2, etc.
+//Each cell has a unique address and it can be used to refer to that cell when creating a formula. Example, A1, A2, etc.
 
-A formula is an equation that we use to perform calculations in Excel. For example: =A1+B1
+//A formula is an equation that we use to perform calculations in Excel. For example: =A1+B1
 
-The Autofill feature of Excel allows us to fill cells with data automatically based on a pattern. Example, automatically filling the names of months (Jan, Feb etc) or writing roll numbers (1, 2, 3 etc).
+//The Autofill feature of Excel allows us to fill cells with data automatically based on a pattern. Example, automatically filling the names of months (Jan, Feb etc) or writing roll numbers (1, 2, 3 etc).
 
-Undo is used to reverse the last performed action, whereas redo is used to repeat the action which was undone. 
+//Undo is used to reverse the last performed action, whereas redo is used to repeat the action which was undone. 
 
 
+Python is a popular programming language used to create software applications.
+Python was created by Guido van Rossum.
+Python is simple to learn, free of cost and requires only a few lines of code.
+Python programs are created in IDLE.
+IDLE can work in two different modes: Interactive Mode and Script Mode.
+In the interactive mode, statements are executed line by line, whereas in the script mode, the whole program is written and executed together.
+When working in the script mode, we first need to save the program (Ctrl+S) and then run it (with the F5 key).
+A variable is a named storage location in the computer memory.
+A variable can hold any type of data: integers (numbers without decimals), floating numbers (numbers with a decimal part) and strings (words and text).
+The integer data type contains positive or negative whole numbers (without a decimal part). E.g. 10, -5. Whereas, The float data type contains decimal numbers. E.g. 12.5, -5.2 etc.
+Computer vision is the ability of computers to "see" something, and do a task like a human being. It is a part of Artificial Intelligence (AI).
+Computer vision is used in self-driving cars, Google Lens, face recognition systems etc.
+Computer vision works by looking at pictures or videos, understanding patterns and then performing an action.
+A self-driving car uses cameras and sensors to see the road, understand it, and drive safely without a driver.
+Google Lens can identify plants and animals from pictures. It can also translate text from one language to another by taking the picture of a document.

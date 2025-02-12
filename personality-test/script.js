@@ -328,5 +328,21 @@ function isValidName(inputName) {
    return true;
 }
 
+
+// add a change event listener to the role select
+document.getElementById("cmRoleInput").addEventListener("change", function () {
+    const gradeInput = document.getElementById("cmGradeInput");
+    const sectionInput = document.getElementById("cmSectionInput");
+
+    if (this.value === "Student") {
+        gradeInput.style.display = "block";
+        sectionInput.style.display = "block";
+    } else {
+        gradeInput.style.display = "none";
+        sectionInput.style.display = "none";
+    }
+});
+
+
 // Call the function to execute the code
 getStudentDetails();

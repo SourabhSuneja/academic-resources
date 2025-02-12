@@ -1,3 +1,5 @@
+let roleInputValue;
+
 const questionsSet1 = [
    "जब आप थक जाते हो, तो क्या करना पसंद करते हो?",
    "जब आप नए लोगों से मिलते हो, तो कैसा महसूस करते हो?",
@@ -225,6 +227,7 @@ function customPrompt() {
       const gradeInput = document.getElementById('cmGradeInput');
       const sectionInput = document.getElementById('cmSectionInput');
       const submitButton = document.getElementById('cmSubmitName');
+      roleInputValue = document.getElementById("cmRoleInput").value;
 
       // Display the modal
       modal.style.display = 'block';
@@ -238,7 +241,7 @@ function customPrompt() {
          const grade = gradeInput.value;
          const section = sectionInput.value;
 
-         if (name && grade && section) {
+         if ((name && grade && section) || (name && roleInputValue !== 'Student')) {
 
             // check if name is spammy
             if (!isValidName(name)) {

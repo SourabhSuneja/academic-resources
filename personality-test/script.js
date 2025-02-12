@@ -344,6 +344,7 @@ document.getElementById("cmRoleInput").addEventListener("change", function () {
         gradeInput.style.display = "none";
         sectionInput.style.display = "none";
     }
+    roleInputValue = this.value;
 });
 
 

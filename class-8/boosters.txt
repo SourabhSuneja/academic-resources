@@ -1,57 +1,57 @@
-//Primary data is collected for the first time. Example: population census by the government.  
-//Secondary data is previously collected data that can be used by others.  
-//Machine learning teaches computers to learn from data patterns and make decisions on their own.  
-//Data filtering removes unwanted elements, like blank values, from data.  
-//Clustering means grouping data based on feature similarities.  
-//Quantitative data is expressed in numbers. Example: height, number of students.  
-//Qualitative data describes qualities and can't be expressed numerically. Example: honesty, beauty.
-//An outlier is an object that is odd one out.
-//Population of a region is considered as discrete data, because it is "counted".
-//Regression predicts future trends based on past data.
-//A shopkeeper analyzing past sales to decide next month's stock is a real-life example of data science.
-//E-commerce websites use data science to analyze customer behaviour and recommend products for future purchases.
-//Data science isn't always accurate, as predictions can sometimes be wrong due to incomplete or misleading data.
+Primary data is collected for the first time. Example: population census by the government.  
+Secondary data is previously collected data that can be used by others.  
+Machine learning teaches computers to learn from data patterns and make decisions on their own.  
+Data filtering removes unwanted elements, like blank values, from data.  
+Clustering means grouping data based on feature similarities.  
+Quantitative data is expressed in numbers. Example: height, number of students.  
+Qualitative data describes qualities and can't be expressed numerically. Example: honesty, beauty.
+An outlier is an object that is odd one out.
+Population of a region is considered as discrete data, because it is "counted".
+Regression predicts future trends based on past data.
+A shopkeeper analyzing past sales to decide next month's stock is a real-life example of data science.
+E-commerce websites use data science to analyze customer behaviour and recommend products for future purchases.
+Data science isn't always accurate, as predictions can sometimes be wrong due to incomplete or misleading data.
 //Cricket teams use data science to analyze player performance and develop strategies for upcoming matches.
-//Banks use data science to check credit risk and detect fraud.
-//Data science is important because it helps us make better decisions by finding useful information in data.
+Banks use data science to check credit risk and detect fraud.
+Data science is important because it helps us make better decisions by finding useful information in data.
 //Do you know even IPL teams use data science to select best-performing players? Factors like strike rate, and hard-hitting ability are considered for choosing best batsmen.
-//Discrete data is always "counted" in whole numbers while continuous data is "measured", and may have decimal values as well.
+Discrete data is always "counted" in whole numbers while continuous data is "measured", and may have decimal values as well.
 
 
-//Data visualisation means representing data graphically so that it can be easily understood.
+Data visualisation means representing data graphically so that it can be easily understood.
 
-//Data can be visualised through a variety of techniques: charts, graphs, maps etc.
+Data can be visualised through a variety of techniques: charts, graphs, maps etc.
 
 //Maps are used to represent geographical information, like what places are located where.
 
-//Charts can be of different types: pie chart, line chart, column chart, bar chart etc.
+Charts can be of different types: pie chart, line chart, column chart, bar chart etc.
 
 
-//A pie chart displays data in the form of a circle. It represents compositions and proportions of a whole.
+A pie chart displays data in the form of a circle. It represents compositions and proportions of a whole.
 
 
-//A line chart is a graph with lines showing changes over time. Suitable for analysing trends over time.
+A line chart is a graph with lines showing changes over time. Suitable for analysing trends over time.
 
 
-//A column chart is a chart with tall bars going up and down to show different values.
+A column chart is a chart with tall bars going up and down to show different values.
 
 
-//A heatmap is a data visualisation technique that uses colors to show how much or how little something is happening in different areas. For example, a heatmap can show how crowded different areas of a park are, with red for busy spots and blue for quiet ones.
+A heatmap is a data visualisation technique that uses colors to show how much or how little something is happening in different areas. For example, a heatmap can show how crowded different areas of a park are, with red for busy spots and blue for quiet ones.
 
 
-//Data visualisation is important because it helps us understand and see patterns in information quickly.
+Data visualisation is important because it helps us understand and see patterns in information quickly.
 
 
-//It's important to have good quality data for any kind of analysis.
+It's important to have good quality data for any kind of analysis.
 
-//Quality data must be accessible, clear to understand, relevant, accurate and available on time.
+Quality data must be accessible, clear to understand, relevant, accurate and available on time.
 
 
-//Regression is a method to find relationship between two variables and predict one on the basis of another.
+Regression is a method to find relationship between two variables and predict one on the basis of another.
 
-//In regression, the variable that we are trying to predict is called the dependent variable, and the variable which affects the dependent variable is called the independent variable. Example: consider a relationship between the number of hours you study and the marks you score. Your marks are a "dependent" variable because they depend on the number of hours you study. The hours studied are the "independent" variable.
+In regression, the variable that we are trying to predict is called the dependent variable, and the variable which affects the dependent variable is called the independent variable. Example: consider a relationship between the number of hours you study and the marks you score. Your marks are a "dependent" variable because they depend on the number of hours you study. The hours studied are the "independent" variable.
 
-//Cohort analysis is a way to study how different groups of people behave over time.
+Cohort analysis is a way to study how different groups of people behave over time.
 
 Data Science is a field that has applications in many different areas, including e-commerce, banking, education, healthcare, agriculture and more.
 E-commerce companies use data science to understand their customers and recommend products accordingly. It also helps them analyse product reviews.

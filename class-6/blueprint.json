@@ -1,7 +1,13 @@
 {
   "syllabus": {
-    "term": "Periodic Test-4",
+    "term": "Term-2",
     "chapters": [
+      {
+        "title": "Chapter 5: Introduction to Excel"
+      },
+      {
+        "title": "Chapter 6: Editing in Excel"
+      },
       {
         "title": "Chapter 7: Introduction to Python"
       },
@@ -11,7 +17,7 @@
     ]
   },
   "blueprint": {
-    "totalMarks": 20,
+    "totalMarks": 30,
     "sections": [
       {
         "type": "Multiple Choice Questions (MCQs)",
@@ -20,8 +26,13 @@
       },
       {
         "type": "True/False",
-        "questions": "4 questions, 1 mark each",
-        "totalMarks": 4
+        "questions": "5 questions, 1 mark each",
+        "totalMarks": 5
+      },
+      {
+        "type": "Match the following",
+        "questions": "5 questions, 1 mark each",
+        "totalMarks": 5
       },
       {
         "type": "Short Answer Questions",
@@ -34,6 +45,12 @@
         "questions": "3 questions, attempt any 2",
         "marksEach": "3 marks each",
         "totalMarks": 6
+      },
+      {
+        "type": "Application-Based Question (Predicting outputs of Python statements)",
+        "questions": "1 question split into 4 parts",
+        "marksEach": "1 mark for each part",
+        "totalMarks": 4
       }
     ]
   }

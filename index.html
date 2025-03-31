@@ -17,342 +17,520 @@
       <!-- Log page visit -->
       <script type="module" src="https://sourabhsuneja.github.io/academic-resources/auth/page-visit-logger.js"></script>
       <!-- FontAwesome Icons -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
       <!-- Google Fonts -->
-      <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <script src="scripts/links.js"></script>
       <style>
          * {
-         box-sizing: border-box;
-         max-height: 99999px;
+            box-sizing: border-box;
+            max-height: 99999px;
          }
+         
          body {
-         font-family: "Roboto", system-ui;
-         background-color: #f0f8ff;
-         margin: 0;
-         padding: 0;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         line-height: 1.3;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.5;
+            color: #333;
          }
+         
          .header {
-         width: 100%;
-         background-color: #4caf50;
-         color: #fff;
-         padding: 20px;
-         text-align: center;
-         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-         margin-bottom: 20px;
+            width: 100%;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
          }
+         
+         .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiPjxwYXRoIGQ9Ik0wIDAgTDQwIDQwIE0wIDQwIEw0MCAwIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+') repeat;
+            opacity: 0.2;
+         }
+         
          .header h1 {
-         margin: 5px;
-         font-size: 1.6rem;
-         font-family: "Lato", system-ui;
+            margin: 5px;
+            font-size: 2.2rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
          }
+         
          .header h2 {
-         margin: 7px 0;
-         font-size: 1.15rem;
-         font-weight: bold;
-         color: #fff;
-         padding-top: 12px;
+            margin: 7px 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            padding-top: 12px;
+            font-family: 'Nunito', sans-serif;
          }
+         
          .container {
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         max-width: 1200px;
-         padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1300px;
+            padding: 10px;
+            gap: 20px;
          }
+         
          .thumbnail {
-         background-color: #ffffff;
-         width: 100%;
-         max-width: 300px;
-         margin: 15px;
-         border-radius: 15px;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-         transition: transform 0.3s, box-shadow 0.3s;
-         text-align: center;
-         padding: 20px;
-         cursor: pointer;
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 300px;
+            margin: 0;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-align: center;
+            padding: 25px 20px;
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
          }
+         
+         .thumbnail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+         }
+         
          .thumbnail:hover {
-         transform: scale(1.05);
-         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
          }
+         
+         .thumbnail:hover::before {
+            opacity: 1;
+         }
+         
          .thumbnail i {
-         font-size: 3rem;
-         color: #4caf50;
+            font-size: 3rem;
+            color: #6a11cb;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
          }
+         
+         .thumbnail:hover i {
+            transform: scale(1.1);
+         }
+         
          .thumbnail h3 {
-         color: #333;
-         margin-top: 15px;
-         margin-bottom: 10px;
+            color: #333;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
          }
+         
          .thumbnail a {
-         text-decoration: none;
-         color: #4caf50;
-         font-weight: bold;
+            text-decoration: none;
+            color: #2575fc;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            padding: 5px 0;
+            transition: all 0.3s ease;
          }
+         
+         .thumbnail a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+         }
+         
+         .thumbnail a:hover {
+            color: #6a11cb;
+         }
+         
+         .thumbnail a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+         }
+         
          @media (max-width: 768px) {
-         .thumbnail {
-         width: 100%;
-         max-width: 100%;
+            .thumbnail {
+               width: 100%;
+               max-width: 100%;
+               margin: 0;
+            }
+            
+            .container {
+               gap: 15px;
+               padding: 10px 15px;
+            }
+            
+            .header h1 {
+               font-size: 1.8rem;
+            }
          }
-         }
+         
          /* Styles for the random knowledge dose card */
          .knowledge-card {
-         display: none;
-         position: fixed;
-         width: 90%;
-         max-width: 400px;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         padding: 12px;
-         border-radius: 10px;
-         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-         color: #fff;
-         text-align: center;
-         z-index: 1000;
-         animation: fadeIn 0.5s ease;
+            display: none;
+            position: fixed;
+            width: 90%;
+            max-width: 450px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            text-align: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border: 1px solid rgba(255, 255, 255, 0.2);
          }
+         
          /* Styles for the random knowledge booster text */
          #knowledge-text {
-         font-weight: bold;
-         font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
          }
+         
          /* Animation for card appearance */
          @keyframes fadeIn {
-         from {
-         opacity: 0;
-         transform: translate(-50%, -60%);
+            from {
+               opacity: 0;
+               transform: translate(-50%, -60%);
+            }
+            to {
+               opacity: 1;
+               transform: translate(-50%, -50%);
+            }
          }
-         to {
-         opacity: 1;
-         transform: translate(-50%, -50%);
-         }
-         }
+         
          /* Button styles */
          .knowledge-card button {
-         margin-top: 15px;
-         padding: 10px;
-         border: none;
-         border-radius: 5px;
-         background-color: #4caf50;
-         color: #fff;
-         font-size: 1rem;
-         cursor: pointer;
+            margin-top: 20px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            margin-right: 10px;
+            backdrop-filter: blur(5px);
          }
+         
          .knowledge-card button:hover {
-         background-color: #45a049;
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
          }
+         
          /* Word card styling */
          .word-card {
-         display: none;
-         position: fixed;
-         width: 90%;
-         max-width: 400px;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         padding: 20px;
-         border-radius: 10px;
-         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-         background-color: #ffffff;
-         z-index: 1000;
-         color: #333;
-         text-align: left;
-         animation: fadeIn 0.5s ease;
+            display: none;
+            position: fixed;
+            width: 90%;
+            max-width: 450px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            background-color: #ffffff;
+            z-index: 1000;
+            color: #333;
+            text-align: left;
+            animation: fadeIn 0.5s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
          }
+         
          .word-card p {
-         margin: 10px 0;
-         line-height: 1.4;
+            margin: 12px 0;
+            line-height: 1.6;
          }
+         
          /* Style for the word itself */
          #word-text {
-         font-weight: bold;
-         font-size: 1.8rem;
-         color: #4caf50;
-         text-align: center;
-         margin-bottom: 15px;
+            font-weight: 800;
+            font-size: 2rem;
+            color: #6a11cb;
+            text-align: center;
+            margin-bottom: 15px;
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
          }
+         
          /* Pronunciation styling */
          #pronunciation-text {
-         font-style: italic;
-         color: #666;
-         font-size: 1.2rem;
-         text-align: center;
-         margin-bottom: 20px;
+            font-style: italic;
+            color: #666;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 25px;
+            font-family: 'Nunito', sans-serif;
          }
+         
          /* Meaning, synonym, antonym, and sentence styling */
          #meaning-text, #synonym-text, #antonym-text, #sentence-text {
-         font-size: 1.1rem;
-         padding-left: 10px;
+            font-size: 1.1rem;
+            padding-left: 15px;
+            position: relative;
+            margin-bottom: 12px;
          }
-         #meaning-text:before, #synonym-text:before, #antonym-text:before {
-         content: '• ';
-         font-size: 1.3rem;
-         color: #4caf50;
-         vertical-align: middle;
+         
+         #meaning-text:before, #synonym-text:before, #antonym-text:before, #sentence-text:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
          }
+         
          /* Bold labels for better clarity */
          #meaning-text span, #synonym-text span, #antonym-text span, #sentence-text span {
-         font-weight: bold;
-         color: #333;
+            font-weight: 600;
+            color: #333;
+            margin-right: 5px;
          }
+         
          /* Sentence styling */
          #sentence-text {
-         font-style: italic;
-         color: #555;
-         border-left: 3px solid #4caf50;
-         padding-left: 10px;
-         margin-top: 20px;
+            font-style: italic;
+            color: #555;
+            border-left: 3px solid #6a11cb;
+            padding-left: 15px;
+            margin-top: 25px;
+            background-color: rgba(106, 17, 203, 0.05);
+            padding: 15px;
+            border-radius: 8px;
          }
+         
          /* Buttons styling */
          .word-card button {
-         display: inline-block;
-         width: 45%;
-         margin: 15px 5px 0;
-         padding: 10px;
-         border: none;
-         border-radius: 5px;
-         background-color: #4caf50;
-         color: #fff;
-         font-size: 1rem;
-         cursor: pointer;
-         text-align: center;
-         transition: background-color 0.3s ease;
+            display: inline-block;
+            width: 45%;
+            margin: 20px 5px 0;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
          }
+         
          .word-card button:hover {
-         background-color: #45a049;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
          }
+         
          /* Full-screen alert overlay with fade-in effect */
          #customAlertBox {
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background-color: rgba(0, 0, 0, 0.6);
-         display: none;
-         justify-content: center;
-         align-items: center;
-         z-index: 1000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
          }
+         
          /* Centered alert content box */
          #alertContent {
-         background-color: white;
-         padding: 30px;
-         border-radius: 12px;
-         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); 
-         text-align: center;
-         max-width: 460px;
-         width: 90%; 
-         animation: fadeInAlert 0.4s ease-in;
-         transform: translateY(-10px);
+            background-color: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 460px;
+            width: 90%;
+            animation: fadeInAlert 0.4s ease-in;
+            transform: translateY(-10px);
          }
+         
          /* Alert message text */
          #alertMessage {
-         font-size: 20px;
-         font-weight: 500;
-         color: #333;
-         margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.6;
          }
+         
          /* Styling for the OK button */
          #alertOkBtn {
-         padding: 10px 20px;
-         background-color: #007bff;
-         border: none;
-         border-radius: 25px;
-         color: white;
-         font-size: 16px;
-         cursor: pointer;
-         transition: background-color 0.2s ease;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
          }
+         
          /* Button hover effect */
          #alertOkBtn:hover {
-         background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
          }
+         
          /* Red and green background styles for the alert */
          .red-background #alertContent {
-         border-left: 8px solid red;
+            border-left: 8px solid #ff4d4d;
          }
+         
          .green-background #alertContent {
-         border-left: 8px solid green;
+            border-left: 8px solid #4caf50;
          }
+         
          /* Fade-in effect for the alert overlay */
          @keyframes fadeInAlert {
-         from {
-         opacity: 0;
-         }
-         to {
-         opacity: 1;
-         }
+            from {
+               opacity: 0;
+               transform: translateY(-30px);
+            }
+            to {
+               opacity: 1;
+               transform: translateY(0);
+            }
          }
       </style>
+      
       <!-- Popup Styling -->
       <style>
          /* Pop-up container */
          #popup-container-popmsg {
-         position: fixed;
-         bottom: -100%; /* Hidden initially */
-         left: 0;
-         width: 100%;
-         background-color: #fff;
-         color: #333;
-         padding: 20px;
-         box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.2);
-         border-top-left-radius: 20px;
-         border-top-right-radius: 20px;
-         transition: bottom 1.5s ease-in-out;
-         z-index: 1000;
+            position: fixed;
+            bottom: -100%; /* Hidden initially */
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            color: #333;
+            padding: 25px;
+            box-shadow: 0px -10px 30px rgba(0, 0, 0, 0.1);
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            transition: bottom 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1000;
          }
+         
          #popup-container-popmsg.active-popmsg {
-         bottom: 0; /* Slide up */
+            bottom: 0; /* Slide up */
          }
+         
          /* Pop-up content */
          #popup-content-popmsg {
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
          }
+         
          #popup-heading-popmsg {
-         font-size: 1.8rem;
-         margin: 0;
-         color: #4caf50;
+            font-size: 1.8rem;
+            margin: 0;
+            color: #6a11cb;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
          }
+         
          #popup-message-popmsg {
-         font-size: 1.2rem;
-         margin: 10px 0;
+            font-size: 1.2rem;
+            margin: 15px 0;
+            line-height: 1.6;
          }
+         
          /* Button */
          .popup-btn-popmsg {
-         background-color: #4caf50;
-         color: white;
-         padding: 10px 20px;
-         font-size: 1rem;
-         border: none;
-         border-radius: 5px;
-         cursor: pointer;
-         transition: background-color 0.3s;
-         text-decoration: none;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 12px 28px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            margin-top: 10px;
+            display: inline-block;
          }
+         
          .popup-btn-popmsg:hover {
-         background-color: #205622;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
          }
+         
          /* Responsive Design */
          @media (max-width: 600px) {
-         #popup-heading-popmsg {
-         font-size: 1.5rem;
-         }
-         #popup-message-popmsg {
-         font-size: 1rem;
-         }
-         .popup-btn-popmsg {
-         font-size: 0.9rem;
-         }
+            #popup-heading-popmsg {
+               font-size: 1.5rem;
+            }
+            
+            #popup-message-popmsg {
+               font-size: 1rem;
+            }
+            
+            .popup-btn-popmsg {
+               font-size: 0.9rem;
+            }
          }
       </style>
    </head>
@@ -362,142 +540,164 @@
          <h1 id="pageHeader"></h1>
          <h2>Crafted by Sourabh Sir</h2>
       </div>
+      
       <!-- Main Content Section -->
       <div class="container">
          <!-- Annual Sports Meet Score -->
          <div class="thumbnail">
-            <i class="fas fa-volleyball-ball"></i>
+            <i class="fas fa-trophy"></i>
             <h3>Sports Meet Scorecard</h3>
             <a id="sports-meet-scorecard" href="https://sourabhsuneja.github.io/jvp-sports-meet/live/?result=2024-25">View Standings</a>
          </div>
+         
          <!-- Complete Book Work + Notebook Work -->
          <div class="thumbnail">
-            <i class="fas fa-book"></i>
+            <i class="fas fa-book-open"></i>
             <h3>Term-2 Book Work + Notebook Work</h3>
             <a id="classwork" href="#">View Work</a>
          </div>
+         
          <!-- Audio Summaries of Chapters -->
          <div class="thumbnail grade-attached">
-            <i class="fas fa-headphones"></i>
+            <i class="fas fa-headphones-alt"></i>
             <h3>Audio Summaries of Chapters</h3>
             <a id="audio-summaries" href="https://sourabhsuneja.github.io/academic-resources/music-player/">Listen Now</a>
          </div>
+         
          <!-- Random Worksheet for Self-practice -->
          <div class="thumbnail">
             <i class="fas fa-file-alt"></i>
             <h3>Random Worksheet for Self-practice</h3>
             <a id="worksheet" href="https://sourabhsuneja.github.io/question-paper/random/">Practice Now</a>
          </div>
+         
          <!-- Examination Blueprint -->
          <div class="thumbnail grade-attached">
-            <i class="fas fa-clipboard-list"></i>
+            <i class="fas fa-clipboard-check"></i>
             <h3>Term-2 Examination Blueprint</h3>
             <a id="blueprint" href="blueprint.html" data-na-msg="Your PT-4 exams are still some time away, so take this opportunity to relax and recharge before the next round of exams begins.">View Blueprint</a>
          </div>
+         
          <!-- Quiz for Self-practice -->
          <div class="thumbnail">
             <i class="fas fa-question-circle"></i>
             <h3>Quiz for Self-practice</h3>
             <a id="quiz" href="#">Take Quiz</a>
          </div>
+         
          <!-- Word Scramble -->
          <div class="thumbnail grade-attached">
             <i class="fas fa-keyboard"></i>
             <h3>Word Scramble</h3>
             <a id="word-scramble" href="https://sourabhsuneja.github.io/academic-resources/games/word-scramble/">Play Now</a>
          </div>
+         
          <!-- Recommended Videos -->
          <div class="thumbnail grade-attached">
-            <i class="fas fa-video"></i>
+            <i class="fas fa-play-circle"></i>
             <h3>Recommended Videos</h3>
             <a id="videos" href="https://sourabhsuneja.github.io/academic-resources/videos.html">Watch Videos</a>
          </div>
+         
          <!-- Glossary -->
          <div class="thumbnail grade-attached">
-            <i class="fas fa-columns"></i>
+            <i class="fas fa-book"></i>
             <h3>Glossary of Terms</h3>
             <a id="glossary" href="https://sourabhsuneja.github.io/academic-resources/glossary.html">View Key Terms</a>
          </div>
+         
          <!-- Random Knowledge Dose -->
          <div class="thumbnail no-link" id="random-dose">
             <i class="fas fa-lightbulb"></i>
             <h3>Quick Knowledge Dose</h3>
             <a>Discover Now</a>
          </div>
+         
          <!-- Random Word of the Day Thumbnail -->
          <div class="thumbnail no-link" id="random-word">
             <i class="fas fa-language"></i>
             <h3>Word of the Day</h3>
             <a>Learn a New English Word</a>
          </div>
+         
          <!-- Live News Headlines -->
          <div style="display: none" class="thumbnail">
             <i class="fas fa-newspaper"></i>
             <h3>Live News Headlines</h3>
             <a id="news" href="https://sourabhsuneja.github.io/academic-resources/news.html">Read What's Happening Around</a>
          </div>
+         
          <!-- Sarthak AI Assistant -->
          <div class="thumbnail">
             <i class="fas fa-robot"></i>
             <h3>Sarthak Study Buddy</h3>
             <a id="sarthak-ai" href="https://sourabhsuneja.github.io/academic-resources/sarthak/">Get Study Help & Answers</a>
          </div>
+         
          <!-- Create Your Own Chatbot -->
          <div class="thumbnail">
             <i class="fas fa-wand-magic-sparkles"></i>
             <h3>Chatbot Creator</h3>
             <a id="chatbot-creator" href="https://sourabhsuneja.github.io/academic-resources/chatbot-creator/">Create Your Own AI Chatbot</a>
          </div>
+         
          <!-- Hangman Word Game -->
          <div class="thumbnail grade-attached">
-            <i class="fas fa-child"></i>
+            <i class="fas fa-puzzle-piece"></i>
             <h3>Hangman Word Game</h3>
             <a id="hangman" href="https://sourabhsuneja.github.io/academic-resources/games/hangman-game/">Play Now</a>
          </div>
+         
          <!-- Snake Game Thumbnail -->
          <div class="thumbnail grade-attached">
             <i class="fas fa-gamepad"></i>
             <h3>Snake Game With MCQ Test</h3>
             <a id="snakeGame" href="https://sourabhsuneja.github.io/academic-resources/games/snake-game/">Play Now</a>
          </div>
+         
          <!-- Crossy Road Game Thumbnail -->
          <div class="thumbnail grade-attached">
             <i class="fas fa-road"></i>
             <h3>Crossy Road Game With Trivia</h3>
             <a id="crossyRoadGame" href="https://sourabhsuneja.github.io/academic-resources/games/crossy-road/">Play Now</a>
          </div>
+         
          <!-- Flashcard Memory Game Thumbnail -->
          <div class="thumbnail">
             <i class="fas fa-brain"></i>
             <h3>Flashcard Memory Game</h3>
             <a id="flashcardMemoryGame" href="https://sourabhsuneja.github.io/academic-resources/games/flashcard/">Play & Improve Memory</a>
          </div>
+         
          <!-- Star Students -->
          <div class="thumbnail grade-attached">
             <i class="fas fa-star"></i>
             <h3>Star Students</h3>
             <a id="star-students" href="https://sourabhsuneja.github.io/academic-resources/star-students.html">View List</a>
          </div>
+         
          <!-- Favourite Student Certificate -->
          <div class="thumbnail">
             <i class="fas fa-medal"></i>
             <h3>Favourite Student Certificate</h3>
             <a id="favourite-student-certificate" href="teacher-feedback.html">Download Your Certificate</a>
          </div>
+         
          <!-- Avatar Maker -->
          <div class="thumbnail">
             <i class="fas fa-user-circle"></i>
             <h3>Fun Avatar Maker</h3>
             <a id="avatar-maker" href="avatar-maker.html">Create Your Avatar</a>
          </div>
-         
       </div>
+      
       <!-- Knowledge Card -->
       <div class="knowledge-card" id="knowledge-card">
          <p id="knowledge-text"></p>
          <button id="new-dose">Another dose</button>
          <button id="close-card">Close</button>
       </div>
+      
       <!-- Word Card -->
       <div class="word-card" id="word-card">
          <p id="word-text"></p>
@@ -509,6 +709,7 @@
          <button id="new-word">Another word</button>
          <button id="close-word-card">Close</button>
       </div>
+      
       <!-- Custom Alert Box -->
       <div id="customAlertBox">
          <div id="alertContent">
@@ -516,16 +717,17 @@
             <button id="alertOkBtn">Ok</button>
          </div>
       </div>
+      
       <!-- Pop-up structure starts -->
       <div id="popup-container-popmsg">
          <div id="popup-content-popmsg">
-            <h3 id="popup-heading-popmsg">🎉 Save the Date!</h3>
-            <p id="popup-message-popmsg">It's Sourabh Sir's birthday today! Fill his day with warm wishes and positive vibes. Share your heartfelt thoughts! 🎁</p>
+            <h3 id="popup-heading-popmsg"> Save the Date!</h3>
+            <p id="popup-message-popmsg">It's Sourabh Sir's birthday today! Fill his day with warm wishes and positive vibes. Share your heartfelt thoughts!</p>
             <a href="birthday-wish.html" class="popup-btn-popmsg">Send Your Message</a>
          </div>
       </div>
       <!-- Pop-up structure ends -->
-      <script>        
+            <script>        
          // Function to get URL parameter by name
          function getQueryParam(name) {
              const urlParams = new URLSearchParams(window.location.search);

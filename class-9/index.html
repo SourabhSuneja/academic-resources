@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sourabh Sir's comprehensive Class 9 Data Science study notes cover key concepts, practical applications, and easy-to-understand explanations.">
+    <title>Class 9 Data Science Study Notes</title>
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --background: #f8f9fa;
+            --text: #212529;
+            --light: #ffffff;
+            --success: #4ade80;
+            --info: #0ea5e9;
+            --warning: #facc15;
+            --danger: #f87171;
+            --part-a: #8338ec;
+            --part-b: #3a86ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-height: 99999999px;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            position: relative;
+            margin: 40px 0 20px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            border-radius: 2px;
+        }
+
+        .part-a .section-title::after {
+            background-color: var(--part-a);
+        }
+
+        .part-b .section-title::after {
+            background-color: var(--part-b);
+        }
+
+        .section-description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .tile {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 25px 20px;
+            text-decoration: none;
+            color: var(--light);
+            text-align: center;
+            min-height: 180px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tile::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .part-a .tile {
+            background: linear-gradient(135deg, var(--part-a), #9d4edd);
+        }
+
+        .part-b .tile {
+            background: linear-gradient(135deg, var(--part-b), #00b4d8);
+        }
+
+        .part-a .tile::before {
+            background-color: #ffffff;
+        }
+
+        .part-b .tile::before {
+            background-color: #ffffff;
+        }
+
+        .tile-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tile-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .unit-number {
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: var(--text);
+            color: var(--light);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+
+        .teacher-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .teacher-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tiles {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .tiles {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .tile {
+                min-height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Class 9 Data Science Study Notes</h1>
+            <p class="subtitle">Easy-to-understand Study Material Curated by Sourabh Sir</p>
+            <div class="teacher-info">
+                <div class="teacher-avatar">S</div>
+                <div>
+                    <p>Sourabh Sir</p>
+                    <p>Data Science Teacher</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="part-a">
+            <h2 class="section-title">Part A: Employability Skills</h2>
+            <p class="section-description">Essential skills to enhance your employability in the modern workplace</p>
+            
+            <div class="tiles">
+                <a href="#" class="tile">
+                    <div class="unit-number">1</div>
+                    <h3 class="tile-title">Communication Skills I</h3>
+                    <p class="tile-subtitle">Learn effective communication techniques</p>
+                </a>
+                
+                <a class="tile">
+                    <div class="unit-number">2</div>
+                    <h3 class="tile-title">Self-Management Skills I</h3>
+                    <p class="tile-subtitle">Develop self-discipline and organization</p>
+                </a>
+                
+                <a class="tile">
+                    <div class="unit-number">3</div>
+                    <h3 class="tile-title">ICT Skills I</h3>
+                    <p class="tile-subtitle">Information and Communication Technology</p>
+                </a>
+                
+                <a class="tile">
+                    <div class="unit-number">4</div>
+                    <h3 class="tile-title">Entrepreneurial Skills I</h3>
+                    <p class="tile-subtitle">Building business thinking and innovation</p>
+                </a>
+                
+                <a class="tile">
+                    <div class="unit-number">5</div>
+                    <h3 class="tile-title">Green Skills I</h3>
+                    <p class="tile-subtitle">Sustainable development concepts</p>
+                </a>
+            </div>
+        </section>
+        
+        <section class="part-b">
+            <h2 class="section-title">Part B: Subject-specific Skills</h2>
+            <p class="section-description">Core data science concepts and practices for beginners</p>
+            
+            <div class="tiles">
+                <a class="tile">
+                    <div class="unit-number">1</div>
+                    <h3 class="tile-title">Introduction to Data</h3>
+                    <p class="tile-subtitle">Understanding data fundamentals</p>
+                </a>
+                
+                <a class="tile">
+                    <div class="unit-number">2</div>
+                    <h3 class="tile-title">Arranging and Collecting Data</h3>
+                    <p class="tile-subtitle">Data organization and gathering techniques</p>
+                </a>
+                
+                <a class="tile">
+                    <div class="unit-number">3</div>
+                    <h3 class="tile-title">Data Visualisation</h3>
+                    <p class="tile-subtitle">Creating charts and visual representations</p>
+                </a>
+                
+                <a class="tile">
+                    <div class="unit-number">4</div>
+                    <h3 class="tile-title">Ethics in Data Science</h3>
+                    <p class="tile-subtitle">Responsible data practices and privacy</p>
+                </a>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Crafted by Sourabh Sir</p>
+        </footer>
+    </div>
+</body>
+  </html>

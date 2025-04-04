@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sourabh Sir's comprehensive Class 9 Data Science study notes cover key concepts, practical applications, and easy-to-understand explanations.">
-    <title>Class 9 Data Science Study Notes</title>
+    <meta name="description" content="Sourabh Sir's comprehensive Class 9 Data Science study materials cover key concepts, practical applications, and easy-to-understand explanations.">
+    <title>Class 9 Data Science Study Material</title>
     <style>
         :root {
             --primary: #4361ee;
@@ -118,6 +118,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .tile::before {
@@ -208,6 +209,119 @@
             display: none;
         }
 
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background-color: var(--light);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 450px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            color: var(--text);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            margin-top: 24px;
+        }
+
+        .modal-description {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .modal-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .modal-option {
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f3f4f6;
+            text-align: center;
+            font-weight: 500;
+            color: var(--text);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .modal-option:hover {
+            border-color: var(--primary);
+            background-color: #e9eef9;
+        }
+
+        .modal-option.part-a-option:hover {
+            border-color: var(--part-a);
+            background-color: #f3e9ff;
+        }
+
+        .modal-option.part-b-option:hover {
+            border-color: var(--part-b);
+            background-color: #e9f5ff;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background-color: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #666;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background-color: #e2e4e8;
+            color: #333;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -242,13 +356,17 @@
             .tile {
                 min-height: 150px;
             }
+
+            .modal {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Class 9 Data Science Study Notes</h1>
+            <h1>Class 9 Data Science Study Material</h1>
             <p class="subtitle">Easy-to-understand Study Material Curated by Sourabh Sir</p>
             <div class="teacher-info">
                 <div class="teacher-avatar">S</div>
@@ -264,35 +382,35 @@
             <p class="section-description">Essential skills to enhance your employability in the modern workplace</p>
             
             <div class="tiles">
-                <a href="part-a-unit-1.html" class="tile">
+                <div class="tile" data-section="part-a" data-unit="1">
                     <div class="unit-number">1</div>
                     <h3 class="tile-title">Communication Skills I</h3>
                     <p class="tile-subtitle">Learn effective communication techniques</p>
-                </a>
+                </div>
                 
-                <a class="tile">
+                <div class="tile" data-section="part-a" data-unit="2">
                     <div class="unit-number">2</div>
                     <h3 class="tile-title">Self-Management Skills I</h3>
                     <p class="tile-subtitle">Develop self-discipline and organization</p>
-                </a>
+                </div>
                 
-                <a class="tile">
+                <div class="tile" data-section="part-a" data-unit="3">
                     <div class="unit-number">3</div>
                     <h3 class="tile-title">ICT Skills I</h3>
                     <p class="tile-subtitle">Information and Communication Technology</p>
-                </a>
+                </div>
                 
-                <a class="tile">
+                <div class="tile" data-section="part-a" data-unit="4">
                     <div class="unit-number">4</div>
                     <h3 class="tile-title">Entrepreneurial Skills I</h3>
                     <p class="tile-subtitle">Building business thinking and innovation</p>
-                </a>
+                </div>
                 
-                <a class="tile">
+                <div class="tile" data-section="part-a" data-unit="5">
                     <div class="unit-number">5</div>
                     <h3 class="tile-title">Green Skills I</h3>
                     <p class="tile-subtitle">Sustainable development concepts</p>
-                </a>
+                </div>
             </div>
         </section>
         
@@ -301,29 +419,29 @@
             <p class="section-description">Core data science concepts and practices for beginners</p>
             
             <div class="tiles">
-                <a class="tile">
+                <div class="tile" data-section="part-b" data-unit="1">
                     <div class="unit-number">1</div>
                     <h3 class="tile-title">Introduction to Data</h3>
                     <p class="tile-subtitle">Understanding data fundamentals</p>
-                </a>
+                </div>
                 
-                <a class="tile">
+                <div class="tile" data-section="part-b" data-unit="2">
                     <div class="unit-number">2</div>
                     <h3 class="tile-title">Arranging and Collecting Data</h3>
                     <p class="tile-subtitle">Data organization and gathering techniques</p>
-                </a>
+                </div>
                 
-                <a class="tile">
+                <div class="tile" data-section="part-b" data-unit="3">
                     <div class="unit-number">3</div>
                     <h3 class="tile-title">Data Visualisation</h3>
                     <p class="tile-subtitle">Creating charts and visual representations</p>
-                </a>
+                </div>
                 
-                <a class="tile">
+                <div class="tile" data-section="part-b" data-unit="4">
                     <div class="unit-number">4</div>
                     <h3 class="tile-title">Ethics in Data Science</h3>
                     <p class="tile-subtitle">Responsible data practices and privacy</p>
-                </a>
+                </div>
             </div>
         </section>
         
@@ -331,5 +449,170 @@
             <p>Crafted by Sourabh Sir</p>
         </footer>
     </div>
+
+    <!-- Modal Structure -->
+    <div class="modal-overlay" id="contentModal">
+        <div class="modal">
+            <div class="modal-close" id="modalClose">×</div>
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Select Content Type</h3>
+                <p class="modal-description" id="modalDescription">Choose what you'd like to access for this unit</p>
+            </div>
+            <div class="modal-options" id="modalOptions">
+                <!-- Options will be inserted here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global object to store redirection links
+        const contentLinks = {
+            'part-a': {
+                1: {
+                    'notes': 'part-a-unit-1.html',
+                    'quiz': '',
+                    'exercises': ''
+                },
+                2: {
+                    'notes': '',
+                    'quiz': '',
+                    'exercises': ''
+                },
+                3: {
+                    'notes': '',
+                    'quiz': '',
+                    'exercises': ''
+                },
+                4: {
+                    'notes': '',
+                    'quiz': '',
+                    'exercises': ''
+                },
+                5: {
+                    'notes': '',
+                    'quiz': '',
+                    'exercises': ''
+                }
+            },
+            'part-b': {
+                1: {
+                    'notes': '',
+                    'quiz': '',
+                    'exercises': ''
+                },
+                2: {
+                    'notes': '',
+                    'quiz': '',
+                    'exercises': ''
+                },
+                3: {
+                    'notes': '',
+                    'quiz': '',
+                    'exercises': ''
+                },
+                4: {
+                    'notes': '',
+                    'quiz': '',
+                    'exercises': ''
+                }
+            }
+        };
+
+        // Unit titles for reference
+        const unitTitles = {
+            'part-a': {
+                1: 'Communication Skills I',
+                2: 'Self-Management Skills I',
+                3: 'ICT Skills I',
+                4: 'Entrepreneurial Skills I',
+                5: 'Green Skills I'
+            },
+            'part-b': {
+                1: 'Introduction to Data',
+                2: 'Arranging and Collecting Data',
+                3: 'Data Visualisation',
+                4: 'Ethics in Data Science'
+            }
+        };
+
+        // Get modal elements
+        const modal = document.getElementById('contentModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalOptions = document.getElementById('modalOptions');
+        const modalClose = document.getElementById('modalClose');
+
+        // Add event listeners to all tiles
+        document.querySelectorAll('.tile').forEach(tile => {
+            tile.addEventListener('click', function() {
+                const section = this.getAttribute('data-section');
+                const unit = parseInt(this.getAttribute('data-unit'));
+                
+                // Set the modal title and description
+                const unitTitle = unitTitles[section][unit];
+                modalTitle.textContent = unitTitle;
+                modalDescription.textContent = `Select what you'd like to access for ${unitTitle}`;
+                
+                // Clear existing options
+                modalOptions.innerHTML = '';
+                
+                // Add options based on the section
+                const optionClass = section === 'part-a' ? 'part-a-option' : 'part-b-option';
+                
+                // Create option elements
+                const options = [
+                    { text: 'Study Notes', type: 'notes' },
+                    { text: 'Practice Quiz', type: 'quiz' },
+                    { text: 'Chapter Exercises', type: 'exercises' }
+                ];
+                
+                options.forEach(option => {
+                    const optionElement = document.createElement('div');
+                    optionElement.classList.add('modal-option', optionClass);
+                    optionElement.textContent = option.text;
+                    optionElement.addEventListener('click', function() {
+                        // Get the destination URL from our global object
+                        const url = contentLinks[section][unit][option.type];
+                         if(url) {
+                             window.location.href = url;
+                         } else {
+                             alert('This content has not been uploaded yet.');
+                         }
+                        
+                        // Close the modal
+                        closeModal();
+                    });
+                    
+                    modalOptions.appendChild(optionElement);
+                });
+                
+                // Show the modal
+                openModal();
+            });
+        });
+
+        // Close modal when clicking the close button
+        modalClose.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Functions to open and close the modal
+        function openModal() {
+            modal.classList.add('active');
+            // Prevent scrolling on body
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            // Re-enable scrolling
+            document.body.style.overflow = '';
+        }
+    </script>
 </body>
-  </html>
+</html>

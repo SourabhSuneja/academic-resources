@@ -2,128 +2,288 @@
 <html lang="en">
    <head>
       <!-- Google tag -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QF1MCK0B9Y"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF1MCK0B9Y"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-QF1MCK0B9Y');
-</script>
+        gtag('config', 'G-QF1MCK0B9Y');
+      </script>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Exam Blueprint</title>
       <!-- Log page visit -->
       <script type="module" src="https://sourabhsuneja.github.io/academic-resources/auth/page-visit-logger.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <!-- Modern Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <style>
          * {
-         box-sizing: border-box;
-         max-height: 999999px;
+            box-sizing: border-box;
+            max-height: 999999px;
          }
+         
          body {
-         font-family: Arial, sans-serif;
-         background-color: #f0f8ff;
-         margin: 0;
-         padding: 0;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.5;
+            color: #333;
          }
+         
          .header {
-         width: 100%;
-         background-color: #4caf50;
-         color: #fff;
-         padding: 20px;
-         text-align: center;
-         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-         margin-bottom: 20px;
+            width: 100%;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
          }
+         
+         .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiPjxwYXRoIGQ9Ik0wIDAgTDQwIDQwIE0wIDQwIEw0MCAwIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMC41IiBzdHJva2Utb3BhY2l0eT0iMC4xIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+') repeat;
+            opacity: 0.2;
+         }
+         
          .header h1 {
-         margin: 5px;
-         font-size: 1.6rem;
+            margin: 5px;
+            font-size: 2.2rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
          }
+         
          .header h2 {
-         margin: 5px 0;
-         font-size: 1.15rem;
-         font-weight: bold;
-         color: #fff;
+            margin: 7px 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            padding-top: 12px;
+            font-family: 'Nunito', sans-serif;
          }
+         
          .container {
-         width: 100%;
-         max-width: 900px;
-         padding: 20px;
-         margin: 0 auto;
+            width: 100%;
+            max-width: 900px;
+            padding: 10px 20px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
          }
+         
          .blueprint, .syllabus {
-         background-color: #ffffff;
-         border-radius: 10px;
-         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-         padding: 20px;
-         margin-bottom: 20px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
          }
+         
+         .blueprint::before, .syllabus::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+         }
+         
+         .blueprint:hover, .syllabus:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+         }
+         
          .blueprint h2, .syllabus h2 {
-         color: #4caf50;
-         margin-top: 0;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            color: #333;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
          }
+         
+         .blueprint h2::after, .syllabus h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+         }
+         
          .syllabus ul {
-         list-style-type: none;
-         padding: 0;
-         margin: 0;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
          }
+         
          .syllabus li {
-         margin-bottom: 10px;
-         font-weight: bold;
-         color: #333;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #444;
+            padding: 10px 15px;
+            background-color: #f5f7ff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
          }
+         
+         .syllabus li:hover {
+            background-color: #e9efff;
+            transform: translateX(5px);
+         }
+         
          .blueprint ul {
-         list-style-type: none;
-         padding: 0;
-         margin: 0;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
          }
+         
          .blueprint li {
-         margin-bottom: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
          }
+         
          .blueprint li span {
-         font-weight: bold;
-         color: #333;
+            font-weight: 600;
+            color: #444;
+            margin-right: 5px;
          }
+         
          .blueprint .section {
-         margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f8faff;
+            border-radius: 12px;
+            transition: all 0.3s ease;
          }
-         .blueprint .section span {
-         font-weight: bold;
-         color: #4caf50;
+         
+         .blueprint .section:hover {
+            background-color: #f0f5ff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
          }
+         
+         .blueprint .section h3 {
+            margin-top: 0;
+            color: #333;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(106, 17, 203, 0.2);
+         }
+         
+         .total-marks {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(106, 17, 203, 0.3);
+         }
+         
          .message {
-         color: rgb(80,80,80);
-         font-size: 1.1rem;
-         text-align: center;
-         padding: 20px;
-         font-weight: bold;
+            color: #666;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 40px 20px;
+            font-weight: 500;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+         }
+         
+         .message i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #6a11cb;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+         }
+         
+         /* Responsive adjustments */
+         @media (max-width: 768px) {
+            .syllabus ul {
+               grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+               font-size: 1.8rem;
+            }
+            
+            .header h2 {
+               font-size: 1rem;
+            }
+            
+            .container {
+               padding: 10px;
+            }
+            
+            .blueprint, .syllabus {
+               padding: 20px;
+            }
          }
       </style>
    </head>
    <body>
       <!-- Header Section -->
       <div class="header">
-         <h1>Term-2 Exam Blueprint</h1>
+         <h1>PT-1 Exam Blueprint</h1>
          <h2>Crafted by Sourabh Sir</h2>
       </div>
       <!-- Main Content Section -->
       <div class="container">
          <!-- Syllabus will be loaded here -->
          <div class="syllabus" id="syllabus-section">
-            <h2>Term-2 Syllabus</h2>
+            <h2>PT-1 Syllabus</h2>
             <ul id="syllabus-list"></ul>
          </div>
          <!-- Blueprint will be loaded here -->
          <div class="blueprint" id="blueprint-section">
             <h2>Exam Blueprint</h2>
-            <p><span>Total Marks:</span> <span id="total-marks"></span></p>
+            <div class="total-marks">
+                <i class="fas fa-award"></i> Total Marks: <span id="total-marks"></span>
+            </div>
             <div id="blueprint-sections"></div>
          </div>
          <div class="message" id="error-message" style="display: none;">
+            <i class="fas fa-exclamation-circle"></i>
             Looks like there's no blueprint uploaded yet. Check back after some time!
          </div>
       </div>
@@ -169,7 +329,7 @@
                             div.classList.add('section');
 
                             const h3 = document.createElement('h3');
-                            h3.textContent = section.type;
+                            h3.innerHTML = `<i class="fas fa-pen"></i> ${section.type}`;
                             div.appendChild(h3);
 
                             const ul = document.createElement('ul');

@@ -296,7 +296,7 @@
          
          // Get the grade from the URL, default to 6 if missing or invalid
          const grade = parseInt(getQueryParam('grade')) || 6;
-         const validGrade = [6, 7, 8].includes(grade) ? grade : 6;
+         const validGrade = [6, 7, 8, 9].includes(grade) ? grade : 6;
          
          // set baseURL
          const baseURL = "https://sourabhsuneja.github.io/academic-resources/class-" + validGrade + "/";

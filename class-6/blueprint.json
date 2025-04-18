@@ -1,23 +1,14 @@
 {
   "syllabus": {
-    "term": "Term-2",
+    "term": "PT-1",
     "chapters": [
       {
-        "title": "Chapter 5: Introduction to Excel"
-      },
-      {
-        "title": "Chapter 6: Editing in Excel"
-      },
-      {
-        "title": "Chapter 7: Introduction to Python"
-      },
-      {
-        "title": "Chapter 8: Computer Vision"
+        "title": "Chapter 1: Computer Languages"
       }
     ]
   },
   "blueprint": {
-    "totalMarks": 30,
+    "totalMarks": 20,
     "sections": [
       {
         "type": "Multiple Choice Questions (MCQs)",
@@ -30,27 +21,16 @@
         "totalMarks": 5
       },
       {
-        "type": "Match the following",
-        "questions": "5 questions, 1 mark each",
-        "totalMarks": 5
-      },
-      {
         "type": "Short Answer Questions",
-        "questions": "7 questions, attempt any 5",
+        "questions": "5 questions, attempt any 4",
         "marksEach": "1 mark each",
-        "totalMarks": 5
+        "totalMarks": 4
       },
       {
         "type": "Long Answer Questions",
         "questions": "3 questions, attempt any 2",
         "marksEach": "3 marks each",
         "totalMarks": 6
-      },
-      {
-        "type": "Application-Based Question (Predicting outputs of Python statements)",
-        "questions": "1 question split into 4 parts",
-        "marksEach": "1 mark for each part",
-        "totalMarks": 4
       }
     ]
   }

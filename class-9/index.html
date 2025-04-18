@@ -28,6 +28,7 @@
          --danger: #f87171;
          --part-a: #8338ec;
          --part-b: #3a86ff;
+         --resources: #10b981;
          }
          * {
          margin: 0;
@@ -87,6 +88,9 @@
          .part-b .section-title::after {
          background-color: var(--part-b);
          }
+         .resources .section-title::after {
+         background-color: var(--resources);
+         }
          .section-description {
          text-align: center;
          margin-bottom: 30px;
@@ -136,10 +140,16 @@
          .part-b .tile {
          background: linear-gradient(135deg, var(--part-b), #00b4d8);
          }
+         .resources .tile {
+         background: linear-gradient(135deg, var(--resources), #059669);
+         }
          .part-a .tile::before {
          background-color: #ffffff;
          }
          .part-b .tile::before {
+         background-color: #ffffff;
+         }
+         .resources .tile::before {
          background-color: #ffffff;
          }
          .tile-title {
@@ -161,6 +171,18 @@
          border-radius: 50%;
          margin-bottom: 15px;
          font-weight: bold;
+         }
+         .resource-icon {
+         background-color: rgba(255, 255, 255, 0.2);
+         width: 50px;
+         height: 50px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50%;
+         margin-bottom: 15px;
+         font-weight: bold;
+         font-size: 1.4rem;
          }
          footer {
          background-color: var(--text);
@@ -270,6 +292,10 @@
          border-color: var(--part-b);
          background-color: #e9f5ff;
          }
+         .modal-option.resources-option:hover {
+         border-color: var(--resources);
+         background-color: #e7f8f3;
+         }
          .modal-close {
          position: absolute;
          top: 15px;
@@ -289,6 +315,76 @@
          }
          .modal-close:hover {
          background-color: #e2e4e8;
+         color: #333;
+         }
+         /* Custom Alert styles */
+         .custom-alert {
+         position: fixed;
+         top: 20px;
+         left: 50%;
+         transform: translateX(-50%) translateY(-100px);
+         background-color: #ffffff;
+         border-radius: 10px;
+         padding: 20px;
+         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+         z-index: 1100;
+         display: flex;
+         align-items: center;
+         min-width: 300px;
+         max-width: 90%;
+         transition: transform 0.3s ease, opacity 0.3s ease;
+         opacity: 0;
+         }
+         .custom-alert.show {
+         transform: translateX(-50%) translateY(0);
+         opacity: 1;
+         }
+         .alert-icon {
+         width: 30px;
+         height: 30px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50%;
+         margin-right: 15px;
+         flex-shrink: 0;
+         }
+         .alert-icon.info {
+         background-color: var(--info);
+         color: white;
+         }
+         .alert-icon.warning {
+         background-color: var(--warning);
+         color: var(--text);
+         }
+         .alert-icon.error {
+         background-color: var(--danger);
+         color: white;
+         }
+         .alert-icon.success {
+         background-color: var(--success);
+         color: white;
+         }
+         .alert-content {
+         flex: 1;
+         }
+         .alert-title {
+         font-weight: 600;
+         margin-bottom: 5px;
+         color: var(--text);
+         }
+         .alert-message {
+         color: #666;
+         font-size: 0.95rem;
+         }
+         .alert-close {
+         margin-left: 15px;
+         cursor: pointer;
+         color: #999;
+         font-size: 1.2rem;
+         transition: color 0.2s ease;
+         }
+         .alert-close:hover {
          color: #333;
          }
          @media (max-width: 768px) {
@@ -320,6 +416,10 @@
          }
          .modal {
          padding: 20px;
+         }
+         .custom-alert {
+         min-width: 280px;
+         padding: 15px;
          }
          }
       </style>
@@ -394,6 +494,28 @@
                </div>
             </div>
          </section>
+         <!-- New Resources Section -->
+         <section class="resources">
+            <h2 class="section-title">Additional Resources</h2>
+            <p class="section-description">Helpful materials to support your learning journey</p>
+            <div class="tiles">
+               <div class="tile" data-resource="blueprint">
+                  <div class="resource-icon">ðŸ“‹</div>
+                  <h3 class="tile-title">PT-1 Exam Blueprint</h3>
+                  <p class="tile-subtitle">Complete exam syllabus and structure</p>
+               </div>
+               <div style="display: none" class="tile" data-resource="worksheets">
+                  <div class="resource-icon">ðŸ“</div>
+                  <h3 class="tile-title">Worksheets</h3>
+                  <p class="tile-subtitle">Practice materials for better understanding</p>
+               </div>
+               <div style="display: none" class="tile" data-resource="references">
+                  <div class="resource-icon">ðŸ“š</div>
+                  <h3 class="tile-title">Reference Materials</h3>
+                  <p class="tile-subtitle">Additional reading and resources</p>
+               </div>
+            </div>
+         </section>
          <footer>
             <p>Crafted by Sourabh Sir</p>
          </footer>
@@ -401,7 +523,7 @@
       <!-- Modal Structure -->
       <div class="modal-overlay" id="contentModal">
          <div class="modal">
-            <div class="modal-close" id="modalClose">×</div>
+            <div class="modal-close" id="modalClose">Ã—</div>
             <div class="modal-header">
                <h3 class="modal-title" id="modalTitle">Select Content Type</h3>
                <p class="modal-description" id="modalDescription">Choose what you'd like to access for this unit</p>
@@ -410,6 +532,17 @@
                <!-- Options will be inserted here dynamically -->
             </div>
          </div>
+      </div>
+      <!-- Custom Alert Component -->
+      <div class="custom-alert" id="customAlert">
+         <div class="alert-icon" id="alertIcon">
+            <span id="alertIconText">!</span>
+         </div>
+         <div class="alert-content">
+            <h4 class="alert-title" id="alertTitle">Information</h4>
+            <p class="alert-message" id="alertMessage">This is a custom alert message.</p>
+         </div>
+         <div class="alert-close" id="alertClose">Ã—</div>
       </div>
       <script>
          // Global object to store redirection links
@@ -465,6 +598,13 @@
              }
          };
          
+         // Resource links
+         const resourceLinks = {
+             'blueprint': 'https://sourabhsuneja.github.io/academic-resources/blueprint.html?grade=9',
+             'worksheets': 'worksheets.html',
+             'references': 'reference-materials.html'
+         };
+         
          // Unit titles for reference
          const unitTitles = {
              'part-a': {
@@ -489,8 +629,60 @@
          const modalOptions = document.getElementById('modalOptions');
          const modalClose = document.getElementById('modalClose');
          
-         // Add event listeners to all tiles
-         document.querySelectorAll('.tile').forEach(tile => {
+         // Get custom alert elements
+         const customAlert = document.getElementById('customAlert');
+         const alertIcon = document.getElementById('alertIcon');
+         const alertIconText = document.getElementById('alertIconText');
+         const alertTitle = document.getElementById('alertTitle');
+         const alertMessage = document.getElementById('alertMessage');
+         const alertClose = document.getElementById('alertClose');
+         
+         // Custom alert function
+         function showCustomAlert(message, type = 'info', title = null, duration = 3000) {
+             // Set message
+             alertMessage.textContent = message;
+             
+             // Set icon and title based on type
+             switch(type) {
+                 case 'success':
+                     alertIcon.className = 'alert-icon success';
+                     alertIconText.textContent = 'âœ“';
+                     alertTitle.textContent = title || 'Success';
+                     break;
+                 case 'warning':
+                     alertIcon.className = 'alert-icon warning';
+                     alertIconText.textContent = '!';
+                     alertTitle.textContent = title || 'Warning';
+                     break;
+                 case 'error':
+                     alertIcon.className = 'alert-icon error';
+                     alertIconText.textContent = 'âœ—';
+                     alertTitle.textContent = title || 'Error';
+                     break;
+                 default: // info
+                     alertIcon.className = 'alert-icon info';
+                     alertIconText.textContent = 'i';
+                     alertTitle.textContent = title || 'Information';
+             }
+             
+             // Show the alert
+             customAlert.classList.add('show');
+             
+             // Hide after duration (if specified)
+             if (duration) {
+                 setTimeout(() => {
+                     customAlert.classList.remove('show');
+                 }, duration);
+             }
+         }
+         
+         // Close the custom alert when clicking the close button
+         alertClose.addEventListener('click', function() {
+             customAlert.classList.remove('show');
+         });
+         
+         // Add event listeners to all tiles in part A and part B
+         document.querySelectorAll('.part-a .tile, .part-b .tile').forEach(tile => {
              tile.addEventListener('click', function() {
                  const section = this.getAttribute('data-section');
                  const unit = parseInt(this.getAttribute('data-unit'));
@@ -523,7 +715,8 @@
                           if(url) {
                               window.location.href = url;
                           } else {
-                              alert('This content has not been uploaded yet.');
+                              // Use custom alert instead of JavaScript alert
+                              showCustomAlert('This content has not been uploaded yet.', 'info', 'Content Unavailable');
                           }
                          
                          // Close the modal
@@ -535,6 +728,21 @@
                  
                  // Show the modal
                  openModal();
+             });
+         });
+         
+         // Add event listeners to resource tiles
+         document.querySelectorAll('.resources .tile').forEach(tile => {
+             tile.addEventListener('click', function() {
+                 const resourceType = this.getAttribute('data-resource');
+                 const url = resourceLinks[resourceType];
+                 
+                 if(url) {
+                     window.location.href = url;
+                 } else {
+                     // Use custom alert instead of JavaScript alert
+                     showCustomAlert('This resource is not available yet.', 'info', 'Resource Unavailable');
+                 }
              });
          });
          

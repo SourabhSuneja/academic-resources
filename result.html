@@ -436,6 +436,85 @@
          font-size: 1.3rem;
          }
          }
+         .manual-entry-toggle {
+         display: flex;
+         justify-content: center;
+         margin-top: 1rem;
+         }
+         .toggle-btn {
+         background: none;
+         border: none;
+         color: var(--primary);
+         font-size: 1rem;
+         font-weight: 600;
+         cursor: pointer;
+         display: flex;
+         align-items: center;
+         gap: 0.5rem;
+         padding: 0.5rem 1rem;
+         border-radius: 6px;
+         transition: all 0.2s ease;
+         }
+         .toggle-btn:hover {
+         color: var(--secondary);
+         background-color: rgba(67, 97, 238, 0.1);
+         }
+         .manual-entry-container {
+         width: 100%;
+         max-width: 500px;
+         margin: 1rem auto;
+         padding: 1.5rem;
+         background-color: white;
+         border-radius: 12px;
+         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+         }
+         .manual-entry-form h3 {
+         color: var(--secondary);
+         margin-bottom: 0.5rem;
+         font-family: 'Poppins', sans-serif;
+         text-align: center;
+         }
+         .manual-entry-form p {
+         text-align: center;
+         margin-bottom: 1rem;
+         font-size: 1rem;
+         }
+         .input-group {
+         display: flex;
+         margin-bottom: 0.5rem;
+         }
+         .input-group input {
+         flex: 1;
+         padding: 0.75rem 1rem;
+         font-size: 1rem;
+         border: 1px solid #ddd;
+         border-radius: 6px 0 0 6px;
+         font-family: 'Nunito', sans-serif;
+         }
+         .input-group input:focus {
+         outline: none;
+         border-color: var(--primary);
+         box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+         }
+         .submit-btn {
+         background-color: var(--primary);
+         color: white;
+         border: none;
+         padding: 0 1.25rem;
+         font-size: 1.2rem;
+         border-radius: 0 6px 6px 0;
+         cursor: pointer;
+         transition: all 0.3s ease;
+         }
+         .submit-btn:hover {
+         background-color: var(--secondary);
+         }
+         .helper-text {
+         font-size: 0.85rem;
+         color: #6b7280;
+         margin-top: 0.5rem;
+         text-align: center;
+         }
       </style>
    </head>
    <body>
@@ -455,6 +534,24 @@
             <i class="fas fa-image"></i> Upload QR Image
             <input type="file" id="file-input" accept="image/*" onchange="handleFileSelect(event)">
             </label>
+         </div>
+         <div class="manual-entry-toggle">
+            <button class="toggle-btn" id="toggle-manual-entry">
+            <i class="fas fa-keyboard"></i> Enter Access Token Manually
+            </button>
+         </div>
+         <div class="manual-entry-container" id="manual-entry-container" style="display: none;">
+            <div class="manual-entry-form">
+               <h3>Enter Access Token</h3>
+               <p>Please enter the access token provided to you:</p>
+               <div class="input-group">
+                  <input type="text" id="manual-token-input" placeholder="Access token (UUID format)" autocomplete="off">
+                  <button class="submit-btn" id="submit-token-btn">
+                  <i class="fas fa-arrow-right"></i>
+                  </button>
+               </div>
+               <div class="helper-text">Example format: 123e4567-e89b-12d3-a456-426614174000</div>
+            </div>
          </div>
          <div class="spinner" id="spinner"></div>
          <div id="results-container">
@@ -820,22 +917,32 @@
          
          // Reset the application to the initial state
          function resetApp() {
-             resultsContainer.style.display = 'none';
-             scannerContainer.style.display = 'none';
-             scannerActions.style.display = 'flex';
-             document.querySelector('.qr-example').style.display = 'block';
-             if (html5QrCode && html5QrCode.getState() === Html5QrcodeScannerState.SCANNING) {
-                 html5QrCode.stop().catch(err => console.error("Error stopping scanner on reset:", err));
-             }
-             if (document.getElementById("qr-reader")) {
-                 document.getElementById("qr-reader").innerHTML = '';
-             }
+         resultsContainer.style.display = 'none';
+         scannerContainer.style.display = 'none';
+         scannerActions.style.display = 'flex';
+         document.querySelector('.qr-example').style.display = 'block';
+         
+         // Reset manual entry form
+         document.getElementById('manual-entry-container').style.display = 'none';
+         document.getElementById('toggle-manual-entry').style.display = 'block';
+         document.getElementById('toggle-manual-entry').innerHTML = '<i class="fas fa-keyboard"></i> Enter Access Token Manually';
+         document.getElementById('manual-token-input').value = '';
+         
+         if (html5QrCode && html5QrCode.getState() === Html5QrcodeScannerState.SCANNING) {
+         html5QrCode.stop().catch(err => console.error("Error stopping scanner on reset:", err));
+         }
+         if (document.getElementById("qr-reader")) {
+         document.getElementById("qr-reader").innerHTML = '';
+         }
          }
          
          // Close the error modal
          function closeModal() {
-             errorModal.style.display = 'none';
-             resetApp();
+         errorModal.style.display = 'none';
+         resetApp();
+         
+         // Make sure the manual entry toggle is visible
+         document.getElementById('toggle-manual-entry').style.display = 'block';
          }
          
          // Reset the scanner if it was started
@@ -859,6 +966,49 @@
                  scannerActions.style.display = 'flex';
                  document.querySelector('.qr-example').style.display = 'block';
              }
+         }
+         // Toggle manual entry form
+         document.getElementById('toggle-manual-entry').addEventListener('click', function() {
+         const manualEntryContainer = document.getElementById('manual-entry-container');
+         if (manualEntryContainer.style.display === 'none') {
+         manualEntryContainer.style.display = 'block';
+         this.innerHTML = '<i class="fas fa-times"></i> Hide Manual Entry';
+         } else {
+         manualEntryContainer.style.display = 'none';
+         this.innerHTML = '<i class="fas fa-keyboard"></i> Enter Access Token Manually';
+         }
+         });
+         
+         // Handle manual token submission
+         document.getElementById('submit-token-btn').addEventListener('click', submitManualToken);
+         document.getElementById('manual-token-input').addEventListener('keypress', function(e) {
+         if (e.key === 'Enter') {
+         submitManualToken();
+         }
+         });
+         
+         function submitManualToken() {
+         const tokenInput = document.getElementById('manual-token-input');
+         const accessToken = tokenInput.value.trim();
+         
+         if (!accessToken) {
+         showErrorModal("Please enter an access token.");
+         return;
+         }
+         
+         if (!isValidUUID(accessToken)) {
+         showErrorModal("Please enter a valid access token in UUID format.");
+         return;
+         }
+         
+         // Hide manual entry and show loading
+         document.getElementById('manual-entry-container').style.display = 'none';
+         document.getElementById('toggle-manual-entry').innerHTML = '<i class="fas fa-keyboard"></i> Enter Access Token Manually';
+         document.getElementById('toggle-manual-entry').style.display = 'none';
+         
+         // Process the token
+         showLoadingModal();
+         fetchStudentMarks(accessToken);
          }
       </script>
    </body>

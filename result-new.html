@@ -929,24 +929,34 @@
          }
          
          // Reset the application to the initial state
-         function resetApp() {
-             resultsContainer.style.display = 'none';
-             scannerContainer.style.display = 'none';
-             scannerActions.style.display = 'flex';
-             document.querySelector('.qr-example').style.display = 'block';
-             if (html5QrCode && html5QrCode.getState() === Html5QrcodeScannerState.SCANNING) {
-                 html5QrCode.stop().catch(err => console.error("Error stopping scanner on reset:", err));
-             }
-             if (document.getElementById("qr-reader")) {
-                 document.getElementById("qr-reader").innerHTML = '';
-             }
-         }
-         
-         // Close the error modal
-         function closeModal() {
-             errorModal.style.display = 'none';
-             resetApp();
-         }
+function resetApp() {
+    resultsContainer.style.display = 'none';
+    scannerContainer.style.display = 'none';
+    scannerActions.style.display = 'flex';
+    document.querySelector('.qr-example').style.display = 'block';
+    
+    // Reset manual entry form
+    document.getElementById('manual-entry-container').style.display = 'none';
+    document.getElementById('toggle-manual-entry').style.display = 'block';
+    document.getElementById('toggle-manual-entry').innerHTML = '<i class="fas fa-keyboard"></i> Enter Access Token Manually';
+    document.getElementById('manual-token-input').value = '';
+    
+    if (html5QrCode && html5QrCode.getState() === Html5QrcodeScannerState.SCANNING) {
+        html5QrCode.stop().catch(err => console.error("Error stopping scanner on reset:", err));
+    }
+    if (document.getElementById("qr-reader")) {
+        document.getElementById("qr-reader").innerHTML = '';
+    }
+}
+
+// Close the error modal
+function closeModal() {
+    errorModal.style.display = 'none';
+    resetApp();
+    
+    // Make sure the manual entry toggle is visible
+    document.getElementById('toggle-manual-entry').style.display = 'block';
+}
          
          // Reset the scanner if it was started
          function resetScanner() {
@@ -970,6 +980,49 @@
                  document.querySelector('.qr-example').style.display = 'block';
              }
          }
+         // Toggle manual entry form
+document.getElementById('toggle-manual-entry').addEventListener('click', function() {
+    const manualEntryContainer = document.getElementById('manual-entry-container');
+    if (manualEntryContainer.style.display === 'none') {
+        manualEntryContainer.style.display = 'block';
+        this.innerHTML = '<i class="fas fa-times"></i> Hide Manual Entry';
+    } else {
+        manualEntryContainer.style.display = 'none';
+        this.innerHTML = '<i class="fas fa-keyboard"></i> Enter Access Token Manually';
+    }
+});
+
+// Handle manual token submission
+document.getElementById('submit-token-btn').addEventListener('click', submitManualToken);
+document.getElementById('manual-token-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        submitManualToken();
+    }
+});
+
+function submitManualToken() {
+    const tokenInput = document.getElementById('manual-token-input');
+    const accessToken = tokenInput.value.trim();
+    
+    if (!accessToken) {
+        showErrorModal("Please enter an access token.");
+        return;
+    }
+    
+    if (!isValidUUID(accessToken)) {
+        showErrorModal("Please enter a valid access token in UUID format.");
+        return;
+    }
+    
+    // Hide manual entry and show loading
+    document.getElementById('manual-entry-container').style.display = 'none';
+    document.getElementById('toggle-manual-entry').innerHTML = '<i class="fas fa-keyboard"></i> Enter Access Token Manually';
+    document.getElementById('toggle-manual-entry').style.display = 'none';
+    
+    // Process the token
+    showLoadingModal();
+    fetchStudentMarks(accessToken);
+}
       </script>
    </body>
 </html>

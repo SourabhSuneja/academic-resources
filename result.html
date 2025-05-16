@@ -663,7 +663,7 @@
          
          // Process the QR code data
          function processQRCode(decodedText) {
-             console.log("QR Code detected:", decodedText);
+             decodedText = extractTokenOrReturn(decodedText); 
              
              // Check if it's a valid UUID format
              if (isValidUUID(decodedText)) {
@@ -728,7 +728,6 @@
                
          // Fetch student marks using the access token
          function fetchStudentMarks(accessToken) {
-         accessToken = extractTokenOrReturn(accessToken);
          getStudentMarks(accessToken)
          .then(data => {
              hideLoadingModal();

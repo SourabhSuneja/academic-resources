@@ -688,6 +688,19 @@
              const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
              return uuidRegex.test(str);
          }
+
+         // Function to extract token value
+         function extractTokenOrReturn(input) {
+  try {
+    const url = new URL(input);
+    const token = url.searchParams.get("token");
+    return token !== null ? token : input;
+  } catch (error) {
+    // Not a valid URL, return the input as is
+    return input;
+  }
+}
+
          
          // Fetch marks from server
          async function getStudentMarks(accessToken) {
@@ -715,6 +728,7 @@
                
          // Fetch student marks using the access token
          function fetchStudentMarks(accessToken) {
+         accessToken = extractTokenOrReturn(accessToken);
          getStudentMarks(accessToken)
          .then(data => {
              hideLoadingModal();

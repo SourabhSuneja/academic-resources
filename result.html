@@ -604,6 +604,10 @@
          const scannerActions = document.getElementById('scanner-actions');
          const resultsContainer = document.getElementById('results-container');
          const spinner = document.getElementById('spinner');
+
+         // Variables for holding class and subject in case custom tests or exams are encountered: these help in getting max marks
+         let classValue = null;
+         let subjectValue = null;
          
          // Function to start the QR scanner
          function startScanner() {
@@ -788,7 +792,7 @@
              // Create exam sections
              for (const examName in examGroups) {
                  const examData = examGroups[examName];
-                 const maxMarks = getMaxMarks(examName);
+                 const maxMarks = getMaxMarks(examName, classValue, subjectValue);
                  
                  // Calculate total marks and percentage for this exam
                  let totalMarks = 0;

@@ -788,6 +788,8 @@
                  const firstRecord = marksData[0][0];
                  document.getElementById('student-name').textContent = firstRecord.name;
                  document.getElementById('student-class').textContent = `Class: ${firstRecord.class}`;
+                 // Also store class in a global variable
+                 classValue = firstRecord.class;
              }
              
              // Create exam sections

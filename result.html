@@ -606,8 +606,8 @@
          const spinner = document.getElementById('spinner');
 
          // Variables for holding class and subject in case custom tests or exams are encountered: these help in getting max marks
-         let classValue = null;
-         let subjectValue = null;
+         let globalClassValue = null;
+         let globalSubjectValue = null;
          
          // Function to start the QR scanner
          function startScanner() {
@@ -789,13 +789,13 @@
                  document.getElementById('student-name').textContent = firstRecord.name;
                  document.getElementById('student-class').textContent = `Class: ${firstRecord.class}`;
                  // Also store class in a global variable
-                 classValue = firstRecord.class;
+                 globalClassValue = firstRecord.class;
              }
              
              // Create exam sections
              for (const examName in examGroups) {
                  const examData = examGroups[examName];
-                 const maxMarks = getMaxMarks(examName, classValue, subjectValue);
+                 const maxMarks = getMaxMarks(examName, globalClassValue, globalSubjectValue);
                  
                  // Calculate total marks and percentage for this exam
                  let totalMarks = 0;

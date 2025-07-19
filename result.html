@@ -795,6 +795,12 @@
              // Create exam sections
              for (const examName in examGroups) {
                  const examData = examGroups[examName];
+
+                 // If exam name is not present in common exams (e.g. PT-1), the examSummary has to be kept hidden
+                 let hideSummary = false;
+                 if (!exams.find(e => e.name === examName)) {
+                       hideSummary = true;
+                 }
                  
                  
                  // Calculate total marks and percentage for this exam
@@ -853,6 +859,10 @@
                  examSummary.appendChild(totalMarksDiv);
                  examSummary.appendChild(percentageDiv);
                  examSummary.appendChild(remarkDiv);
+
+                  if(hideSummary) {
+                        examSummary.style.display = 'none';
+                  }
          
                  // Create table container
                  const tableContainer = document.createElement('div');

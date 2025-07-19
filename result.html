@@ -882,7 +882,9 @@
                  // Add subject rows
                  examData.forEach(subject => {
                      const row = document.createElement('tr');
-                     
+                     globalSubjectValue = subject.subject;
+                     const maxMarks = getMaxMarks(examName);
+                    
                      // Calculate percentage
                      let percentageText = '-';
                      let remarkHtml = '-';

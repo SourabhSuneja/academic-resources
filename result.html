@@ -771,7 +771,7 @@
          }
          
          // Display the results in the UI
-         function displayResults(marksData) {
+         async function displayResults(marksData) {
              console.log(marksData);
              const examsContainer = document.getElementById('exams-results');
              examsContainer.innerHTML = '';
@@ -793,6 +793,8 @@
                  document.getElementById('student-class').textContent = `Class: ${firstRecord.class}`;
                  // Also store class in a global variable
                  globalClassValue = firstRecord.class;
+                 // Pre-load custom exams for this class
+                 await preloadCustomExams(globalClassValue);
              }
              
              // Create exam sections
@@ -1035,9 +1037,15 @@
          }
 
          // Function to pre-load all custom exams
-         async function preloadCustomExams() {
+         async function preloadCustomExams(classVal='') {
          // Pre-load all custom exams
-         customExams = await selectData('custom_exams') || [];
+         customExams = await selectData(
+                       'custom_exams',
+                       fetchSingle = false,
+                       columns = "*",
+                       matchColumns = ['class'],
+                       matchValues = [classVal]
+                       ) || [];
          }
          
          window.addEventListener("load", function () {

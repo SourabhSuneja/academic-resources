@@ -899,7 +899,7 @@
                      
                      row.innerHTML = `
                          <td>${subject.subject}</td>
-                         <td class="marks-value">${subject.marks !== null ? subject.marks : 'Absent'}</td>
+                         <td class="marks-value">${subject.marks !== null ? (subject.marks + '/'+ maxMarks) : 'Absent'}</td>
                          <td class="percent-value">${percentageText}</td>
                          <td>${remarkHtml}</td>
                      `;

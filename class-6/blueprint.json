@@ -1,9 +1,12 @@
 {
   "syllabus": {
-    "term": "PT-1",
+    "term": "PT-2",
     "chapters": [
       {
-        "title": "Chapter 1: Computer Languages"
+        "title": "Chapter 2: Formulas and Functions in Excel"
+      },
+     {
+        "title": "Chapter 3: Excel as a Database"
       }
     ]
   },

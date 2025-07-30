@@ -1,9 +1,12 @@
 {
   "syllabus": {
-    "term": "PT-1",
+    "term": "PT-2",
     "chapters": [
       {
-        "title": "Part A — Unit-1: Communication Skills I"
+        "title": "Part A — Unit-2: Self-Management Skills I"
+      },
+      {
+        "title": "Part B — Unit-1: Introduction"
       }
     ]
   },
@@ -29,8 +32,8 @@
       },
       {
         "type": "Application-Based Question",
-        "questions": "1 question, split into 4 parts",
-        "marksEach": "1 mark for each part",
+        "questions": "1 question",
+        "marksEach": "4 marks",
         "totalMarks": 4
       }
     ]

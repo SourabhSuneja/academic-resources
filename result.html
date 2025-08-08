@@ -518,7 +518,7 @@
       </style>
    </head>
    <body>
-      <iframe src="https://myjvp.in/access-blocked.html" style="position:fixed;top:0;left:0;width:100vw;height:100vh;border:none;z-index:9999999;" allowfullscreen></iframe>
+      <!-- <iframe src="https://myjvp.in/access-blocked.html" style="position:fixed;top:0;left:0;width:100vw;height:100vh;border:none;z-index:9999999;" allowfullscreen></iframe> -->
       <header>
          <h1><i class="fas fa-graduation-cap"></i> Student Marks Portal</h1>
          <p>Scan your QR code or upload a QR image to view your exam scores</p>
@@ -719,7 +719,7 @@
          };
          
          // Invoke the secure_join
-         const studentMarks = await invokeFunction('secure_join_tables', functionArgs, false);
+         const studentMarks = await invokeFunction('restricted_secure_join_tables', functionArgs, false);
          
          // Process the results
          if (studentMarks) {

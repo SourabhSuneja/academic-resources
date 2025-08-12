@@ -5,7 +5,7 @@ async function fetchWords() {
         'data5.json', 'data6.json', 'data7.json', 'data8.json'
     ];
     const allWordData = [];
-    const baseURL = 'https://sourabhsuneja.github.io/word-of-the-day/';
+    const baseURL = 'https://myjvp.in/word-of-the-day/';
 
     // Map the array of files to an array of fetch promises
     const fetchPromises = jsonFiles.map(async (file) => {

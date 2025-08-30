@@ -3,10 +3,18 @@
     "term": "Term-1",
     "chapters": [
       {
-        "title": "Chapter 1: Computer Languages",
-        "title": "Chapter 2: Formulas and Functions in Excel",
-        "title": "Chapter 3: Excel as a Database",
-        "title": "Chapter 5: Algorithm and Flowchart",
+        "title": "Chapter 1: Computer Languages"
+      },
+      {
+        "title": "Chapter 2: Formulas and Functions in Excel"
+      },
+      {
+        "title": "Chapter 3: Excel as a Database"
+      },
+      {
+        "title": "Chapter 5: Algorithm and Flowchart"
+      },
+      {
         "title": "Chapter 8: Artificial Intelligence"
       }
     ]

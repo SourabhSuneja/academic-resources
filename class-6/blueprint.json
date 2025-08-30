@@ -1,17 +1,18 @@
 {
   "syllabus": {
-    "term": "PT-2",
+    "term": "Term-1",
     "chapters": [
       {
-        "title": "Chapter 2: Formulas and Functions in Excel"
-      },
-     {
-        "title": "Chapter 3: Excel as a Database"
+        "title": "Chapter 1: Computer Languages",
+        "title": "Chapter 2: Formulas and Functions in Excel",
+        "title": "Chapter 3: Excel as a Database",
+        "title": "Chapter 5: Algorithm and Flowchart",
+        "title": "Chapter 8: Artificial Intelligence"
       }
     ]
   },
   "blueprint": {
-    "totalMarks": 20,
+    "totalMarks": 30,
     "sections": [
       {
         "type": "Multiple Choice Questions (MCQs)",
@@ -24,16 +25,27 @@
         "totalMarks": 5
       },
       {
+        "type": "Match the following",
+        "questions": "5 pairs, 1 mark per pair matching",
+        "totalMarks": 5
+      },
+      {
         "type": "Short Answer Questions",
-        "questions": "5 questions, attempt any 4",
+        "questions": "7 questions, attempt any 5",
         "marksEach": "1 mark each",
-        "totalMarks": 4
+        "totalMarks": 5
       },
       {
         "type": "Long Answer Questions",
         "questions": "3 questions, attempt any 2",
         "marksEach": "3 marks each",
         "totalMarks": 6
+      },
+      {
+        "type": "Application-based question",
+        "questions": "2 questions, attempt any 1",
+        "marksEach": "4 marks each",
+        "totalMarks": 4
       }
     ]
   }

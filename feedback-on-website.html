@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!-- Google tag -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF1MCK0B9Y"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+
+         gtag('config', 'G-QF1MCK0B9Y');
+      </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback on Sourabh Sir's Website</title>
+    <meta name="description" content="Share your feedback on Sourabh Sir's website to help improve learning resources for students.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+      <!-- Supabase CRUD Functions -->
+      <script type="module" src="https://myjvp.in/commons/supabase-crud.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            max-height: 9999999px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="20" r="1.5" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="5" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="15" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="25" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            position: relative;
+        }
+
+        .form-content {
+            padding: 40px;
+        }
+
+        .student-info {
+            background: #f8f9ff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid #4facfe;
+        }
+
+        .student-info h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #4facfe;
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+        }
+
+        .questions-section {
+            margin-top: 30px;
+        }
+
+        .questions-section h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .question {
+            background: white;
+            border: 2px solid #f0f0f0;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .question:hover {
+            border-color: #4facfe;
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.1);
+        }
+
+        .question h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background: #f8f9ff;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .option:hover {
+            background: #e8f0ff;
+            border-color: #4facfe;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            accent-color: #4facfe;
+        }
+
+        .option label {
+            cursor: pointer;
+            font-weight: 400;
+            color: #555;
+            flex: 1;
+        }
+
+        .option.selected {
+            background: #e8f0ff;
+            border-color: #4facfe;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+            font-family: 'Poppins', sans-serif;
+            min-width: 200px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .thank-you {
+            display: none;
+            text-align: center;
+            padding: 60px 40px;
+            color: #333;
+        }
+
+        .thank-you i {
+            font-size: 4rem;
+            color: #4facfe;
+            margin-bottom: 20px;
+        }
+
+        .thank-you h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .thank-you p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .error-message {
+            background: #ffe6e6;
+            color: #d63031;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #d63031;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .form-content {
+                padding: 30px 20px;
+            }
+
+            .student-info {
+                padding: 20px;
+            }
+
+            .question {
+                padding: 20px;
+            }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-graduation-cap"></i> Student Feedback</h1>
+            <p>Help us improve Sourabh Sir's online learning resources</p>
+        </div>
+
+        <!-- Form Content -->
+        <div class="form-content" id="formContent">
+            <div class="error-message" id="errorMessage"></div>
+            
+            <form id="feedbackForm">
+                <!-- Student Information Section -->
+                <div class="student-info">
+                    <h2><i class="fas fa-user-graduate"></i> Student Information</h2>
+                    <div class="form-group">
+                        <label for="studentName">Your Name *</label>
+                        <input type="text" id="studentName" name="studentName" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="studentClass">Your Class *</label>
+                        <select id="studentClass" name="studentClass" required>
+                            <option value="">Select your class</option>
+                            <option value="6-A1">6-A1</option>
+                            <option value="6-A2">6-A2</option>
+                            <option value="6-A3">6-A3</option>
+                            <option value="6-A4">6-A4</option>
+                            <option value="7-A1">7-A1</option>
+                            <option value="7-A2">7-A2</option>
+                            <option value="7-A3">7-A3</option>
+                            <option value="7-A4">7-A4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+                <!-- Questions Section -->
+                <div class="questions-section">
+                    <h2><i class="fas fa-clipboard-question"></i> Your Feedback</h2>
+                    <div id="questionsContainer"></div>
+                </div>
+
+                <!-- Submit Section -->
+                <div class="submit-section">
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Submit Feedback
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Loading Animation -->
+        <div class="loading" id="loadingSection">
+            <div class="spinner"></div>
+            <p>Submitting your feedback...</p>
+        </div>
+
+        <!-- Thank You Message -->
+        <div class="thank-you" id="thankYouSection">
+            <i class="fas fa-check-circle"></i>
+            <h2>Thank You!</h2>
+            <p>Thank you for your valuable feedback! Your responses will help Sourabh Sir improve the learning experience for all students.</p>
+        </div>
+    </div>
+
+    <script>
+        // Global questions object for easy modification
+        const questions = {
+            q1: {
+                text: "How often do you use Sourabh Sir's website for learning?",
+                options: [
+                    { value: 'a', text: 'Every day' },
+                    { value: 'b', text: 'Few times a week' },
+                    { value: 'c', text: 'Once in a while' },
+                    { value: 'd', text: 'Rarely' }
+                ]
+            },
+            q2: {
+                text: "Which feature of Sourabh Sir's website do you like the most?",
+                options: [
+                    { value: 'a', text: 'Quizzes' },
+                    { value: 'b', text: 'Worksheet Generator' },
+                    { value: 'c', text: 'Book Work + Notebook Work' },
+                    { value: 'd', text: 'Sarthak AI Chatbot' }
+                ]
+            },
+            q3: {
+                text: "Which game on Sourabh Sir's website do you enjoy playing the most?",
+                options: [
+                    { value: 'a', text: 'Snake Food Game' },
+                    { value: 'b', text: 'Crossy Road Game' },
+                    { value: 'c', text: 'Flashcard Memory Game' },
+                    { value: 'd', text: 'Hangman / Word Scramble' }
+                ]
+            },
+            q4: {
+                text: "How helpful are the quizzes on Sourabh Sir's website in preparing you for exams?",
+                options: [
+                    { value: 'a', text: 'Very helpful' },
+                    { value: 'b', text: 'Somewhat helpful' },
+                    { value: 'c', text: 'A little helpful' },
+                    { value: 'd', text: 'Not helpful' }
+                ]
+            },
+            q5: {
+                text: "How easy is it to use the Worksheet Generator on Sourabh Sir's website?",
+                options: [
+                    { value: 'a', text: 'Very easy' },
+                    { value: 'b', text: 'Easy' },
+                    { value: 'c', text: 'Sometimes confusing' },
+                    { value: 'd', text: 'Hard to use' }
+                ]
+            },
+            q6: {
+                text: "Do you find the \"Word of the Day\" on Sourabh Sir's website useful for improving your vocabulary?",
+                options: [
+                    { value: 'a', text: 'Yes, very useful' },
+                    { value: 'b', text: 'Somewhat useful' },
+                    { value: 'c', text: 'A little useful' },
+                    { value: 'd', text: 'Not useful' }
+                ]
+            },
+            q7: {
+                text: "How much do you use the Sarthak AI Chatbot on Sourabh Sir's website for doubt-solving?",
+                options: [
+                    { value: 'a', text: 'Very often' },
+                    { value: 'b', text: 'Sometimes' },
+                    { value: 'c', text: 'Rarely' },
+                    { value: 'd', text: 'Never' }
+                ]
+            },
+            q8: {
+                text: "Which testing game on Sourabh Sir's website do you find most fun and challenging?",
+                options: [
+                    { value: 'a', text: 'Word Scramble' },
+                    { value: 'b', text: 'Hangman' },
+                    { value: 'c', text: 'Both' },
+                    { value: 'd', text: 'None' }
+                ]
+            },
+            q9: {
+                text: "How do you feel while playing the games on Sourabh Sir's website?",
+                options: [
+                    { value: 'a', text: 'I enjoy and learn at the same time' },
+                    { value: 'b', text: 'I enjoy only for fun' },
+                    { value: 'c', text: 'Sometimes boring' },
+                    { value: 'd', text: 'Not interested' }
+                ]
+            },
+            q10: {
+                text: "How useful is the \"Book Work + Notebook Work\" section on Sourabh Sir's website for your studies?",
+                options: [
+                    { value: 'a', text: 'Very useful' },
+                    { value: 'b', text: 'Somewhat useful' },
+                    { value: 'c', text: 'A little useful' },
+                    { value: 'd', text: 'Not useful' }
+                ]
+            },
+            q11: {
+                text: "How much do you like the Fun Avatar Maker on Sourabh Sir's website?",
+                options: [
+                    { value: 'a', text: 'Love it' },
+                    { value: 'b', text: 'Like it' },
+                    { value: 'c', text: "It's okay" },
+                    { value: 'd', text: "Don't like it" }
+                ]
+            },
+            q12: {
+                text: "Do you feel Sourabh Sir's website makes learning more interesting compared to normal study?",
+                options: [
+                    { value: 'a', text: 'Yes, much more interesting' },
+                    { value: 'b', text: 'A little more interesting' },
+                    { value: 'c', text: 'Almost the same' },
+                    { value: 'd', text: 'Not at all' }
+                ]
+            },
+            q13: {
+                text: "If you could add one more feature to Sourabh Sir's website, what would you choose?",
+                options: [
+                    { value: 'a', text: 'More games' },
+                    { value: 'b', text: 'More quizzes' },
+                    { value: 'c', text: 'More worksheets' },
+                    { value: 'd', text: 'Something else' }
+                ]
+            },
+            q14: {
+                text: "For which subject would you like Sourabh Sir to make a new website like this?",
+                options: [
+                    { value: 'a', text: 'Mathematics' },
+                    { value: 'b', text: 'Science' },
+                    { value: 'c', text: 'English' },
+                    { value: 'd', text: 'Social Science' }
+                ]
+            },
+            q15: {
+                text: "Overall, how satisfied are you with Sourabh Sir's website?",
+                options: [
+                    { value: 'a', text: 'Very satisfied' },
+                    { value: 'b', text: 'Satisfied' },
+                    { value: 'c', text: 'Okay' },
+                    { value: 'd', text: 'Not satisfied' }
+                ]
+            }
+        };
+
+        // Global responses object
+        let responses = {};
+
+        // Initialize the form
+        function initializeForm() {
+            const questionsContainer = document.getElementById('questionsContainer');
+            
+            Object.keys(questions).forEach((questionKey, index) => {
+                const questionData = questions[questionKey];
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                questionDiv.innerHTML = `
+                    <h3>${index + 1}. ${questionData.text}</h3>
+                    <div class="options">
+                        ${questionData.options.map(option => `
+                            <div class="option" onclick="selectOption('${questionKey}', '${option.value}', this)">
+                                <input type="radio" id="${questionKey}_${option.value}" name="${questionKey}" value="${option.value}">
+                                <label for="${questionKey}_${option.value}">${option.text}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                questionsContainer.appendChild(questionDiv);
+            });
+        }
+
+        // Handle option selection
+        function selectOption(questionKey, value, element) {
+            // Remove previous selections for this question
+            const questionDiv = element.closest('.question');
+            questionDiv.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selection to current option
+            element.classList.add('selected');
+            element.querySelector('input[type="radio"]').checked = true;
+            
+            // Store response
+            responses[questionKey + '_response'] = value;
+            
+            // Update progress
+            updateProgress();
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const totalQuestions = Object.keys(questions).length;
+            const answeredQuestions = Object.keys(responses).filter(key => key.endsWith('_response')).length;
+            const progress = (answeredQuestions / totalQuestions) * 100;
+            
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        // Validate form
+        function validateForm() {
+            const studentName = document.getElementById('studentName').value.trim();
+            const studentClass = document.getElementById('studentClass').value;
+            const totalQuestions = Object.keys(questions).length;
+            const answeredQuestions = Object.keys(responses).filter(key => key.endsWith('_response')).length;
+
+            if (!studentName) {
+                showError('Please enter your name.');
+                return false;
+            }
+
+            if (!studentClass) {
+                showError('Please select your class.');
+                return false;
+            }
+
+            if (answeredQuestions < totalQuestions) {
+                showError(`Please answer all questions. You have answered ${answeredQuestions} out of ${totalQuestions} questions.`);
+                return false;
+            }
+
+            return true;
+        }
+
+        // Show error message
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Hide error after 5 seconds
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Handle form submission
+        document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Hide any previous error messages
+            document.getElementById('errorMessage').style.display = 'none';
+            
+            if (!validateForm()) {
+                return;
+            }
+
+            // Collect student information
+            responses.student_name = document.getElementById('studentName').value.trim();
+            responses.class = document.getElementById('studentClass').value;
+
+            // Show loading
+            document.getElementById('formContent').style.display = 'none';
+            document.getElementById('loadingSection').style.display = 'block';
+
+            try {
+                // Check if submitFeedback function exists and is properly implemented
+                if (typeof submitFeedback === 'function') {
+                    await submitFeedback(responses);
+                } else {
+                    // For demo purposes, just wait a bit and proceed
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    console.log('Feedback data collected:', responses);
+                }
+                
+                // Show thank you message
+                document.getElementById('loadingSection').style.display = 'none';
+                document.getElementById('thankYouSection').style.display = 'block';
+                
+            } catch (error) {
+                // Handle error
+                document.getElementById('loadingSection').style.display = 'none';
+                document.getElementById('formContent').style.display = 'block';
+                showError('Failed to submit feedback. Please try again.');
+                console.error('Submission error:', error);
+            }
+        });
+
+        // Function to submit feedback data to Supabase backend
+        async function submitFeedback(data) {
+            await insertData('student_feedback', data);
+            
+            return { success: true };
+        }
+
+        // Initialize form when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeForm();
+        });
+    </script>
+</body>
+</html>

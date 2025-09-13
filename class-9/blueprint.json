@@ -1,40 +1,69 @@
 {
   "syllabus": {
-    "term": "PT-2",
+    "term": "Term-1",
     "chapters": [
+      {
+        "title": "Part A — Unit-1: Communication Skills I"
+      },
       {
         "title": "Part A — Unit-2: Self-Management Skills I"
       },
       {
+        "title": "Part A — Unit-4: Entrepreneurial Skills I"
+      },
+      {
         "title": "Part B — Unit-1: Introduction"
+      },
+      {
+        "title": "Part B — Unit-2: Arranging and Collecting Data"
       }
     ]
   },
   "blueprint": {
-    "totalMarks": 20,
+    "totalMarks": 50,
     "sections": [
       {
-        "type": "Multiple Choice Questions (MCQs)",
-        "questions": "5 questions, 1 mark each",
+        "type": "Multiple Choice Questions (MCQs) - Box 1",
+        "questions": "6 questions, attempt any 4, 1 mark each",
+        "totalMarks": 4
+      },
+      {
+        "type": "Multiple Choice Questions (MCQs) - Box 2",
+        "questions": "6 questions, attempt any 5, 1 mark each",
         "totalMarks": 5
       },
       {
-        "type": "Short Answer Questions",
-        "questions": "7 questions, attempt any 5",
-        "marksEach": "1 mark each",
+        "type": "Multiple Choice Questions (MCQs) - Box 3",
+        "questions": "6 questions, attempt any 5, 1 mark each",
         "totalMarks": 5
       },
       {
-        "type": "Long Answer Questions",
-        "questions": "3 questions, attempt any 2",
-        "marksEach": "3 marks each",
+        "type": "Multiple Choice Questions (MCQs) - Box 4",
+        "questions": "6 questions, attempt any 5, 1 mark each",
+        "totalMarks": 5
+      },
+      {
+        "type": "Multiple Choice Questions (MCQs) - Box 5",
+        "questions": "6 questions, attempt any 5, 1 mark each",
+        "totalMarks": 5
+      },
+      {
+        "type": "Short Answer Questions (from Part-A)",
+        "questions": "5 questions, attempt any 3",
+        "marksEach": "2 marks each",
         "totalMarks": 6
       },
       {
-        "type": "Application-Based Question",
-        "questions": "1 question",
-        "marksEach": "4 marks",
-        "totalMarks": 4
+        "type": "Short Answer Questions (from Part-B)",
+        "questions": "6 questions, attempt any 4",
+        "marksEach": "2 marks each",
+        "totalMarks": 8
+      },
+      {
+        "type": "Long Answer Questions (from Part-B)",
+        "questions": "5 questions, attempt any 3",
+        "marksEach": "4 marks each",
+        "totalMarks": 12
       }
     ]
   }

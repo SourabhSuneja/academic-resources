@@ -20,7 +20,7 @@ switch (validGrade) {
       gradeArray = ['avartan-7-ch-1', 'avartan-7-ch-2', 'avartan-7-ch-4', 'avartan-7-ch-5', 'avartan-7-ch-8'];
       break;
    case 8:
-      gradeArray = ['kips-8-ch-4', 'between-8-ch-4', 'kips-8-ch-3', 'between-8-ch-3', 'kips-8-ch-1', 'between-8-ch-1'];
+      gradeArray = ['kips-8-ch-1', 'kips-8-ch-2', 'kips-8-ch-3', 'between-8-ch-1', 'between-8-ch-2', 'between-8-ch-3'];
       break;
    default:
       gradeArray = [];

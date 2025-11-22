@@ -515,6 +515,209 @@
          margin-top: 0.5rem;
          text-align: center;
          }
+            /* =========================================
+           JVP SPARK OVERLAY STYLES
+           (Copy this section to your CSS)
+           ========================================= */
+        
+        /* The Overlay Backdrop */
+        .jvp-overlay-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(33, 37, 41, 0.85); /* Dark semi-transparent */
+            backdrop-filter: blur(5px); /* Modern glass effect */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        /* Active State for Overlay */
+        .jvp-overlay-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* The Card Container */
+        .jvp-overlay-card {
+            background-color: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            
+            /* Scroll handling for small screens */
+            max-height: 90vh; 
+            overflow-y: auto; 
+        }
+
+        .jvp-overlay-backdrop.active .jvp-overlay-card {
+            transform: scale(1);
+        }
+
+        /* Icon Animation Wrapper */
+        .jvp-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            position: relative;
+        }
+
+        .jvp-main-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            animation: jvp-float 3s ease-in-out infinite;
+        }
+
+        /* Badge on Icon */
+        .jvp-icon-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--error);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            border: 3px solid white;
+        }
+
+        /* Typography */
+        .jvp-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .jvp-text {
+            font-family: 'Nunito', sans-serif;
+            color: #6c757d; /* Grey text */
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Information List */
+        .jvp-info-box {
+            background-color: #f0f4ff; /* Very light blue */
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+            border-left: 5px solid var(--primary);
+        }
+
+        .jvp-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+        }
+        
+        .jvp-info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .jvp-info-item i {
+            color: var(--primary);
+            margin-right: 12px;
+            margin-top: 4px;
+            font-size: 1.1rem;
+        }
+
+        .jvp-info-text strong {
+            color: var(--secondary);
+            display: block;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Call to Action Button */
+        .jvp-btn-primary {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 14px 0 rgba(67, 97, 238, 0.39);
+            border: none;
+            cursor: pointer;
+        }
+
+        .jvp-btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(58, 12, 163, 0.23);
+        }
+        
+        .jvp-btn-primary i {
+            margin-right: 8px;
+        }
+
+        /* Animations */
+        @keyframes jvp-float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Responsive Tweaks */
+        @media (max-height: 700px) {
+            .jvp-overlay-card {
+                padding: 1.5rem;
+            }
+            .jvp-icon-wrapper {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 1rem;
+            }
+            .jvp-main-icon {
+                font-size: 1.8rem;
+            }
+            .jvp-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Force scrollbar aesthetics for the modal content */
+        .jvp-overlay-card::-webkit-scrollbar {
+            width: 6px;
+        }
+        .jvp-overlay-card::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 4px;
+        }
+        .jvp-overlay-card::-webkit-scrollbar-thumb {
+            background: #ccc; 
+            border-radius: 4px;
+        }
       </style>
    </head>
    <body>
@@ -597,6 +800,62 @@
       <footer>
          <p>Crafted by Sourabh Sir with ♥️</p>
       </footer>
+        <!-- =========================================
+         JVP SPARK OVERLAY HTML
+         (Copy this block into your HTML body)
+         ========================================= -->
+    <div id="jvpOverlay" class="jvp-overlay-backdrop active">
+        <div class="jvp-overlay-card">
+            <!-- Animated Icon -->
+            <div class="jvp-icon-wrapper">
+                <i class="fa-solid fa-mobile-screen-button jvp-main-icon"></i>
+                <div class="jvp-icon-badge">
+                    <i class="fa-solid fa-exclamation"></i>
+                </div>
+            </div>
+
+            <!-- Headline -->
+            <h2 class="jvp-title">Everything has Moved!</h2>
+
+            <!-- Introduction Text -->
+            <p class="jvp-text">
+                We have upgraded your experience. Your Exam Results, Syllabus, and all school materials are now exclusively available on the <strong>JVP Spark App</strong>.
+            </p>
+
+            <!-- Instructions Box -->
+            <div class="jvp-info-box">
+                <div class="jvp-info-item">
+                    <i class="fa-solid fa-download"></i>
+                    <div class="jvp-info-text">
+                        <strong>Step 1: Download</strong>
+                        <span>Get the JVP Spark App below.</span>
+                    </div>
+                </div>
+                <div class="jvp-info-item">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <div class="jvp-info-text">
+                        <strong>Step 2: Login</strong>
+                        <span>Use your QR code to access your profile.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action Button -->
+            <a href="https://myjvp.in/jvp-spark/" class="jvp-btn-primary">
+                <i class="fa-solid fa-rocket"></i> Download App Now
+            </a>
+
+            <!-- Optional Close Link (for UX safety) -->
+            <div style="margin-top: 1rem;">
+                 <button onclick="document.getElementById('jvpOverlay').classList.remove('active')" style="display: none; background:none; border:none; color: #999; font-family:'Nunito'; font-size: 0.9rem; cursor: pointer; text-decoration: underline;">
+                    I'll do this later
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- =========================================
+         END OF OVERLAY HTML
+         ========================================= -->
       <script>
          let html5QrCode;
          const errorModal = document.getElementById('error-modal');
@@ -1061,6 +1320,7 @@
          }
          
          window.addEventListener("load", function () {
+            return;
          // Helper to get URL parameters
          function getQueryParam(param) {
          const urlParams = new URLSearchParams(window.location.search);
@@ -1077,5 +1337,20 @@
          }
          });
       </script>
+
+      <!-- JavaScript to trigger the overlay (if not active by default) -->
+    <script>
+        // This script checks if the user has seen the modal before (optional logic)
+        // For now, it just makes sure the animation plays on load.
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            const overlay = document.getElementById('jvpOverlay');
+            
+            // Small delay to ensure the fade-in transition looks smooth
+            setTimeout(() => {
+                overlay.classList.add('active');
+            }, 100);
+        });
+    </script>
    </body>
 </html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QF1MCK0B9Y"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+          
+      gtag('config', 'G-QF1MCK0B9Y');
+   </script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+   <title>Data Visualizations - Notes</title>
+   <style>
+      * {
+         /*max-height: 9999999px;*/
+      }
+      body {
+         font-family: 'Arial', sans-serif;
+         margin: 0;
+         padding: 6px;
+         background: #f4f4f4;
+         color: #333;
+         line-height: 1.4;
+      }
+      .container {
+         max-width: 800px;
+         margin: 20px auto;
+         padding: 20px;
+         background: white;
+         border-radius: 10px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1, h2, h3 {
+         text-align: center;
+         color: #007BFF;
+      }
+      h2 {
+         border-bottom: 2px solid #007BFF;
+         padding-bottom: 5px;
+         margin-top: 30px;
+      }
+      ul {
+         list-style: none;
+         padding: 0;
+      }
+      ul li::before {
+         content: "\2022";
+         color: #007BFF;
+         font-weight: bold;
+         display: inline-block;
+         width: 1em;
+         margin-left: -1em;
+      }
+      table {
+         width: 100%;
+         border-collapse: collapse;
+         margin-top: 10px;
+      }
+      th, td {
+         border: 1px solid #ddd;
+         padding: 10px;
+         text-align: center;
+      }
+      th {
+         background: #007BFF;
+         color: white;
+      }
+      /* Container to constrain chart size */
+      .chart-box {
+         max-width: 600px;
+         margin: 20px auto;
+         padding: 10px;
+         border: 1px solid #eee;
+         background: #fdfdfd;
+      }
+      .chart-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+      }
+      .chart-half {
+          flex: 1 1 300px; /* Grow and shrink, base width 300px */
+          max-width: 400px;
+      }
+
+      @media (max-width: 600px) {
+         .container {
+            width: 90%;
+         }
+         table, th, td {
+            font-size: 14px;
+         }
+      }
+   </style>
+</head>
+<body>
+   <div class="container">
+      <h1>Data Visualizations - Notes</h1>
+
+      <h2>1. What is Data Visualization?</h2>
+      <p>Data Visualization is the representation of data using <strong>charts, graphs, and maps</strong>.</p>
+      <p>It helps the human brain understand complex numbers easily by turning them into visual pictures.</p>
+
+      <h2>2. Importance and Applications</h2>
+      <p>Visualizing data helps us spot trends and patterns that we cannot see in simple text or tables.</p>
+      <ul>
+         <li><strong>Sales Growth Patterns:</strong> Companies use line graphs to see if sales are going up or down over months. It helps them decide which product is popular.</li>
+         <li><strong>Monitoring Student Growth:</strong> Teachers can use bar charts to compare a student's marks in different terms to see if they are improving.</li>
+         <li><strong>Impact of Pandemics:</strong> During COVID-19, graphs helped people understand how fast the virus was spreading.</li>
+      </ul>
+      
+      <div class="chart-box">
+          <canvas id="salesChart"></canvas>
+          <p style="text-align: center; font-style: italic; font-size: 0.9em;">Fig 1: A Line Chart showing upward sales trend.</p>
+      </div>
+
+      <h2>3. OpenOffice Calc</h2>
+      <p><strong>OpenOffice Calc</strong> is a free spreadsheet program used to organize data and create charts.</p>
+      <p>It is an equivalent for <strong>Microsoft Excel</strong>. It allows users to:</p>
+      <ul>
+         <li>Enter data in rows and columns.</li>
+         <li>Perform calculations using formulas.</li>
+         <li>Generate graphs and charts automatically.</li>
+      </ul>
+
+      <h2>4. Different Types of Charts</h2>
+      <p>Different data needs different types of charts to be understood clearly.</p>
+      <ul>
+         <li><strong>Dot Plot:</strong> Uses dots to show the frequency of data. Good for very small amounts of data.</li>
+         <li><strong>Bar/Column Chart:</strong> Uses rectangular bars. Best for comparing different categories (e.g., likes for different fruits).</li>
+         <li><strong>Pie Chart:</strong> A circle divided into slices. It shows <strong>percentages</strong> or parts of a whole (e.g., Market Share).</li>
+         <li><strong>Histogram:</strong> Similar to a column chart but used for continuous data ranges (like age groups 10-20, 20-30). The bars touch each other because there are no gaps in the ranges.</li>
+      </ul>
+
+       <div class="chart-row">
+           <div class="chart-box chart-half">
+               <canvas id="barChartEx"></canvas>
+               <p style="text-align: center; font-style: italic; font-size: 0.9em;">Fig 2: Bar Chart (Comparing Items)</p>
+           </div>
+           <div class="chart-box chart-half">
+               <canvas id="pieChartEx"></canvas>
+               <p style="text-align: center; font-style: italic; font-size: 0.9em;">Fig 3: Pie Chart (Parts of a whole)</p>
+           </div>
+       </div>
+
+
+      <h2>5. Shapes of Histograms</h2>
+      <p>When we plot data on a histogram, the overall shape tells us a story about how the data is distributed.</p>
+      
+      <h3>A. Normal Distribution (Bell Curve)</h3>
+      <p>Most of the data is clustered in the middle, and it decreases symmetrically on both sides. It looks like a bell.</p>
+      <p><strong>Example:</strong> Height of adults (most are average, few are very short, few are very tall).</p>
+      <div class="chart-box">
+         <canvas id="normalHist"></canvas>
+      </div>
+
+      <h3>B. Bimodal Distribution</h3>
+      <p>This graph has <strong>two distinct peaks</strong>. It suggests there are two different groups mixed in the data.</p>
+      <p><strong>Example:</strong> Test scores where one group studied hard (high peak) and another didn't study at all (low peak).</p>
+      <div class="chart-box">
+         <canvas id="bimodalHist"></canvas>
+      </div>
+
+      <h3>C. Right-Skewed (Positive Skew)</h3>
+      <p>The "tail" of the graph stretches out to the <strong>right</strong> side. Most data is bunched up on the left.</p>
+      <p><strong>Example:</strong> Income distribution (Most people earn typical wages, a few very rich people pull the tail to the right).</p>
+      <div class="chart-box">
+         <canvas id="rightSkewHist"></canvas>
+      </div>
+
+      <h3>D. Left-Skewed (Negative Skew)</h3>
+      <p>The "tail" of the graph stretches out to the <strong>left</strong> side. Most data is bunched up on the right.</p>
+      <p><strong>Example:</strong> Age at retirement (Most people retire when older, very few retire young, pulling the tail left).</p>
+      <div class="chart-box">
+         <canvas id="leftSkewHist"></canvas>
+      </div>
+
+      <h3>E. Random (Uniform) Distribution</h3>
+      <p>There is no clear pattern or peak. All bars are roughly the same height.</p>
+      <p><strong>Example:</strong> Rolling a fair die 600 times (each number 1-6 should appear roughly 100 times).</p>
+
+      <h2>6. Single Variable vs Multi-Variable Plot</h2>
+      <table>
+         <tr>
+            <th>Single Variable (Univariate)</th>
+            <th>Multi-Variable (Multivariate)</th>
+         </tr>
+         <tr>
+            <td>Analyses only <strong>one</strong> type of data.</td>
+            <td>Analyses <strong>two or more</strong> types of data together.</td>
+         </tr>
+         <tr>
+            <td><strong>Example:</strong> A chart showing just the temperatures recorded over a week.</td>
+            <td><strong>Example:</strong> A chart comparing Temperature AND Humidity over the same week to see if they are related.</td>
+         </tr>
+      </table>
+
+      <h2>7. Collecting and Analysing Data</h2>
+      <ul>
+         <li><strong>Collecting Data:</strong> Gaining facts and figures from sources like surveys, sensors, interviews, or observations.</li>
+         <li><strong>Analysing Data:</strong> The process of cleaning and inspecting the collected data to discover useful information and make decisions.</li>
+      </ul>
+
+      <h2>8. Types of Data</h2>
+      <p>Data can be classified based on its nature.</p>
+
+      <h3>Numerical vs Categorical</h3>
+      <ul>
+         <li><strong>Numerical Data:</strong> Data expressed in numbers. You can perform calculations on it.<br><strong>Example:</strong> Height (170cm), Weight (65kg), Price ($50).</li>
+         <li><strong>Categorical Data:</strong> Data that represents groups or labels. It is descriptive.<br><strong>Example:</strong> Color (Red, Blue), Gender (Male, Female), Pass/Fail.</li>
+      </ul>
+
+      <h3>Homogenous vs Heterogeneous</h3>
+      <ul>
+         <li><strong>Homogenous Data:</strong> A set where all data items are of the <strong>same kind/type</strong>.<br><strong>Example:</strong> A list containing only integers: [5, 12, 33, 45].</li>
+         <li><strong>Heterogeneous Data:</strong> A set where data items are of <strong>mixed types</strong>.<br><strong>Example:</strong> A single student record containing Name (text), Age (number), and Attendance percentage (decimal).</li>
+      </ul>
+   </div>
+
+   <script>
+      // Shared Options for Histograms to remove gaps between bars
+      const histogramOptions = {
+          scales: {
+              x: { 
+                  grid: { display: false },
+                  ticks: { display: false } // Hiding X labels for cleaner shape view
+              },
+              y: { 
+                  beginAtZero: true,
+                  grid: { display: false },
+                  ticks: { display: false } // Hiding Y labels for cleaner shape view
+              }
+          },
+          plugins: { legend: { display: false } },
+          layout: { padding: 20 }
+      };
+
+      const histogramDatasetSettings = {
+          backgroundColor: 'rgba(0, 123, 255, 0.6)',
+          borderColor: 'rgba(0, 123, 255, 1)',
+          borderWidth: 1,
+          barPercentage: 1.0,      // Makes bars touch
+          categoryPercentage: 1.0  // Makes bars use full category width
+      };
+
+      // --- Chart 1: Sales Growth (Line) ---
+      new Chart(document.getElementById('salesChart'), {
+          type: 'line',
+          data: {
+              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+              datasets: [{
+                  label: 'Monthly Sales ($k)',
+                  data: [12, 19, 15, 25, 32, 40],
+                  borderColor: '#007BFF',
+                  backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                  fill: true,
+                  tension: 0.3
+              }]
+          },
+          options: { scales: { y: { beginAtZero: true } } }
+      });
+
+       // --- Chart 2: Bar Chart Example ---
+       new Chart(document.getElementById('barChartEx'), {
+          type: 'bar',
+          data: {
+              labels: ['Apples', 'Bananas', 'Oranges'],
+              datasets: [{
+                  label: 'Fruits Sold',
+                  data: [50, 80, 30],
+                  backgroundColor: ['#FF6384', '#FFCE56', '#36A2EB']
+              }]
+          },
+          options: { scales: { y: { beginAtZero: true } } }
+      });
+
+      // --- Chart 3: Pie Chart Example ---
+      new Chart(document.getElementById('pieChartEx'), {
+          type: 'pie',
+          data: {
+              labels: ['Desktop', 'Mobile', 'Tablet'],
+              datasets: [{
+                  data: [30, 60, 10],
+                  backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56']
+              }]
+          }
+      });
+
+
+      // --- Chart 3A: Normal Distribution Histogram ---
+      new Chart(document.getElementById('normalHist'), {
+          type: 'bar',
+          data: {
+              labels: ['A','B','C','D','E','F','G','H','I'], // Dummy labels
+              datasets: [{
+                  ...histogramDatasetSettings,
+                  data: [2, 5, 12, 25, 40, 25, 12, 5, 2], // Bell shape data
+              }]
+          },
+          options: histogramOptions
+      });
+
+      // --- Chart 3B: Bimodal Histogram ---
+      new Chart(document.getElementById('bimodalHist'), {
+          type: 'bar',
+          data: {
+              labels: ['A','B','C','D','E','F','G','H'],
+              datasets: [{
+                  ...histogramDatasetSettings,
+                  data: [25, 40, 15, 5, 5, 15, 40, 25], // Two peaks
+              }]
+          },
+          options: histogramOptions
+      });
+
+      // --- Chart 3C: Right Skewed Histogram ---
+      new Chart(document.getElementById('rightSkewHist'), {
+          type: 'bar',
+          data: {
+              labels: ['A','B','C','D','E','F','G','H'],
+              datasets: [{
+                  ...histogramDatasetSettings,
+                  data: [50, 40, 25, 15, 10, 5, 3, 1], // Tail points right
+              }]
+          },
+          options: histogramOptions
+      });
+
+      // --- Chart 3D: Left Skewed Histogram ---
+      new Chart(document.getElementById('leftSkewHist'), {
+          type: 'bar',
+          data: {
+              labels: ['A','B','C','D','E','F','G','H'],
+              datasets: [{
+                  ...histogramDatasetSettings,
+                  data: [1, 3, 5, 10, 15, 25, 40, 50], // Tail points left
+              }]
+          },
+          options: histogramOptions
+      });
+
+   </script>
+</body>
+</html>

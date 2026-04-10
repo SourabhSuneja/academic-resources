@@ -804,7 +804,7 @@
          JVP SPARK OVERLAY HTML
          (Copy this block into your HTML body)
          ========================================= -->
-    <div id="jvpOverlay" class="jvp-overlay-backdrop active">
+    <div id="jvpOverlay" class="jvp-overlay-backdrop">
         <div class="jvp-overlay-card">
             <!-- Animated Icon -->
             <div class="jvp-icon-wrapper">
@@ -1320,7 +1320,7 @@
          }
          
          window.addEventListener("load", function () {
-            return;
+         
          // Helper to get URL parameters
          function getQueryParam(param) {
          const urlParams = new URLSearchParams(window.location.search);
@@ -1348,7 +1348,7 @@
             
             // Small delay to ensure the fade-in transition looks smooth
             setTimeout(() => {
-                overlay.classList.add('active');
+                //overlay.classList.add('active');
             }, 100);
         });
     </script>
